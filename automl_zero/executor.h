@@ -162,28 +162,44 @@ inline FeatureIndexT Argmax(const Vector<F>& input);
 // Scalar arithmetic-related instructions.
 ////////////////////////////////////////////////////////////////////////////////
 
+// modify for OR operation (Arjeus G - 05012020)
 template<FeatureIndexT F>
 inline void ExecuteScalarSumOp(
     const Instruction& instruction, RandomGenerator* rand_gen,
     Memory<F>* memory) {
-  memory->scalar_[instruction.out_] =
-      memory->scalar_[instruction.in1_] + memory->scalar_[instruction.in2_];
+      int inst1;
+      int inst2;
+
+      inst1 = int (memory->scalar_[instruction.in1_]);
+      inst2 = int (memory->scalar_[instruction.in2_]);
+      memory->scalar_[instruction.out_] = float (inst1 | inst2);
+
 }
 
+// modify for XOR operation (Arjeus G - 05012020)
 template<FeatureIndexT F>
 inline void ExecuteScalarDiffOp(
     const Instruction& instruction, RandomGenerator* rand_gen,
     Memory<F>* memory) {
-  memory->scalar_[instruction.out_] =
-      memory->scalar_[instruction.in1_] - memory->scalar_[instruction.in2_];
+      int inst1;
+      int inst2;
+
+      inst1 = int (memory->scalar_[instruction.in1_]);
+      inst2 = int (memory->scalar_[instruction.in2_]);
+      memory->scalar_[instruction.out_] = float (inst1 ^ inst2);
 }
 
+// modify for AND operation (Arjeus G - 04232020)
 template<FeatureIndexT F>
 inline void ExecuteScalarProductOp(
     const Instruction& instruction, RandomGenerator* rand_gen,
     Memory<F>* memory) {
-  memory->scalar_[instruction.out_] =
-      memory->scalar_[instruction.in1_] * memory->scalar_[instruction.in2_];
+      int inst1;
+      int inst2;
+
+      inst1 = int (memory->scalar_[instruction.in1_]);
+      inst2 = int (memory->scalar_[instruction.in2_]);
+      memory->scalar_[instruction.out_] = float (inst1 & inst2);
 }
 
 template<FeatureIndexT F>
@@ -221,12 +237,14 @@ inline void ExecuteScalarAbsOp(
       memory->scalar_[instruction.in1_]);
 }
 
+// modify for NOT operation (Arjeus G - 05012020)
 template<FeatureIndexT F>
 inline void ExecuteScalarHeavisideOp(
     const Instruction& instruction, RandomGenerator* rand_gen,
     Memory<F>* memory) {
-  memory->scalar_[instruction.out_] =
-      memory->scalar_[instruction.in1_] >= 0.0 ? 1.0 : 0.0;
+      int inst1;
+      inst1 = int (memory->scalar_[instruction.in1_]);
+  memory->scalar_[instruction.out_] = float(~inst1);
 }
 
 template<FeatureIndexT F>
