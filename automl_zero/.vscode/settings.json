@@ -1,5 +1,7 @@
 {
     "files.associations": {
-        "array": "cpp"
-    }
+        "array": "cpp",
+        "ostream": "cpp"
+    },
+    "python.pythonPath": "/home/arjay/miniconda3/envs/tensorflow_2p0/bin/python"
 }

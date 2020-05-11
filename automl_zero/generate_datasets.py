@@ -56,7 +56,11 @@ flags.DEFINE_integer('num_test_examples', 1000,
 flags.DEFINE_integer('projected_dim', 16,
                      'The dimensionality to project the data into.')
 
-flags.DEFINE_string('dataset_name', 'cifar10',
+# flags.DEFINE_string('dataset_name', 'cifar10',
+#                     'Name of the dataset to generatee '
+#                     'more binary classification datasets.')
+
+flags.DEFINE_string('dataset_name', 'mnist',
                     'Name of the dataset to generatee '
                     'more binary classification datasets.')
 
@@ -200,7 +204,7 @@ def get_dataset(
   dataset_dict = load_fn(
       name, data_dir=data_dir, batch_size=-1)
   # Whether the dataset is from tfds or given in unit test.
-  if load_fn == tfds.load:
+  if load_fn == tfds.load: # TODO: modify this code block
     train_set = tfds.as_numpy(dataset_dict[tfds.Split.TRAIN])
     test_set = tfds.as_numpy(dataset_dict[tfds.Split.TEST])
   else:
@@ -214,7 +218,7 @@ def get_dataset(
   assert train_data.shape[0] == train_labels.shape[0]
   assert test_data.shape[0] == test_labels.shape[0]
 
-  if name == 'mnist':
+  if name == 'mnist': # TODO: load part may be modified as a generated ndarray from a function.
     width = 28
     height = 28
     channel = 1
@@ -226,11 +230,11 @@ def get_dataset(
     raise ValueError('Dataset {} not supported!'.format(name))
 
   dim = width * height * channel
-  train_data = train_data.reshape([-1, dim])
-  test_data = test_data.reshape([-1, dim])
+  train_data = train_data.reshape([-1, dim]) # TODO:  is a numpy array. Dim for you is plain 2D, samples vs 1 column
+  test_data = test_data.reshape([-1, dim]) # TODO:  is a numpy array. Dim for you is plain 2D, samples vs 1 column
 
   if class_ids is not None:
-    def select_classes(data, labels):
+    def select_classes(data, labels): # will only occur once.
       data_list = [
           data[labels == class_id][:num_samples_per_class]
           for class_id in class_ids]
@@ -298,7 +302,7 @@ def main(unused_argv):
   name = FLAGS.dataset_name
   tfds_cached_dict[name] = tfds.load(name, batch_size=-1, data_dir=data_dir)
   dataset_dict = tfds_cached_dict[name]
-  dataset_dict[tfds.Split.TRAIN] = tfds.as_numpy(
+  dataset_dict[tfds.Split.TRAIN] = tfds.as_numpy( # TODO: direct to numpy
       dataset_dict[tfds.Split.TRAIN])
   dataset_dict[tfds.Split.TEST] = tfds.as_numpy(
       dataset_dict[tfds.Split.TEST])
@@ -312,7 +316,7 @@ def main(unused_argv):
     return tfds_cached_dict[name]
   class_ids = sorted([int(x) for x in FLAGS.class_ids])
   num_classes = len(class_ids)
-  for i in range(num_classes):
+  for i in range(num_classes): # simply 1 binary combination
     for j in range(i+1, num_classes):
       print('Generating pos {} neg {}'.format(i, j))
       positive_class = class_ids[i]
