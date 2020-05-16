@@ -26,6 +26,7 @@ from absl import app
 from absl import flags
 
 import numpy as np
+import pandas as pd
 import sklearn
 import sklearn.datasets
 import sklearn.metrics
@@ -36,7 +37,7 @@ import tensorflow_datasets as tfds
 import task_pb2
 
 flags.DEFINE_string(
-    'data_dir', '/tmp/binary_cifar10_data/',
+    'data_dir', '/tmp/binary_logic_data/',
     'Path of the folder to save the datasets.')
 
 flags.DEFINE_string(
@@ -53,7 +54,7 @@ flags.DEFINE_integer('num_valid_examples', 1000,
 flags.DEFINE_integer('num_test_examples', 1000,
                      'Number of test examples in each dataset.')
 
-flags.DEFINE_integer('projected_dim', 16,
+flags.DEFINE_integer('projected_dim', 1,
                      'The dimensionality to project the data into.')
 
 # flags.DEFINE_string('dataset_name', 'cifar10',
@@ -78,6 +79,35 @@ flags.DEFINE_list('class_ids', '0,1,2,3,4,5,6,7,8,9',
 
 FLAGS = flags.FLAGS
 
+def serialized_multiply(rangebits):
+  """
+  creates a (-1,1) pairs of serialized data for multiplication
+  rangebits: number of bits for multiplication (2**n)
+  """
+  rawinput = np.array(np.meshgrid([range(rangebits)],[range(rangebits)])).T
+  rawinput = rawinput.reshape(2,-1)
+  rawlabel = np.multiply(rawinput[0],rawinput[1])
+
+  # set to binary on each
+  binx=np.vectorize(np.binary_repr)
+  max_factor_width = np.int(np.log2(np.max(rawinput)))+1
+  rawinput=binx(rawinput,width = max_factor_width)
+  rawlabel=binx(rawlabel,width = np.int(np.log2(np.prod(rawinput.shape))+1)*max_factor_width) 
+
+  #change into separated binaries
+  df_input_f = pd.DataFrame(rawinput)
+  df_input_f = df_input_f[0].str.split(pat ="", expand = True)
+  df_input_f = df_input_f.iloc[:,1:-1].astype(np.int32)
+  input_factors =  df_input_f.values.reshape(-1,)
+
+  df_product = pd.DataFrame(rawlabel)
+  df_product = df_product[0].str.split(pat ="", expand = True)
+  df_product = df_product.iloc[:,1:-1].astype(np.int32) 
+  products = df_product.values.reshape(-1,)
+
+  #split to train/test??
+
+  return train, test
 
 def create_projected_binary_dataset(
     dataset_name, positive_class, negative_class,
@@ -297,11 +327,14 @@ def main(unused_argv):
   if not os.path.exists(FLAGS.data_dir):
     os.makedirs(FLAGS.data_dir)
 
+  # leave as is
   tfds_cached_dict = {}
   data_dir = FLAGS.tfds_data_dir if FLAGS.tfds_data_dir else None
   name = FLAGS.dataset_name
   tfds_cached_dict[name] = tfds.load(name, batch_size=-1, data_dir=data_dir)
-  dataset_dict = tfds_cached_dict[name]
+
+
+  dataset_dict = serialized_multiply(6)
   dataset_dict[tfds.Split.TRAIN] = tfds.as_numpy( # TODO: direct to numpy
       dataset_dict[tfds.Split.TRAIN])
   dataset_dict[tfds.Split.TEST] = tfds.as_numpy(

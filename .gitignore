@@ -22,3 +22,4 @@ automl_zero/bazel-automl_zero
 automl_zero/bazel-bin
 automl_zero/bazel-out
 automl_zero/bazel-testlogs
+automl_zero/generate_datasets_ref.py
