@@ -73,7 +73,7 @@ flags.DEFINE_integer('max_data_seed', 100,
                      'Generate one dataset for each seed in '
                      '[min_data_seed, max_data_seed).')
 
-flags.DEFINE_list('class_ids', '0,1,2,3,4,5,6,7,8,9',
+flags.DEFINE_list('class_ids', '1,0',
                   'Classes included to generate binary'
                   ' classification datasets.')
 
@@ -346,12 +346,10 @@ def main(unused_argv):
   name = FLAGS.dataset_name
   tfds_cached_dict[name] = tfds.load(name, batch_size=-1, data_dir=data_dir)
 
+  dataset_dict = {}
+  
+  dataset_dict['train'], dataset_dict['test'] = serialized_multiply(11)
 
-  dataset_dict = serialized_multiply(6)
-  dataset_dict[tfds.Split.TRAIN] = tfds.as_numpy( # TODO: direct to numpy
-      dataset_dict[tfds.Split.TRAIN])
-  dataset_dict[tfds.Split.TEST] = tfds.as_numpy(
-      dataset_dict[tfds.Split.TEST])
   # To mock the API of tfds.load to cache the downloaded datasets.
   # Used as an argument to `get_dataset`.
   def load_fn(name, data_dir=None, batch_size=-1):
@@ -364,9 +362,12 @@ def main(unused_argv):
   num_classes = len(class_ids)
   for i in range(num_classes): # simply 1 binary combination
     for j in range(i+1, num_classes):
-      print('Generating pos {} neg {}'.format(i, j))
-      positive_class = class_ids[i]
-      negative_class = class_ids[j]
+
+      #quick workaround for simple binary data
+      print('Generating pos {} neg {}'.format(j, i))
+      positive_class = class_ids[j]
+      negative_class = class_ids[i]
+
       random_seeds = range(FLAGS.min_data_seed, FLAGS.max_data_seed)
       for seed in random_seeds:
         dataset = create_projected_binary_dataset(
