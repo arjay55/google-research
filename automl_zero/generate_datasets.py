@@ -85,25 +85,29 @@ def serialized_multiply(rangebits):
   rangebits: number of bits for multiplication (2**n)
   """
   rawinput = np.array(np.meshgrid([range(rangebits)],[range(rangebits)])).T
-  rawinput = rawinput.reshape(2,-1)
-  rawlabel = np.multiply(rawinput[0],rawinput[1])
+  rawinput = rawinput.reshape(-1,2)
+  rawinput_t = np.transpose(rawinput)
+  rawlabel = np.multiply(rawinput_t[0],rawinput_t[1])
+  del rawinput_t
 
   # set to binary on each
   binx=np.vectorize(np.binary_repr)
-  max_factor_width = np.int(np.log2(np.max(rawinput)))+1
+  max_factor_width = (np.int(np.log2(np.max(rawinput)))+1)
   rawinput=binx(rawinput,width = max_factor_width)
-  rawlabel=binx(rawlabel,width = np.int(np.log2(np.prod(rawinput.shape))+1)*max_factor_width) 
+  rawlabel=binx(rawlabel,width = max_factor_width * 2) 
 
   #change into separated binaries
   df_input_f = pd.DataFrame(rawinput)
-  df_input_f = df_input_f[0].str.split(pat ="", expand = True)
+  df_input_f = df_input_f.apply(np.sum, axis = 1)
+  df_input_f = df_input_f.str.split(pat ="", expand = True)
   df_input_f = df_input_f.iloc[:,1:-1].astype(np.int32)
   input_factors =  df_input_f.values.reshape(-1,)
 
   df_product = pd.DataFrame(rawlabel)
-  df_product = df_product[0].str.split(pat ="", expand = True)
-  df_product = df_product.iloc[:,1:-1].astype(np.int32) 
-  products = df_product.values.reshape(-1,)
+  df_product = df_product.apply(np.sum, axis = 1)
+  df_product = df_product.str.split(pat ="", expand = True)
+  df_product = df_product.iloc[:,1:-1].astype(np.int32)
+  products =  df_product.values.reshape(-1,)
 
   #split to train/test?? Yes 0.75 train
   train = {}
