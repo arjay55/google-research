@@ -105,7 +105,16 @@ def serialized_multiply(rangebits):
   df_product = df_product.iloc[:,1:-1].astype(np.int32) 
   products = df_product.values.reshape(-1,)
 
-  #split to train/test??
+  #split to train/test?? Yes 0.75 train
+  train = {}
+  test = {}
+
+  end_train_index = int(input_factors.shape[0]*0.75)
+  train['image'] = input_factors[:end_train_index]
+  train['label'] = products[:end_train_index]
+
+  test['image'] = input_factors[end_train_index:]
+  test['label'] = products[end_train_index:]
 
   return train, test
 
