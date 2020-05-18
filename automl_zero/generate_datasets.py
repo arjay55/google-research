@@ -242,6 +242,8 @@ def get_dataset(
 
   train_data = train_data.astype(np.float)
   test_data = test_data.astype(np.float)
+  # train_labels = train_labels.astype(np.float)
+  # test_labels = test_labels.astype(np.float)
   assert train_data.shape[0] == train_labels.shape[0]
   assert test_data.shape[0] == test_labels.shape[0]
 
