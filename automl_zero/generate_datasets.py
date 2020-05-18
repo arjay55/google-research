@@ -45,13 +45,13 @@ flags.DEFINE_string(
     'Path for tensorflow_datasets to cache downloaded datasets, '
     'only used in local runs.')
 
-flags.DEFINE_integer('num_train_examples', 8000,
+flags.DEFINE_integer('num_train_examples', 1499, # because the train/test will be used on train data only
                      'Number of training examples in each dataset.')
 
-flags.DEFINE_integer('num_valid_examples', 1000,
+flags.DEFINE_integer('num_valid_examples', 1,
                      'Number of validation examples in each dataset.')
 
-flags.DEFINE_integer('num_test_examples', 1000,
+flags.DEFINE_integer('num_test_examples', 500, # because the train/test will be used on train data only
                      'Number of test examples in each dataset.')
 
 flags.DEFINE_integer('projected_dim', 1,
@@ -69,11 +69,11 @@ flags.DEFINE_integer('min_data_seed', 0,
                      'Generate one dataset for each seed in '
                      '[min_data_seed, max_data_seed).')
 
-flags.DEFINE_integer('max_data_seed', 100,
+flags.DEFINE_integer('max_data_seed', 1,
                      'Generate one dataset for each seed in '
                      '[min_data_seed, max_data_seed).')
 
-flags.DEFINE_list('class_ids', '1,0',
+flags.DEFINE_list('class_ids', '0,1',
                   'Classes included to generate binary'
                   ' classification datasets.')
 
@@ -134,35 +134,22 @@ def create_projected_binary_dataset(
   pos = positive_class
   neg = negative_class
   # Only support training data from MNIST and CIFAR10 for experiments.
-  data, labels, _, _ = get_dataset(
+  data, labels, _, _ = get_dataset( # TODO: returns only the train dataset after the function. See how the function works. 
       dataset_name,
-      int(num_samples / 2), [pos, neg], load_fn=load_fn)
+      int(num_samples/2), [pos, neg], load_fn=load_fn) # we want entire dataset the reduction of dataset by half does not work
   labels[np.where(labels == pos)] = -1
   labels[np.where(labels == neg)] = 0
   labels[np.where(labels == -1)] = 1
 
   (train_data, train_labels, valid_data, valid_labels,
-   test_data, test_labels) = train_valid_test_split(
-       data, labels,
+   test_data, test_labels) = train_valid_test_split( 
+       data, labels, 
        num_train_examples,
        num_valid_examples,
        num_test_examples,
-       seed)
+       seed,
+       False)
 
-  np.random.seed(seed)
-  random_mat = np.random.randn(
-      train_data.shape[-1], projected_dim)
-  train_data = np.dot(train_data, random_mat)
-  valid_data = np.dot(valid_data, random_mat)
-  if test_data is not None:
-    test_data = np.dot(test_data, random_mat)
-
-  scaler = sklearn.preprocessing.StandardScaler()
-  scaler.fit(train_data)
-  train_data = scaler.transform(train_data)
-  valid_data = scaler.transform(valid_data)
-  if test_data is not None:
-    test_data = scaler.transform(test_data)
 
   dataset = task_pb2.ScalarLabelDataset()
   for i in range(train_data.shape[0]):
@@ -226,7 +213,7 @@ def load_projected_binary_dataset(saved_dataset):
 def get_dataset(
     name, num_samples_per_class=None, class_ids=None, load_fn=tfds.load,
     data_dir=None):
-  """Get the subset of the MNIST dataset containing the selected digits.
+  """Get the subset of the MNIST dataset containing the selected digits. # we want ALL
 
   Args:
     name: name of the dataset. Currently support mnist and cifar10.
@@ -247,12 +234,9 @@ def get_dataset(
   dataset_dict = load_fn(
       name, data_dir=data_dir, batch_size=-1)
   # Whether the dataset is from tfds or given in unit test.
-  if load_fn == tfds.load: # TODO: modify this code block
-    train_set = tfds.as_numpy(dataset_dict[tfds.Split.TRAIN])
-    test_set = tfds.as_numpy(dataset_dict[tfds.Split.TEST])
-  else:
-    train_set = dataset_dict[tfds.Split.TRAIN]
-    test_set = dataset_dict[tfds.Split.TEST]
+
+  train_set = dataset_dict['train']
+  test_set = dataset_dict['test']
   train_data, train_labels = train_set['image'], train_set['label']
   test_data, test_labels = test_set['image'], test_set['label']
 
@@ -261,23 +245,23 @@ def get_dataset(
   assert train_data.shape[0] == train_labels.shape[0]
   assert test_data.shape[0] == test_labels.shape[0]
 
-  if name == 'mnist': # TODO: load part may be modified as a generated ndarray from a function.
-    width = 28
-    height = 28
-    channel = 1
-  elif name == 'cifar10':
-    width = 32
-    height = 32
-    channel = 3
-  else:
-    raise ValueError('Dataset {} not supported!'.format(name))
+  # if name == 'mnist': # TODO: load part may be modified as a generated ndarray from a function.
+  #   width = 28
+  #   height = 28
+  #   channel = 1
+  # elif name == 'cifar10':
+  #   width = 32
+  #   height = 32
+  #   channel = 3
+  # else:
+  #   raise ValueError('Dataset {} not supported!'.format(name))
 
-  dim = width * height * channel
+  dim = 1
   train_data = train_data.reshape([-1, dim]) # TODO:  is a numpy array. Dim for you is plain 2D, samples vs 1 column
   test_data = test_data.reshape([-1, dim]) # TODO:  is a numpy array. Dim for you is plain 2D, samples vs 1 column
 
   if class_ids is not None:
-    def select_classes(data, labels): # will only occur once.
+    def select_classes(data, labels):
       data_list = [
           data[labels == class_id][:num_samples_per_class]
           for class_id in class_ids]
@@ -301,19 +285,19 @@ def train_valid_test_split(
     num_train_examples, num_valid_examples, num_test_examples,
     seed, use_stratify=True):
   """Split data into train, valid and test with given seed."""
-  if num_test_examples > 0:
+  if num_test_examples > 0:    
     if use_stratify:
       stratify = labels
     else:
       stratify = None
+
+    #no shuffling
     train_data, test_data, train_labels, test_labels = (
-        sklearn.model_selection.train_test_split(
-            data, labels,
-            train_size=(
-                num_train_examples +
-                num_valid_examples),
-            test_size=num_test_examples,
-            random_state=seed, stratify=stratify))
+      data[:num_train_examples+num_valid_examples], 
+      data[num_train_examples+num_valid_examples:],
+      labels[:num_train_examples+num_valid_examples],
+      labels[num_train_examples+num_valid_examples:])
+
   else:
     train_data, train_labels = data, labels
     test_data = None
@@ -323,11 +307,10 @@ def train_valid_test_split(
   else:
     stratify = None
   train_data, valid_data, train_labels, valid_labels = (
-      sklearn.model_selection.train_test_split(
-          train_data, train_labels,
-          train_size=num_train_examples,
-          test_size=num_valid_examples,
-          random_state=seed, stratify=stratify))
+      data[:num_train_examples], 
+      data[num_train_examples+num_test_examples:],
+      labels[:num_train_examples],
+      labels[num_train_examples+num_test_examples:])
   return (
       train_data, train_labels,
       valid_data, valid_labels,
@@ -348,7 +331,7 @@ def main(unused_argv):
 
   dataset_dict = {}
   
-  dataset_dict['train'], dataset_dict['test'] = serialized_multiply(11)
+  dataset_dict['train'], dataset_dict['test'] = serialized_multiply(23)
 
   # To mock the API of tfds.load to cache the downloaded datasets.
   # Used as an argument to `get_dataset`.
@@ -357,16 +340,16 @@ def main(unused_argv):
     assert batch_size == -1
     del data_dir
     del batch_size
-    return tfds_cached_dict[name]
+    return dataset_dict
   class_ids = sorted([int(x) for x in FLAGS.class_ids])
   num_classes = len(class_ids)
   for i in range(num_classes): # simply 1 binary combination
     for j in range(i+1, num_classes):
 
       #quick workaround for simple binary data
-      print('Generating pos {} neg {}'.format(j, i))
-      positive_class = class_ids[j]
-      negative_class = class_ids[i]
+      print('Generating pos {} neg {}'.format(i, j))
+      positive_class = class_ids[i] # doesn't matter
+      negative_class = class_ids[j]
 
       random_seeds = range(FLAGS.min_data_seed, FLAGS.max_data_seed)
       for seed in random_seeds:
