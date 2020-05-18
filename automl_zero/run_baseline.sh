@@ -54,13 +54,13 @@ bazel run -c opt \
     learn_ops: [SCALAR_SUM_OP, SCALAR_DIFF_OP, SCALAR_PRODUCT_OP, SCALAR_VECTOR_PRODUCT_OP, VECTOR_SUM_OP, VECTOR_HEAVYSIDE_OP, VECTOR_PRODUCT_OP, VECTOR_OUTER_PRODUCT_OP, MATRIX_SUM_OP] \
     setup_size_init: 1 \
     mutate_setup_size_min: 1 \
-    mutate_setup_size_max: 5 \
+    mutate_setup_size_max: 7 \
     predict_size_init: 1 \
     mutate_predict_size_min: 1 \
-    mutate_predict_size_max: 377 \
+    mutate_predict_size_max: 11 \
     learn_size_init: 1 \
     mutate_learn_size_min: 1 \
-    mutate_learn_size_max: 377 \
+    mutate_learn_size_max: 23 \
     train_budget {train_budget_baseline: NEURAL_NET_ALGORITHM} \
     fitness_combination_mode: MEAN_FITNESS_COMBINATION \
     population_size: 100 \
