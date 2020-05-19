@@ -26,13 +26,13 @@ from absl import app
 from absl import flags
 
 import numpy as np
-import pandas as pd
 import sklearn
 import sklearn.datasets
 import sklearn.metrics
 import sklearn.model_selection
 import sklearn.preprocessing
 import tensorflow_datasets as tfds
+import pandas as pd
 
 import task_pb2
 
@@ -48,20 +48,20 @@ flags.DEFINE_string(
 flags.DEFINE_integer('num_train_examples', 1499, # because the train/test will be used on train data only
                      'Number of training examples in each dataset.')
 
-flags.DEFINE_integer('num_valid_examples', 1,
+flags.DEFINE_integer('num_valid_examples', 13,
                      'Number of validation examples in each dataset.')
 
 flags.DEFINE_integer('num_test_examples', 500, # because the train/test will be used on train data only
                      'Number of test examples in each dataset.')
 
-flags.DEFINE_integer('projected_dim', 1,
+flags.DEFINE_integer('projected_dim', 2,
                      'The dimensionality to project the data into.')
 
 # flags.DEFINE_string('dataset_name', 'cifar10',
 #                     'Name of the dataset to generatee '
 #                     'more binary classification datasets.')
 
-flags.DEFINE_string('dataset_name', 'mnist',
+flags.DEFINE_string('dataset_name', 'logic_multiply',
                     'Name of the dataset to generatee '
                     'more binary classification datasets.')
 
@@ -134,9 +134,9 @@ def create_projected_binary_dataset(
   pos = positive_class
   neg = negative_class
   # Only support training data from MNIST and CIFAR10 for experiments.
-  data, labels, _, _ = get_dataset( # TODO: returns only the train dataset after the function. See how the function works. 
+  data, labels, _, _ = get_dataset( 
       dataset_name,
-      int(num_samples/2), [pos, neg], load_fn=load_fn) # we want entire dataset the reduction of dataset by half does not work
+      int(num_samples/2), None, load_fn=load_fn) 
   labels[np.where(labels == pos)] = -1
   labels[np.where(labels == neg)] = 0
   labels[np.where(labels == -1)] = 1
@@ -150,6 +150,10 @@ def create_projected_binary_dataset(
        seed,
        False)
 
+  #create dummy vector as the engine only allows minimum of 2 features
+  train_data = np.append(train_data, train_data,axis = 1)
+  valid_data = np.append(valid_data, valid_data,axis = 1)
+  test_data = np.append(test_data, test_data,axis = 1)
 
   dataset = task_pb2.ScalarLabelDataset()
   for i in range(train_data.shape[0]):
@@ -216,7 +220,7 @@ def get_dataset(
   """Get the subset of the MNIST dataset containing the selected digits. # we want ALL
 
   Args:
-    name: name of the dataset. Currently support mnist and cifar10.
+    name: name of the dataset. Currently support logic_multiply and cifar10.
     num_samples_per_class: number of samples for each class.
     class_ids: a list of class ids that will be included. Set to None to
       include all the classes.
@@ -247,7 +251,7 @@ def get_dataset(
   assert train_data.shape[0] == train_labels.shape[0]
   assert test_data.shape[0] == test_labels.shape[0]
 
-  # if name == 'mnist': # TODO: load part may be modified as a generated ndarray from a function.
+  # if name == 'logic_multiply': # TODO: load part may be modified as a generated ndarray from a function.
   #   width = 28
   #   height = 28
   #   channel = 1
@@ -262,19 +266,20 @@ def get_dataset(
   train_data = train_data.reshape([-1, dim]) # TODO:  is a numpy array. Dim for you is plain 2D, samples vs 1 column
   test_data = test_data.reshape([-1, dim]) # TODO:  is a numpy array. Dim for you is plain 2D, samples vs 1 column
 
-  if class_ids is not None:
-    def select_classes(data, labels):
-      data_list = [
-          data[labels == class_id][:num_samples_per_class]
-          for class_id in class_ids]
-      labels_list = [
-          labels[labels == class_id][:num_samples_per_class]
-          for class_id in class_ids]
-      selected_data = np.concatenate(data_list, axis=0)
-      selected_labels = np.concatenate(labels_list, axis=0)
-      return selected_data, selected_labels
-    train_data, train_labels = select_classes(train_data, train_labels)
-    test_data, test_labels = select_classes(test_data, test_labels)
+  ### set number of datasets as is!!!
+  # if class_ids is not None:
+  #   def select_classes(data, labels):
+  #     data_list = [
+  #         data[labels == class_id][:num_samples_per_class]
+  #         for class_id in class_ids]
+  #     labels_list = [
+  #         labels[labels == class_id][:num_samples_per_class]
+  #         for class_id in class_ids]
+  #     selected_data = np.concatenate(data_list, axis=0)
+  #     selected_labels = np.concatenate(labels_list, axis=0)
+  #     return selected_data, selected_labels
+  #   train_data, train_labels = select_classes(train_data, train_labels)
+  #   test_data, test_labels = select_classes(test_data, test_labels)
 
   assert train_data.shape[0] == train_labels.shape[0]
   assert test_data.shape[0] == test_labels.shape[0]
@@ -295,10 +300,10 @@ def train_valid_test_split(
 
     #no shuffling
     train_data, test_data, train_labels, test_labels = (
-      data[:num_train_examples+num_valid_examples], 
-      data[num_train_examples+num_valid_examples:],
-      labels[:num_train_examples+num_valid_examples],
-      labels[num_train_examples+num_valid_examples:])
+        data[:num_train_examples+num_valid_examples],
+        data[num_train_examples+num_valid_examples:],
+        labels[:num_train_examples+num_valid_examples],
+        labels[num_train_examples+num_valid_examples:])
 
   else:
     train_data, train_labels = data, labels
@@ -309,10 +314,11 @@ def train_valid_test_split(
   else:
     stratify = None
   train_data, valid_data, train_labels, valid_labels = (
-      data[:num_train_examples], 
-      data[num_train_examples+num_test_examples:],
+      data[:num_train_examples],
+      data[num_train_examples+num_test_examples:num_train_examples +
+           num_test_examples+num_valid_examples],
       labels[:num_train_examples],
-      labels[num_train_examples+num_test_examples:])
+      labels[num_train_examples+num_test_examples:num_train_examples+num_test_examples+num_valid_examples])
   return (
       train_data, train_labels,
       valid_data, valid_labels,
@@ -324,12 +330,6 @@ def main(unused_argv):
   del unused_argv
   if not os.path.exists(FLAGS.data_dir):
     os.makedirs(FLAGS.data_dir)
-
-  # leave as is
-  tfds_cached_dict = {}
-  data_dir = FLAGS.tfds_data_dir if FLAGS.tfds_data_dir else None
-  name = FLAGS.dataset_name
-  tfds_cached_dict[name] = tfds.load(name, batch_size=-1, data_dir=data_dir)
 
   dataset_dict = {}
   
