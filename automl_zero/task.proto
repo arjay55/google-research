@@ -142,6 +142,8 @@ message ProjectedBinaryClassificationTask {
   //     `dataset` field.
   // (2) If `path` is set, it will be used as the path to the folder
   // containing all the serialized data.
+
+  // dataset field may cause trouble if it has an unknown imprint in other files
   oneof task_source {
     string path = 4;
     ScalarLabelDataset dataset = 5;

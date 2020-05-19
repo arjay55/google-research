@@ -33,7 +33,7 @@ bazel run -c opt \
           held_out_pairs {positive_class: 0 negative_class: 1} \
           max_supported_data_seed: 1 \
         } \
-        features_size: 1 \
+        features_size: 2 \
         num_train_examples: 1499 \
         num_valid_examples: 13 \
         num_train_epochs: 1 \
@@ -73,7 +73,7 @@ bazel run -c opt \
         held_out_pairs {positive_class: 0 negative_class: 1} \
         max_supported_data_seed: 1 \
       } \
-      features_size: 1 \
+      features_size: 2 \
       num_train_examples: 1499 \
       num_valid_examples: 13 \
       num_train_epochs: 1 \
@@ -90,7 +90,7 @@ bazel run -c opt \
         held_out_pairs {positive_class: 0 negative_class: 1} \
         max_supported_data_seed: 1 \
       } \
-      features_size: 1 \
+      features_size: 2 \
       num_train_examples: 1499 \
       num_valid_examples: 13 \
       num_train_epochs: 1 \

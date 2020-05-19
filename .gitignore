@@ -26,4 +26,6 @@ automl_zero/generate_datasets_ref.py
 automl_zero/test_gen_dataset.py
 automl_zero/binary_logic_data/binary_mnist-pos_0-neg_1-dim_1-seed_0
 automl_zero/binary_mnist_data
-automl_zero/binary_logic_data/binary_logic_multiply-pos_0-neg_1-dim_2-seed_0
+automl_zero/binary_logic_data
+automl_zero/task_ref.proto
+

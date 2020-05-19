@@ -33,7 +33,7 @@ bazel run -c opt \
           held_out_pairs {positive_class: 0 negative_class: 5} \
           max_supported_data_seed: 1 \
         } \
-        features_size: 1 \
+        features_size: 2 \
         num_train_examples: 8000 \
         num_valid_examples: 1000 \
         num_train_epochs: 1 \

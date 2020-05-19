@@ -69,7 +69,7 @@ flags.DEFINE_integer('min_data_seed', 0,
                      'Generate one dataset for each seed in '
                      '[min_data_seed, max_data_seed).')
 
-flags.DEFINE_integer('max_data_seed', 1,
+flags.DEFINE_integer('max_data_seed', 2,
                      'Generate one dataset for each seed in '
                      '[min_data_seed, max_data_seed).')
 
@@ -365,7 +365,11 @@ def main(unused_argv):
         serialized_dataset = dataset.SerializeToString()
 
         with open(os.path.join(FLAGS.data_dir, filename), 'wb') as f:
-          f.write(serialized_dataset)
+          f.write(serialized_dataset)  
+          
+        f.close()
+
+
 
 if __name__ == '__main__':
   app.run(main)
