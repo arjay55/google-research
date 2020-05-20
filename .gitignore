@@ -28,3 +28,4 @@ automl_zero/binary_mnist_data
 automl_zero/binary_logic_data
 automl_zero/task_ref.proto
 
+automl_zero/logi_mult.log

@@ -45,13 +45,13 @@ flags.DEFINE_string(
     'Path for tensorflow_datasets to cache downloaded datasets, '
     'only used in local runs.')
 
-flags.DEFINE_integer('num_train_examples', 2925, # because the train/test will be used on train data only
+flags.DEFINE_integer('num_train_examples', 161, # because the train/test will be used on train data only
                      'Number of training examples in each dataset.')
 
-flags.DEFINE_integer('num_valid_examples', 321,
+flags.DEFINE_integer('num_valid_examples', 19,
                      'Number of validation examples in each dataset.')
 
-flags.DEFINE_integer('num_test_examples', 654, # because the train/test will be used on train data only
+flags.DEFINE_integer('num_test_examples', 35, # because the train/test will be used on train data only
                      'Number of test examples in each dataset.')
 
 flags.DEFINE_integer('projected_dim', 2,
@@ -113,12 +113,14 @@ def serialized_multiply(rangebits):
   train = {}
   test = {}
 
-  end_train_index = int(input_factors.shape[0]*0.75)
-  train['image'] = input_factors[:end_train_index]
-  train['label'] = products[:end_train_index]
+  #end_train_index = int(input_factors.shape[0]*0.75)
 
-  test['image'] = input_factors[end_train_index:]
-  test['label'] = products[end_train_index:]
+  #-1 --> minimize loss due to get_dataset function
+  train['image'] = input_factors[:-1]
+  train['label'] = products[:-1]
+
+  test['image'] = input_factors[-1:]
+  test['label'] = products[-1:]
 
   return train, test
 
@@ -262,7 +264,7 @@ def get_dataset(
   # else:
   #   raise ValueError('Dataset {} not supported!'.format(name))
 
-  dim = 1
+  dim = 1 #true dimension
   train_data = train_data.reshape([-1, dim]) # TODO:  is a numpy array. Dim for you is plain 2D, samples vs 1 column
   test_data = test_data.reshape([-1, dim]) # TODO:  is a numpy array. Dim for you is plain 2D, samples vs 1 column
 
@@ -333,7 +335,7 @@ def main(unused_argv):
 
   dataset_dict = {}
   
-  dataset_dict['train'], dataset_dict['test'] = serialized_multiply(23)
+  dataset_dict['train'], dataset_dict['test'] = serialized_multiply(6)
 
   # To mock the API of tfds.load to cache the downloaded datasets.
   # Used as an argument to `get_dataset`.

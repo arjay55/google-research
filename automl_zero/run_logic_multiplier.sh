@@ -34,10 +34,10 @@ bazel run -c opt \
           max_supported_data_seed: 1 \
         } \
         features_size: 2 \
-        num_train_examples: 2900 \
-        num_valid_examples: 320 \
+        num_train_examples: 160 \
+        num_valid_examples: 17 \
         num_train_epochs: 1 \
-        num_tasks: 1 \
+        num_tasks: 10 \
         eval_type: ACCURACY \
       } \
     } \
@@ -74,14 +74,14 @@ bazel run -c opt \
         max_supported_data_seed: 1 \
       } \
       features_size: 2 \
-      num_train_examples: 2900 \
-      num_valid_examples: 320 \
+      num_train_examples: 160 \
+      num_valid_examples: 17 \
       num_train_epochs: 1 \
       num_tasks: 100 \
       eval_type: ACCURACY \
     } \
     " \
-  --random_seed=1000060 \
+  --random_seed=0 \
   --select_tasks="
     tasks { \
       projected_binary_classification_task { \
@@ -91,8 +91,8 @@ bazel run -c opt \
         max_supported_data_seed: 1 \
       } \
       features_size: 2 \
-      num_train_examples: 2900 \
-      num_valid_examples: 320 \
+      num_train_examples: 160 \
+      num_valid_examples: 17 \
       num_train_epochs: 1 \
       num_tasks: 10 \
       eval_type: ACCURACY \
