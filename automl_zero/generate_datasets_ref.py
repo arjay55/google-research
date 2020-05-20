@@ -78,7 +78,7 @@ flags.DEFINE_list('class_ids', '0,1,2,3,4,5,6,7,8,9',
 
 FLAGS = flags.FLAGS
 
-
+ 
 def create_projected_binary_dataset(
     dataset_name, positive_class, negative_class,
     num_train_examples, num_valid_examples, num_test_examples,
@@ -120,6 +120,11 @@ def create_projected_binary_dataset(
   valid_data = scaler.transform(valid_data)
   if test_data is not None:
     test_data = scaler.transform(test_data)
+
+  #try to binarize
+  train_data = np.rint(np.clip(train_data+0.5,0,1))
+  test_data = np.rint(np.clip(test_data+0.5,0,1))
+  valid_data = np.rint(np.clip(valid_data+0.5,0,1))
 
   dataset = task_pb2.ScalarLabelDataset()
   for i in range(train_data.shape[0]):

@@ -14,7 +14,7 @@
 
 #!/bin/bash
 
-DATA_DIR=$(pwd)/binary_logic_data/
+DATA_DIR=$(pwd)/binary_mnist_data/
 
 # Evaluating (only evolving the setup) a hand designed Neural Network on
 # projected binary tasks. Utility script to check whether the tasks are
@@ -28,16 +28,16 @@ bazel run -c opt \
     search_tasks { \
       tasks { \
         projected_binary_classification_task { \
-          dataset_name: 'logic_multiply' \
+          dataset_name: 'mnist' \
           path: '${DATA_DIR}' \
-          held_out_pairs {positive_class: 0 negative_class: 1} \
+          held_out_pairs {positive_class: 0 negative_class: 5} \
           max_supported_data_seed: 1 \
         } \
         features_size: 2 \
-        num_train_examples: 1499 \
-        num_valid_examples: 13 \
+        num_train_examples: 8000 \
+        num_valid_examples: 1000 \
         num_train_epochs: 1 \
-        num_tasks: 1 \
+        num_tasks: 10 \
         eval_type: ACCURACY \
       } \
     } \
@@ -68,31 +68,31 @@ bazel run -c opt \
   --final_tasks="
     tasks { \
       projected_binary_classification_task { \
-        dataset_name: 'logic_multiply' \
+        dataset_name: 'mnist' \
         path: '${DATA_DIR}' \
         held_out_pairs {positive_class: 0 negative_class: 1} \
         max_supported_data_seed: 1 \
       } \
-      features_size: 2 \
-      num_train_examples: 1499 \
-      num_valid_examples: 13 \
+      features_size: 1 \
+      num_train_examples: 8000 \
+      num_valid_examples: 1000 \
       num_train_epochs: 1 \
       num_tasks: 100 \
       eval_type: ACCURACY \
     } \
     " \
-  --random_seed=0 \
+  --random_seed=1000060 \
   --select_tasks="
     tasks { \
       projected_binary_classification_task { \
-        dataset_name: 'logic_multiply' \
+        dataset_name: 'mnist' \
         path: '${DATA_DIR}' \
-        held_out_pairs {positive_class: 0 negative_class: 1} \
+        held_out_pairs {positive_class: 0 negative_class: 5} \
         max_supported_data_seed: 1 \
       } \
-      features_size: 2 \
-      num_train_examples: 1499 \
-      num_valid_examples: 13 \
+      features_size: 1 \
+      num_train_examples: 8000 \
+      num_valid_examples: 1000 \
       num_train_epochs: 1 \
       num_tasks: 10 \
       eval_type: ACCURACY \
