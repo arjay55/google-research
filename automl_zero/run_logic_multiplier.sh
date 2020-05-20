@@ -34,8 +34,8 @@ bazel run -c opt \
           max_supported_data_seed: 1 \
         } \
         features_size: 2 \
-        num_train_examples: 1499 \
-        num_valid_examples: 13 \
+        num_train_examples: 2900 \
+        num_valid_examples: 320 \
         num_train_epochs: 1 \
         num_tasks: 1 \
         eval_type: ACCURACY \
@@ -58,7 +58,7 @@ bazel run -c opt \
     population_size: 100 \
     tournament_size: 10 \
     initial_population: NO_OP_ALGORITHM \
-    max_train_steps: 10 \
+    max_train_steps: 100000000000 \
     allowed_mutation_types {
       mutation_types: [ALTER_PARAM_MUTATION_TYPE, RANDOMIZE_COMPONENT_FUNCTION_MUTATION_TYPE, INSERT_INSTRUCTION_MUTATION_TYPE, REMOVE_INSTRUCTION_MUTATION_TYPE] \
     } \
@@ -74,14 +74,14 @@ bazel run -c opt \
         max_supported_data_seed: 1 \
       } \
       features_size: 2 \
-      num_train_examples: 1499 \
-      num_valid_examples: 13 \
+      num_train_examples: 2900 \
+      num_valid_examples: 320 \
       num_train_epochs: 1 \
       num_tasks: 100 \
       eval_type: ACCURACY \
     } \
     " \
-  --random_seed=0 \
+  --random_seed=1000060 \
   --select_tasks="
     tasks { \
       projected_binary_classification_task { \
@@ -91,11 +91,10 @@ bazel run -c opt \
         max_supported_data_seed: 1 \
       } \
       features_size: 2 \
-      num_train_examples: 1499 \
-      num_valid_examples: 13 \
+      num_train_examples: 2900 \
+      num_valid_examples: 320 \
       num_train_epochs: 1 \
       num_tasks: 10 \
       eval_type: ACCURACY \
     } \
     "
-  --sufficient_fitness=0.68

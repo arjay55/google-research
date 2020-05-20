@@ -45,13 +45,13 @@ flags.DEFINE_string(
     'Path for tensorflow_datasets to cache downloaded datasets, '
     'only used in local runs.')
 
-flags.DEFINE_integer('num_train_examples', 1499, # because the train/test will be used on train data only
+flags.DEFINE_integer('num_train_examples', 2925, # because the train/test will be used on train data only
                      'Number of training examples in each dataset.')
 
-flags.DEFINE_integer('num_valid_examples', 13,
+flags.DEFINE_integer('num_valid_examples', 321,
                      'Number of validation examples in each dataset.')
 
-flags.DEFINE_integer('num_test_examples', 500, # because the train/test will be used on train data only
+flags.DEFINE_integer('num_test_examples', 654, # because the train/test will be used on train data only
                      'Number of test examples in each dataset.')
 
 flags.DEFINE_integer('projected_dim', 2,
@@ -73,7 +73,7 @@ flags.DEFINE_integer('max_data_seed', 2,
                      'Generate one dataset for each seed in '
                      '[min_data_seed, max_data_seed).')
 
-flags.DEFINE_list('class_ids', '0,1',
+flags.DEFINE_list('class_ids', '0,1,2,3,4,5,6,7,8,9',
                   'Classes included to generate binary'
                   ' classification datasets.')
 
@@ -354,9 +354,11 @@ def main(unused_argv):
       negative_class = class_ids[j]
 
       random_seeds = range(FLAGS.min_data_seed, FLAGS.max_data_seed)
+      positive_class_true = 0
+      negative_class_true = 1
       for seed in random_seeds:
         dataset = create_projected_binary_dataset(
-            FLAGS.dataset_name, positive_class, negative_class,
+            FLAGS.dataset_name, positive_class_true, negative_class_true,
             FLAGS.num_train_examples, FLAGS.num_valid_examples,
             FLAGS.num_test_examples, FLAGS.projected_dim, seed, load_fn)
         filename = 'binary_{}-pos_{}-neg_{}-dim_{}-seed_{}'.format(
