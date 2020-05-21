@@ -79,7 +79,7 @@ flags.DEFINE_list('class_ids', '0,1,2,3,4,5,6,7,8,9',
 
 FLAGS = flags.FLAGS
 
-def serialized_multiply(rangebits):
+def multiply(rangebits):
   """
   creates a (-1,1) pairs of serialized data for multiplication
   rangebits: number of bits for multiplication (2**n)
@@ -335,7 +335,7 @@ def main(unused_argv):
 
   dataset_dict = {}
   
-  dataset_dict['train'], dataset_dict['test'] = serialized_multiply(6)
+  dataset_dict['train'], dataset_dict['test'] = multiply(6)
 
   # To mock the API of tfds.load to cache the downloaded datasets.
   # Used as an argument to `get_dataset`.

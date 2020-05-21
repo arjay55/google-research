@@ -41,18 +41,18 @@ bazel run -c opt \
         eval_type: ACCURACY \
       } \
     } \
-    setup_ops: [SCALAR_SUM_OP, SCALAR_PRODUCT_OP, SCALAR_HEAVYSIDE_OP, VECTOR_MEAN_OP] \
-    predict_ops: [SCALAR_SUM_OP, SCALAR_PRODUCT_OP, SCALAR_HEAVYSIDE_OP, VECTOR_MEAN_OP] \
-    learn_ops: [SCALAR_SUM_OP, SCALAR_PRODUCT_OP, SCALAR_HEAVYSIDE_OP, VECTOR_MEAN_OP] \
+    setup_ops: [SCALAR_SUM_OP, SCALAR_PRODUCT_OP, SCALAR_HEAVYSIDE_OP] \
+    predict_ops: [SCALAR_SUM_OP, SCALAR_PRODUCT_OP, SCALAR_HEAVYSIDE_OP] \
+    learn_ops: [SCALAR_SUM_OP, SCALAR_PRODUCT_OP, SCALAR_HEAVYSIDE_OP] \
     setup_size_init: 1 \
     mutate_setup_size_min: 1 \
-    mutate_setup_size_max: 7 \
+    mutate_setup_size_max: 21 \
     predict_size_init: 1 \
     mutate_predict_size_min: 1 \
-    mutate_predict_size_max: 11 \
+    mutate_predict_size_max: 34 \
     learn_size_init: 1 \
     mutate_learn_size_min: 1 \
-    mutate_learn_size_max: 23 \
+    mutate_learn_size_max: 55 \
     train_budget {train_budget_baseline: NEURAL_NET_ALGORITHM} \
     fitness_combination_mode: MEAN_FITNESS_COMBINATION \
     population_size: 100 \

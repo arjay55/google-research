@@ -53,7 +53,7 @@ flags.DEFINE_integer('num_valid_examples', 1000,
 flags.DEFINE_integer('num_test_examples', 1000,
                      'Number of test examples in each dataset.')
 
-flags.DEFINE_integer('projected_dim', 2,
+flags.DEFINE_integer('projected_dim', 8,
                      'The dimensionality to project the data into.')
 
 # flags.DEFINE_string('dataset_name', 'cifar10',
