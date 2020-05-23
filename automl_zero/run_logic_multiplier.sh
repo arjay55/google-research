@@ -34,31 +34,31 @@ bazel run -c opt \
           max_supported_data_seed: 1 \
         } \
         features_size: 2 \
-        num_train_examples: 160 \
-        num_valid_examples: 17 \
+        num_train_examples: 1013 \
+        num_valid_examples: 111 \
         num_train_epochs: 1 \
         num_tasks: 10 \
         eval_type: ACCURACY \
       } \
     } \
-    setup_ops: [SCALAR_SUM_OP, SCALAR_PRODUCT_OP, SCALAR_HEAVYSIDE_OP] \
-    predict_ops: [SCALAR_SUM_OP, SCALAR_PRODUCT_OP, SCALAR_HEAVYSIDE_OP] \
-    learn_ops: [SCALAR_SUM_OP, SCALAR_PRODUCT_OP, SCALAR_HEAVYSIDE_OP] \
+    setup_ops: [SCALAR_SUM_OP, SCALAR_PRODUCT_OP, SCALAR_HEAVYSIDE_OP, VECTOR_MEAN_OP] \
+    predict_ops: [SCALAR_SUM_OP, SCALAR_PRODUCT_OP, SCALAR_HEAVYSIDE_OP, VECTOR_MEAN_OP] \
+    learn_ops: [SCALAR_SUM_OP, SCALAR_PRODUCT_OP, SCALAR_HEAVYSIDE_OP, VECTOR_MEAN_OP] \
     setup_size_init: 1 \
     mutate_setup_size_min: 1 \
-    mutate_setup_size_max: 21 \
+    mutate_setup_size_max: 55 \
     predict_size_init: 1 \
     mutate_predict_size_min: 1 \
-    mutate_predict_size_max: 34 \
+    mutate_predict_size_max: 89 \
     learn_size_init: 1 \
     mutate_learn_size_min: 1 \
-    mutate_learn_size_max: 55 \
+    mutate_learn_size_max: 144 \
     train_budget {train_budget_baseline: NEURAL_NET_ALGORITHM} \
     fitness_combination_mode: MEAN_FITNESS_COMBINATION \
     population_size: 100 \
     tournament_size: 10 \
     initial_population: NO_OP_ALGORITHM \
-    max_train_steps: 100000000000 \
+    max_train_steps: 1000000000000 \
     allowed_mutation_types {
       mutation_types: [ALTER_PARAM_MUTATION_TYPE, RANDOMIZE_COMPONENT_FUNCTION_MUTATION_TYPE, INSERT_INSTRUCTION_MUTATION_TYPE, REMOVE_INSTRUCTION_MUTATION_TYPE] \
     } \
@@ -74,8 +74,8 @@ bazel run -c opt \
         max_supported_data_seed: 1 \
       } \
       features_size: 2 \
-      num_train_examples: 160 \
-      num_valid_examples: 17 \
+      num_train_examples: 1013 \
+      num_valid_examples: 111 \
       num_train_epochs: 1 \
       num_tasks: 100 \
       eval_type: ACCURACY \
@@ -91,8 +91,8 @@ bazel run -c opt \
         max_supported_data_seed: 1 \
       } \
       features_size: 2 \
-      num_train_examples: 160 \
-      num_valid_examples: 17 \
+      num_train_examples: 1013 \
+      num_valid_examples: 111 \
       num_train_epochs: 1 \
       num_tasks: 10 \
       eval_type: ACCURACY \

@@ -45,13 +45,13 @@ flags.DEFINE_string(
     'Path for tensorflow_datasets to cache downloaded datasets, '
     'only used in local runs.')
 
-flags.DEFINE_integer('num_train_examples', 161, # because the train/test will be used on train data only
+flags.DEFINE_integer('num_train_examples', 1013, # because the train/test will be used on train data only
                      'Number of training examples in each dataset.')
 
-flags.DEFINE_integer('num_valid_examples', 19,
+flags.DEFINE_integer('num_valid_examples', 111,
                      'Number of validation examples in each dataset.')
 
-flags.DEFINE_integer('num_test_examples', 35, # because the train/test will be used on train data only
+flags.DEFINE_integer('num_test_examples', 227, # because the train/test will be used on train data only
                      'Number of test examples in each dataset.')
 
 flags.DEFINE_integer('projected_dim', 2,
@@ -119,7 +119,7 @@ def multiply(rangebits):
   train['image'] = input_factors[:-1]
   train['label'] = products[:-1]
 
-  test['image'] = input_factors[-1:]
+  test['image'] = input_factors[-1:] #now useless
   test['label'] = products[-1:]
 
   return train, test
@@ -300,6 +300,13 @@ def train_valid_test_split(
     else:
       stratify = None
 
+    #for probing purposes
+    train = int(labels.shape[0]*0.75)
+    subs = labels.shape[0] - train
+    valid = int(subs*0.33)
+    test = subs -valid
+
+
     #no shuffling
     train_data, test_data, train_labels, test_labels = (
         data[:num_train_examples+num_valid_examples],
@@ -335,7 +342,7 @@ def main(unused_argv):
 
   dataset_dict = {}
   
-  dataset_dict['train'], dataset_dict['test'] = multiply(6)
+  dataset_dict['train'], dataset_dict['test'] = multiply(13)
 
   # To mock the API of tfds.load to cache the downloaded datasets.
   # Used as an argument to `get_dataset`.
