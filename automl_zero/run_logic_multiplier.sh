@@ -41,9 +41,9 @@ bazel run -c opt \
         eval_type: ACCURACY \
       } \
     } \
-    setup_ops: [SCALAR_SUM_OP, SCALAR_PRODUCT_OP, SCALAR_HEAVYSIDE_OP, VECTOR_MEAN_OP] \
-    predict_ops: [SCALAR_SUM_OP, SCALAR_PRODUCT_OP, SCALAR_HEAVYSIDE_OP, VECTOR_MEAN_OP] \
-    learn_ops: [SCALAR_SUM_OP, SCALAR_PRODUCT_OP, SCALAR_HEAVYSIDE_OP, VECTOR_MEAN_OP] \
+    setup_ops: [SCALAR_PRODUCT_OP, SCALAR_HEAVYSIDE_OP, VECTOR_MEAN_OP] \
+    predict_ops: [SCALAR_PRODUCT_OP, SCALAR_HEAVYSIDE_OP, VECTOR_MEAN_OP] \
+    learn_ops: [SCALAR_PRODUCT_OP, SCALAR_HEAVYSIDE_OP, VECTOR_MEAN_OP] \
     setup_size_init: 1 \
     mutate_setup_size_min: 1 \
     mutate_setup_size_max: 55 \
@@ -58,9 +58,9 @@ bazel run -c opt \
     population_size: 100 \
     tournament_size: 10 \
     initial_population: NO_OP_ALGORITHM \
-    max_train_steps: 1000000000000 \
+    max_train_steps: 100000000000 \
     allowed_mutation_types {
-      mutation_types: [ALTER_PARAM_MUTATION_TYPE, RANDOMIZE_COMPONENT_FUNCTION_MUTATION_TYPE, INSERT_INSTRUCTION_MUTATION_TYPE, REMOVE_INSTRUCTION_MUTATION_TYPE] \
+      mutation_types: [RANDOMIZE_COMPONENT_FUNCTION_MUTATION_TYPE, INSERT_INSTRUCTION_MUTATION_TYPE, REMOVE_INSTRUCTION_MUTATION_TYPE] \
     } \
     mutate_prob: 0.9 \
     progress_every: 10000 \
