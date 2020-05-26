@@ -190,6 +190,7 @@ inline void ExecuteScalarDiffOp(
 }
 
 // modify for AND operation (Arjeus G - 04232020)
+// modify for NAND operation (Arjeus G - 05262020)
 template<FeatureIndexT F>
 inline void ExecuteScalarProductOp(
     const Instruction& instruction, RandomGenerator* rand_gen,
@@ -199,7 +200,7 @@ inline void ExecuteScalarProductOp(
 
       inst1 = int (memory->scalar_[instruction.in1_]);
       inst2 = int (memory->scalar_[instruction.in2_]);
-      memory->scalar_[instruction.out_] = float (inst1 & inst2);
+      memory->scalar_[instruction.out_] = float (~(inst1 & inst2));
 }
 
 template<FeatureIndexT F>

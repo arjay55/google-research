@@ -45,13 +45,13 @@ flags.DEFINE_string(
     'Path for tensorflow_datasets to cache downloaded datasets, '
     'only used in local runs.')
 
-flags.DEFINE_integer('num_train_examples', 1013, # because the train/test will be used on train data only
+flags.DEFINE_integer('num_train_examples', 111, # because the train/test will be used on train data only
                      'Number of training examples in each dataset.')
 
-flags.DEFINE_integer('num_valid_examples', 111,
+flags.DEFINE_integer('num_valid_examples', 12,
                      'Number of validation examples in each dataset.')
 
-flags.DEFINE_integer('num_test_examples', 227, # because the train/test will be used on train data only
+flags.DEFINE_integer('num_test_examples', 26, # because the train/test will be used on train data only
                      'Number of test examples in each dataset.')
 
 flags.DEFINE_integer('projected_dim', 2,
@@ -342,7 +342,7 @@ def main(unused_argv):
 
   dataset_dict = {}
   
-  dataset_dict['train'], dataset_dict['test'] = multiply(13)
+  dataset_dict['train'], dataset_dict['test'] = multiply(5)
 
   # To mock the API of tfds.load to cache the downloaded datasets.
   # Used as an argument to `get_dataset`.
