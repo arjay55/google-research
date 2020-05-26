@@ -41,9 +41,9 @@ bazel run -c opt \
         eval_type: ACCURACY \
       } \
     } \
-    setup_ops: [SCALAR_PRODUCT_OP, SCALAR_HEAVYSIDE_OP, VECTOR_MEAN_OP] \
-    predict_ops: [SCALAR_PRODUCT_OP, SCALAR_HEAVYSIDE_OP, VECTOR_MEAN_OP] \
-    learn_ops: [SCALAR_PRODUCT_OP, SCALAR_HEAVYSIDE_OP, VECTOR_MEAN_OP] \
+    setup_ops: [SCALAR_PRODUCT_OP, VECTOR_MEAN_OP] \
+    predict_ops: [SCALAR_PRODUCT_OP, VECTOR_MEAN_OP] \
+    learn_ops: [SCALAR_PRODUCT_OP, VECTOR_MEAN_OP] \
     setup_size_init: 1 \
     mutate_setup_size_min: 1 \
     mutate_setup_size_max: 987 \
