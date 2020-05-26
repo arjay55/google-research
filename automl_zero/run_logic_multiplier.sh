@@ -81,7 +81,7 @@ bazel run -c opt \
       eval_type: ACCURACY \
     } \
     " \
-  --random_seed=0 \
+  --random_seed=2081894615 \
   --select_tasks="
     tasks { \
       projected_binary_classification_task { \
