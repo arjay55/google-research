@@ -99,14 +99,14 @@ def multiply(maxfactor):
   #change into separated binaries
   df_input_f = pd.DataFrame(rawinput)
   df_input_f = df_input_f.apply(np.sum, axis = 1)
-  df_input_f = df_input_f.str.split(pat ="\s*", expand = True)
-  df_input_f = df_input_f.iloc[:,1:-1].astype(np.int32)
+  df_input_f = df_input_f.str.extract(r"(\d)(\d)(\d)(\d)(\d)(\d)")
+  df_input_f = df_input_f.astype(np.int32)
   input_factors =  df_input_f.values.reshape(-1,)
 
   df_product = pd.DataFrame(rawlabel)
   df_product = df_product.apply(np.sum, axis = 1)
-  df_product = df_product.str.split(pat ="\s*", expand = True)
-  df_product = df_product.iloc[:,1:-1].astype(np.int32)
+  df_product = df_product.str.extract(r"(\d)(\d)(\d)(\d)(\d)(\d)")
+  df_product = df_product.astype(np.int32)
   products =  df_product.values.reshape(-1,)
 
   #split to train/test?? Yes 0.75 train
