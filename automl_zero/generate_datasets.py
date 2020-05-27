@@ -45,13 +45,13 @@ flags.DEFINE_string(
     'Path for tensorflow_datasets to cache downloaded datasets, '
     'only used in local runs.')
 
-flags.DEFINE_integer('num_train_examples', 111, # because the train/test will be used on train data only
+flags.DEFINE_integer('num_train_examples', 287, # because the train/test will be used on train data only
                      'Number of training examples in each dataset.')
 
-flags.DEFINE_integer('num_valid_examples', 12,
+flags.DEFINE_integer('num_valid_examples', 31,
                      'Number of validation examples in each dataset.')
 
-flags.DEFINE_integer('num_test_examples', 26, # because the train/test will be used on train data only
+flags.DEFINE_integer('num_test_examples', 65, # because the train/test will be used on train data only
                      'Number of test examples in each dataset.')
 
 flags.DEFINE_integer('projected_dim', 2,
@@ -79,12 +79,12 @@ flags.DEFINE_list('class_ids', '0,1,2,3,4,5,6,7,8,9',
 
 FLAGS = flags.FLAGS
 
-def multiply(rangebits):
+def multiply(maxfactor):
   """
   creates a (-1,1) pairs of serialized data for multiplication
-  rangebits: number of bits for multiplication (2**n)
+  rangebits: maximum factor
   """
-  rawinput = np.array(np.meshgrid([range(rangebits)],[range(rangebits)])).T
+  rawinput = np.array(np.meshgrid([range(maxfactor)],[range(maxfactor)])).T
   rawinput = rawinput.reshape(-1,2)
   rawinput_t = np.transpose(rawinput)
   rawlabel = np.multiply(rawinput_t[0],rawinput_t[1])
@@ -342,7 +342,7 @@ def main(unused_argv):
 
   dataset_dict = {}
   
-  dataset_dict['train'], dataset_dict['test'] = multiply(5)
+  dataset_dict['train'], dataset_dict['test'] = multiply(8)
 
   # To mock the API of tfds.load to cache the downloaded datasets.
   # Used as an argument to `get_dataset`.
