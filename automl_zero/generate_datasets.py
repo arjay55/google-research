@@ -45,13 +45,13 @@ flags.DEFINE_string(
     'Path for tensorflow_datasets to cache downloaded datasets, '
     'only used in local runs.')
 
-flags.DEFINE_integer('num_train_examples', 287, # because the train/test will be used on train data only
+flags.DEFINE_integer('num_train_examples', 167, # because the train/test will be used on train data only
                      'Number of training examples in each dataset.')
 
-flags.DEFINE_integer('num_valid_examples', 31,
+flags.DEFINE_integer('num_valid_examples', 24,
                      'Number of validation examples in each dataset.')
 
-flags.DEFINE_integer('num_test_examples', 65, # because the train/test will be used on train data only
+flags.DEFINE_integer('num_test_examples', 24, # because the train/test will be used on train data only
                      'Number of test examples in each dataset.')
 
 flags.DEFINE_integer('projected_dim', 2,
@@ -99,13 +99,13 @@ def multiply(maxfactor):
   #change into separated binaries
   df_input_f = pd.DataFrame(rawinput)
   df_input_f = df_input_f.apply(np.sum, axis = 1)
-  df_input_f = df_input_f.str.extract(r"(\d)(\d)(\d)(\d)(\d)(\d)")
+  df_input_f = df_input_f.str.extract(r"(\d)(\d)(\d)")
   df_input_f = df_input_f.astype(np.int32)
   input_factors =  df_input_f.values.reshape(-1,)
 
   df_product = pd.DataFrame(rawlabel)
   df_product = df_product.apply(np.sum, axis = 1)
-  df_product = df_product.str.extract(r"(\d)(\d)(\d)(\d)(\d)(\d)")
+  df_product = df_product.str.extract(r"(\d)(\d)(\d)")
   df_product = df_product.astype(np.int32)
   products =  df_product.values.reshape(-1,)
 
@@ -166,11 +166,11 @@ def create_projected_binary_dataset(
     valid_feature = dataset.valid_features.add()
     valid_feature.features.extend(list(valid_data[i]))
     dataset.valid_labels.append(valid_labels[i])
-  if test_data is not None:
-    for i in range(test_data.shape[0]):
-      test_feature = dataset.test_features.add()
-      test_feature.features.extend(list(test_data[i]))
-      dataset.test_labels.append(test_labels[i])
+  # if test_data is not None:
+  #   for i in range(test_data.shape[0]):
+  #     test_feature = dataset.test_features.add()
+  #     test_feature.features.extend(list(test_data[i]))
+  #     dataset.test_labels.append(test_labels[i])
   return dataset
 
 
@@ -301,18 +301,16 @@ def train_valid_test_split(
       stratify = None
 
     #for probing purposes
-    train = int(labels.shape[0]*0.75)
-    subs = labels.shape[0] - train
-    valid = int(subs*0.33)
-    test = subs -valid
-
+    train = int(labels.shape[0]*0.875) #change to 1/8
+    subs = labels.shape[0] - train    
 
     #no shuffling
+    # new -- test and valid now accumulates with the data samples
     train_data, test_data, train_labels, test_labels = (
-        data[:num_train_examples+num_valid_examples],
-        data[num_train_examples+num_valid_examples:],
-        labels[:num_train_examples+num_valid_examples],
-        labels[num_train_examples+num_valid_examples:])
+        data[:train],
+        data[train:],
+        labels[:train],
+        labels[train:])
 
   else:
     train_data, train_labels = data, labels
@@ -322,12 +320,12 @@ def train_valid_test_split(
     stratify = train_labels
   else:
     stratify = None
+  
   train_data, valid_data, train_labels, valid_labels = (
-      data[:num_train_examples],
-      data[num_train_examples+num_test_examples:num_train_examples +
-           num_test_examples+num_valid_examples],
-      labels[:num_train_examples],
-      labels[num_train_examples+num_test_examples:num_train_examples+num_test_examples+num_valid_examples])
+      data[:train],
+      data[train:],
+      labels[:train],
+      labels[train:])
   return (
       train_data, train_labels,
       valid_data, valid_labels,
