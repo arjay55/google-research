@@ -34,8 +34,8 @@ bazel run -c opt \
           max_supported_data_seed: 1 \
         } \
         features_size: 2 \
-        num_train_examples: 590 \
-        num_valid_examples: 85 \
+        num_train_examples: 93 \
+        num_valid_examples: 14 \
         num_train_epochs: 1 \
         num_tasks: 10 \
         eval_type: ACCURACY \
@@ -55,8 +55,8 @@ bazel run -c opt \
     mutate_learn_size_max: 377 \
     train_budget {train_budget_baseline: NEURAL_NET_ALGORITHM} \
     fitness_combination_mode: MEAN_FITNESS_COMBINATION \
-    population_size: 10000 \
-    tournament_size: 1000 \
+    population_size: 1000 \
+    tournament_size: 100 \
     initial_population: NO_OP_ALGORITHM \
     max_train_steps: 100000000000 \
     allowed_mutation_types {
@@ -74,8 +74,8 @@ bazel run -c opt \
         max_supported_data_seed: 1 \
       } \
       features_size: 2 \
-      num_train_examples: 590 \
-      num_valid_examples: 85 \
+      num_train_examples: 93 \
+      num_valid_examples: 14 \
       num_train_epochs: 1 \
       num_tasks: 100 \
       eval_type: ACCURACY \
@@ -91,8 +91,8 @@ bazel run -c opt \
         max_supported_data_seed: 1 \
       } \
       features_size: 2 \
-      num_train_examples: 590 \
-      num_valid_examples: 85 \
+      num_train_examples: 93 \
+      num_valid_examples: 14 \
       num_train_epochs: 1 \
       num_tasks: 10 \
       eval_type: ACCURACY \

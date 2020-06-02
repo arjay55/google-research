@@ -45,13 +45,13 @@ flags.DEFINE_string(
     'Path for tensorflow_datasets to cache downloaded datasets, '
     'only used in local runs.')
 
-flags.DEFINE_integer('num_train_examples', 167, # because the train/test will be used on train data only
+flags.DEFINE_integer('num_train_examples', 93, # because the train/test will be used on train data only
                      'Number of training examples in each dataset.')
 
-flags.DEFINE_integer('num_valid_examples', 24,
+flags.DEFINE_integer('num_valid_examples', 14,
                      'Number of validation examples in each dataset.')
 
-flags.DEFINE_integer('num_test_examples', 24, # because the train/test will be used on train data only
+flags.DEFINE_integer('num_test_examples', 14, # because the train/test will be used on train data only
                      'Number of test examples in each dataset.')
 
 flags.DEFINE_integer('projected_dim', 2,
@@ -78,6 +78,51 @@ flags.DEFINE_list('class_ids', '0,1,2,3,4,5,6,7,8,9',
                   ' classification datasets.')
 
 FLAGS = flags.FLAGS
+
+def addition(maxfactor):
+  """
+  creates a (-1,1) pairs of serialized data for multiplication
+  rangebits: maximum factor
+  """
+  rawinput = np.array(np.meshgrid([range(maxfactor)],[range(maxfactor)])).T
+  rawinput = rawinput.reshape(-1,2)
+  rawinput_t = np.transpose(rawinput)
+  rawlabel = np.add(rawinput_t[0],rawinput_t[1])
+  del rawinput_t
+
+  # set to binary on each
+  binx=np.vectorize(np.binary_repr)
+  max_factor_width = (np.int(np.log2(np.max(rawinput)))+1)
+  rawinput=binx(rawinput,width = max_factor_width)
+  rawlabel=binx(rawlabel,width = max_factor_width * 2) 
+
+  #change into separated binaries
+  df_input_f = pd.DataFrame(rawinput)
+  df_input_f = df_input_f.apply(np.sum, axis = 1)
+  df_input_f = df_input_f.str.extract(r"(\d)(\d)(\d)")
+  df_input_f = df_input_f.astype(np.int32)
+  input_factors =  df_input_f.values.reshape(-1,)
+
+  df_product = pd.DataFrame(rawlabel)
+  df_product = df_product.apply(np.sum, axis = 1)
+  df_product = df_product.str.extract(r"(\d)(\d)(\d)")
+  df_product = df_product.astype(np.int32)
+  products =  df_product.values.reshape(-1,)
+
+  #split to train/test?? Yes 0.75 train
+  train = {}
+  test = {}
+
+  #end_train_index = int(input_factors.shape[0]*0.75)
+
+  #-1 --> minimize loss due to get_dataset function
+  train['image'] = input_factors[:-1]
+  train['label'] = products[:-1]
+
+  test['image'] = input_factors[-1:] #now useless
+  test['label'] = products[-1:]
+
+  return train, test
 
 def multiply(maxfactor):
   """
@@ -166,11 +211,11 @@ def create_projected_binary_dataset(
     valid_feature = dataset.valid_features.add()
     valid_feature.features.extend(list(valid_data[i]))
     dataset.valid_labels.append(valid_labels[i])
-  # if test_data is not None:
-  #   for i in range(test_data.shape[0]):
-  #     test_feature = dataset.test_features.add()
-  #     test_feature.features.extend(list(test_data[i]))
-  #     dataset.test_labels.append(test_labels[i])
+  if test_data is not None: # the validation set in the paper?
+    for i in range(test_data.shape[0]):
+      test_feature = dataset.test_features.add()
+      test_feature.features.extend(list(valid_data[i]))
+      dataset.test_labels.append(valid_labels[i])
   return dataset
 
 
@@ -340,7 +385,7 @@ def main(unused_argv):
 
   dataset_dict = {}
   
-  dataset_dict['train'], dataset_dict['test'] = multiply(8)
+  dataset_dict['train'], dataset_dict['test'] = addition(6)
 
   # To mock the API of tfds.load to cache the downloaded datasets.
   # Used as an argument to `get_dataset`.
