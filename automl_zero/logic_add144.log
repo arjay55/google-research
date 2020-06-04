@@ -1,0 +1,32 @@
+Random seed = 2081894615
+Running evolution experiment (on the T_search tasks)...
+indivs=1000, elapsed_secs=4, mean=0.980469, stdev=0.000000, best fit=0.980469,
+indivs=11000, elapsed_secs=53, mean=0.958367, stdev=0.144048, best fit=0.980469,
+indivs=21000, elapsed_secs=109, mean=0.955888, stdev=0.150968, best fit=0.980469,
+indivs=31000, elapsed_secs=166, mean=0.952602, stdev=0.161251, best fit=0.980469,
+indivs=41000, elapsed_secs=225, mean=0.929573, stdev=0.215290, best fit=0.980517,
+indivs=51000, elapsed_secs=283, mean=0.941105, stdev=0.190552, best fit=0.980517,
+indivs=61000, elapsed_secs=341, mean=0.938221, stdev=0.197091, best fit=0.980517,
+Experiment done. Retrieving candidate algorithm.
+Search fitness for candidate algorithm = 0.980517
+Evaluating candidate algorithm from experiment (on T_select tasks)... 
+Select fitness for candidate algorithm = 0.980517
+Select fitness is the best so far. 
+
+Final evaluation of best algorithm (on unseen tasks)...
+Final evaluation fitness (on unseen data) = 0.980517
+Algorithm found: 
+def Setup():
+  s14 = s16 + s12
+  s9 = mean(v0)
+def Predict():
+  s1 = heaviside(s10, 1.0)
+  s10 = mean(v3)
+def Learn():
+  s3 = s0 * s2
+  s15 = heaviside(s10, 1.0)
+  s14 = s0 + s6
+  s10 = s9 + s14
+  s11 = mean(v11)
+  s6 = s14 * s6
+

@@ -20,7 +20,7 @@ DATA_DIR=$(pwd)/binary_logic_data/
 # projected binary tasks. Utility script to check whether the tasks are
 # ready.
 bazel run -c opt \
-  --copt=-DMAX_SCALAR_ADDRESSES=144 \
+  --copt=-DMAX_SCALAR_ADDRESSES=21 \
   --copt=-DMAX_VECTOR_ADDRESSES=13 \
   --copt=-DMAX_MATRIX_ADDRESSES=2 \
   :run_search_experiment -- \
@@ -34,25 +34,25 @@ bazel run -c opt \
           max_supported_data_seed: 1 \
         } \
         features_size: 2 \
-        num_train_examples: 93 \
-        num_valid_examples: 14 \
+        num_train_examples: 145151 \
+        num_valid_examples: 20736 \
         num_train_epochs: 1 \
-        num_tasks: 10 \
+        num_tasks: 1 \
         eval_type: ACCURACY \
       } \
     } \
-    setup_ops: [SCALAR_PRODUCT_OP, VECTOR_MEAN_OP] \
-    predict_ops: [SCALAR_PRODUCT_OP, VECTOR_MEAN_OP] \
-    learn_ops: [SCALAR_PRODUCT_OP, VECTOR_MEAN_OP] \
+    setup_ops: [SCALAR_PRODUCT_OP, SCALAR_SUM_OP, SCALAR_HEAVYSIDE_OP, VECTOR_MEAN_OP] \
+    predict_ops: [SCALAR_PRODUCT_OP, SCALAR_SUM_OP, SCALAR_HEAVYSIDE_OP, VECTOR_MEAN_OP] \
+    learn_ops: [SCALAR_PRODUCT_OP, SCALAR_SUM_OP, SCALAR_HEAVYSIDE_OP, VECTOR_MEAN_OP] \
     setup_size_init: 1 \
     mutate_setup_size_min: 1 \
-    mutate_setup_size_max: 34 \
+    mutate_setup_size_max: 3 \
     predict_size_init: 1 \
     mutate_predict_size_min: 1 \
-    mutate_predict_size_max: 233 \
+    mutate_predict_size_max: 5 \
     learn_size_init: 1 \
     mutate_learn_size_min: 1 \
-    mutate_learn_size_max: 377 \
+    mutate_learn_size_max: 8 \
     train_budget {train_budget_baseline: NEURAL_NET_ALGORITHM} \
     fitness_combination_mode: MEAN_FITNESS_COMBINATION \
     population_size: 1000 \
@@ -74,10 +74,10 @@ bazel run -c opt \
         max_supported_data_seed: 1 \
       } \
       features_size: 2 \
-      num_train_examples: 93 \
-      num_valid_examples: 14 \
+      num_train_examples: 145151 \
+      num_valid_examples: 20736 \
       num_train_epochs: 1 \
-      num_tasks: 100 \
+      num_tasks: 1 \
       eval_type: ACCURACY \
     } \
     " \
@@ -91,8 +91,8 @@ bazel run -c opt \
         max_supported_data_seed: 1 \
       } \
       features_size: 2 \
-      num_train_examples: 93 \
-      num_valid_examples: 14 \
+      num_train_examples: 145151 \
+      num_valid_examples: 20736 \
       num_train_epochs: 1 \
       num_tasks: 10 \
       eval_type: ACCURACY \

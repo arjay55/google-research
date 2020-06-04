@@ -172,7 +172,7 @@ inline void ExecuteScalarSumOp(
 
       inst1 = int (memory->scalar_[instruction.in1_]);
       inst2 = int (memory->scalar_[instruction.in2_]);
-      memory->scalar_[instruction.out_] = float (inst1 | inst2);
+      memory->scalar_[instruction.out_] = float (inst1 || inst2);
 
 }
 
@@ -200,7 +200,7 @@ inline void ExecuteScalarProductOp(
 
       inst1 = int (memory->scalar_[instruction.in1_]);
       inst2 = int (memory->scalar_[instruction.in2_]);
-      memory->scalar_[instruction.out_] = float (~(inst1 & inst2));
+      memory->scalar_[instruction.out_] = float (inst1 && inst2);
 }
 
 template<FeatureIndexT F>
@@ -245,7 +245,7 @@ inline void ExecuteScalarHeavisideOp(
     Memory<F>* memory) {
       int inst1;
       inst1 = int (memory->scalar_[instruction.in1_]);
-  memory->scalar_[instruction.out_] = float(~inst1);
+  memory->scalar_[instruction.out_] = float(!inst1);
 }
 
 template<FeatureIndexT F>

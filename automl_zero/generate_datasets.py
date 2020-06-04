@@ -45,13 +45,13 @@ flags.DEFINE_string(
     'Path for tensorflow_datasets to cache downloaded datasets, '
     'only used in local runs.')
 
-flags.DEFINE_integer('num_train_examples', 93, # because the train/test will be used on train data only
+flags.DEFINE_integer('num_train_examples', 145151, # because the train/test will be used on train data only
                      'Number of training examples in each dataset.')
 
-flags.DEFINE_integer('num_valid_examples', 14,
+flags.DEFINE_integer('num_valid_examples', 20736,
                      'Number of validation examples in each dataset.')
 
-flags.DEFINE_integer('num_test_examples', 14, # because the train/test will be used on train data only
+flags.DEFINE_integer('num_test_examples', 20736, # because the train/test will be used on train data only
                      'Number of test examples in each dataset.')
 
 flags.DEFINE_integer('projected_dim', 2,
@@ -99,13 +99,13 @@ def addition(maxfactor):
   #change into separated binaries
   df_input_f = pd.DataFrame(rawinput)
   df_input_f = df_input_f.apply(np.sum, axis = 1)
-  df_input_f = df_input_f.str.extract(r"(\d)(\d)(\d)")
+  df_input_f = df_input_f.str.extract(r"(\d)(\d)(\d)(\d)(\d)(\d)(\d)(\d)")
   df_input_f = df_input_f.astype(np.int32)
   input_factors =  df_input_f.values.reshape(-1,)
 
   df_product = pd.DataFrame(rawlabel)
   df_product = df_product.apply(np.sum, axis = 1)
-  df_product = df_product.str.extract(r"(\d)(\d)(\d)")
+  df_product = df_product.str.extract(r"(\d)(\d)(\d)(\d)(\d)(\d)(\d)(\d)")
   df_product = df_product.astype(np.int32)
   products =  df_product.values.reshape(-1,)
 
@@ -385,7 +385,7 @@ def main(unused_argv):
 
   dataset_dict = {}
   
-  dataset_dict['train'], dataset_dict['test'] = addition(6)
+  dataset_dict['train'], dataset_dict['test'] = addition(144)
 
   # To mock the API of tfds.load to cache the downloaded datasets.
   # Used as an argument to `get_dataset`.
