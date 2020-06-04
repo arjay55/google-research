@@ -20,7 +20,7 @@ DATA_DIR=$(pwd)/binary_logic_data/
 # projected binary tasks. Utility script to check whether the tasks are
 # ready.
 bazel run -c opt \
-  --copt=-DMAX_SCALAR_ADDRESSES=21 \
+  --copt=-DMAX_SCALAR_ADDRESSES=34 \
   --copt=-DMAX_VECTOR_ADDRESSES=13 \
   --copt=-DMAX_MATRIX_ADDRESSES=2 \
   :run_search_experiment -- \
@@ -46,13 +46,13 @@ bazel run -c opt \
     learn_ops: [SCALAR_PRODUCT_OP, SCALAR_SUM_OP, SCALAR_HEAVYSIDE_OP, VECTOR_MEAN_OP] \
     setup_size_init: 1 \
     mutate_setup_size_min: 1 \
-    mutate_setup_size_max: 3 \
+    mutate_setup_size_max: 8 \
     predict_size_init: 1 \
     mutate_predict_size_min: 1 \
-    mutate_predict_size_max: 5 \
+    mutate_predict_size_max: 13 \
     learn_size_init: 1 \
     mutate_learn_size_min: 1 \
-    mutate_learn_size_max: 8 \
+    mutate_learn_size_max: 21 \
     train_budget {train_budget_baseline: NEURAL_NET_ALGORITHM} \
     fitness_combination_mode: MEAN_FITNESS_COMBINATION \
     population_size: 1000 \
