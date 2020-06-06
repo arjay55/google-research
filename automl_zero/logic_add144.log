@@ -1,74 +1,1049 @@
+Starting local Bazel server and connecting to it...
+Loading: 
+Loading: 0 packages loaded
+Analyzing: target //:run_search_experiment (1 packages loaded, 0 targets configured)
+Analyzing: target //:run_search_experiment (26 packages loaded, 292 targets configured)
+INFO: Analyzed target //:run_search_experiment (40 packages loaded, 1466 targets configured).
+INFO: Found 1 target...
+INFO: Deleting stale sandbox base /home/ubuntu/.cache/bazel/_bazel_ubuntu/5d5d5e021bc1d0875072d389657ba4fc/sandbox
+[0 / 233] [Prepa] BazelWorkspaceStatusAction stable-status.txt
+[204 / 428] Compiling external/com_google_protobuf/src/google/protobuf/timestamp.pb.cc; 0s linux-sandbox ... (4 actions, 3 running)
+[208 / 428] Compiling external/com_google_protobuf/src/google/protobuf/reflection_ops.cc; 1s linux-sandbox ... (4 actions, 3 running)
+[211 / 428] Compiling external/com_google_protobuf/src/google/protobuf/generated_message_table_driven.cc; 1s linux-sandbox ... (4 actions, 3 running)
+[217 / 428] Compiling external/com_google_protobuf/src/google/protobuf/generated_message_table_driven.cc; 2s linux-sandbox ... (4 actions, 3 running)
+[222 / 428] Compiling external/com_google_absl/absl/time/internal/cctz/src/time_zone_info.cc; 1s linux-sandbox ... (4 actions running)
+[231 / 428] Compiling external/com_google_absl/absl/debugging/symbolize.cc; 0s linux-sandbox ... (4 actions running)
+[235 / 428] Compiling external/com_google_protobuf/src/google/protobuf/type.pb.cc; 1s linux-sandbox ... (4 actions running)
+[242 / 428] Compiling external/com_google_protobuf/src/google/protobuf/duration.pb.cc; 1s linux-sandbox ... (4 actions running)
+[245 / 428] Compiling external/com_google_protobuf/src/google/protobuf/generated_message_reflection.cc; 2s linux-sandbox ... (4 actions running)
+[252 / 428] Compiling external/com_google_protobuf/src/google/protobuf/descriptor.pb.cc; 3s linux-sandbox ... (4 actions running)
+[259 / 428] Compiling external/com_google_protobuf/src/google/protobuf/descriptor.pb.cc; 5s linux-sandbox ... (4 actions running)
+[270 / 428] Compiling external/com_google_protobuf/src/google/protobuf/generated_message_util.cc; 1s linux-sandbox ... (4 actions running)
+[287 / 428] Compiling external/com_google_protobuf/src/google/protobuf/struct.pb.cc; 3s linux-sandbox ... (4 actions running)
+INFO: From Compiling algorithm.cc:
+algorithm.cc: In member function 'const std::vector<std::shared_ptr<const automl_zero::Instruction> >& automl_zero::Algorithm::ComponentFunction(automl_zero::ComponentFunctionT) const':
+algorithm.cc:172:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+algorithm.cc: In member function 'std::vector<std::shared_ptr<const automl_zero::Instruction> >* automl_zero::Algorithm::MutableComponentFunction(automl_zero::ComponentFunctionT)':
+algorithm.cc:184:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+[294 / 428] Compiling task_util.cc; 2s linux-sandbox ... (4 actions running)
+INFO: From Compiling run_search_experiment.cc:
+In file included from task_util.h:26:0,
+                 from run_search_experiment.cc:25:
+executor.h:822:10: warning: variable templates only available with -std=c++14 or -std=gnu++14
+     128> kOpIndexToExecuteFunction = {
+          ^~~~~~~~~~~~~~~~~~~~~~~~~
+[300 / 428] Compiling task_util.cc; 7s linux-sandbox ... (4 actions running)
+[311 / 428] Compiling task_util.cc; 12s linux-sandbox ... (4 actions running)
+[324 / 428] Compiling task_util.cc; 18s linux-sandbox ... (4 actions, 3 running)
+INFO: From Compiling evaluator.cc:
+In file included from fec_cache.h:24:0,
+                 from evaluator.h:28,
+                 from evaluator.cc:15:
+executor.h:822:10: warning: variable templates only available with -std=c++14 or -std=gnu++14
+     128> kOpIndexToExecuteFunction = {
+          ^~~~~~~~~~~~~~~~~~~~~~~~~
+evaluator.cc: In member function 'double automl_zero::Evaluator::Evaluate(const automl_zero::Algorithm&)':
+evaluator.cc:89:26: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for (IntegerT i = 0; i < tasks_.size(); ++i) {
+                        ~~^~~~~~~~~~~~~~~
+In file included from definitions.h:34:0,
+                 from instruction.h:24,
+                 from algorithm.h:24,
+                 from evaluator.h:23,
+                 from evaluator.cc:15:
+bazel-out/k8-opt/bin/external/com_google_glog/_virtual_includes/default_glog_headers/glog/logging.h: In instantiation of 'std::__cxx11::string* google::Check_GTImpl(const T1&, const T2&, const char*) [with T1 = long unsigned int; T2 = int; std::__cxx11::string = std::__cxx11::basic_string<char>]':
+evaluator.cc:78:3:   required from here
+bazel-out/k8-opt/bin/external/com_google_glog/_virtual_includes/default_glog_headers/glog/logging.h:733:32: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+ DEFINE_CHECK_OP_IMPL(Check_GT, > )
+                                ^
+bazel-out/k8-opt/bin/external/com_google_glog/_virtual_includes/default_glog_headers/glog/logging.h:148:53: note: in definition of macro 'GOOGLE_PREDICT_TRUE'
+ #define GOOGLE_PREDICT_TRUE(x) (__builtin_expect(!!(x), 1))
+                                                     ^
+bazel-out/k8-opt/bin/external/com_google_glog/_virtual_includes/default_glog_headers/glog/logging.h:733:1: note: in expansion of macro 'DEFINE_CHECK_OP_IMPL'
+ DEFINE_CHECK_OP_IMPL(Check_GT, > )
+ ^~~~~~~~~~~~~~~~~~~~
+In file included from evaluator.h:24:0,
+                 from evaluator.cc:15:
+task.h: In instantiation of 'void automl_zero::TaskIterator<F>::Next() [with int F = 2]':
+executor.h:1319:5:   required from 'double automl_zero::Executor<F>::Validate(std::vector<double>*) [with int F = 2]'
+executor.h:1046:44:   required from 'double automl_zero::Executor<F>::Execute(std::vector<double>*, std::vector<double>*) [with int F = 2]'
+evaluator.cc:159:5:   required from 'double automl_zero::Evaluator::ExecuteImpl(const automl_zero::Task<F>&, automl_zero::IntegerT, const automl_zero::Algorithm&) [with int F = 2; automl_zero::IntegerT = long int]'
+evaluator.cc:118:75:   required from here
+task.h:317:26: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (current_example_ >= features_->size()) {
+task.h: In instantiation of 'bool automl_zero::TaskIterator<F>::Done() const [with int F = 2]':
+executor.h:1320:5:   required from 'double automl_zero::Executor<F>::Validate(std::vector<double>*) [with int F = 2]'
+executor.h:1046:44:   required from 'double automl_zero::Executor<F>::Execute(std::vector<double>*, std::vector<double>*) [with int F = 2]'
+evaluator.cc:159:5:   required from 'double automl_zero::Evaluator::ExecuteImpl(const automl_zero::Task<F>&, automl_zero::IntegerT, const automl_zero::Algorithm&) [with int F = 2; automl_zero::IntegerT = long int]'
+evaluator.cc:118:75:   required from here
+task.h:311:27: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     return current_epoch_ >= epochs_->size();
+            ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+task.h: In instantiation of 'void automl_zero::TaskIterator<F>::Next() [with int F = 4]':
+executor.h:1319:5:   required from 'double automl_zero::Executor<F>::Validate(std::vector<double>*) [with int F = 4]'
+executor.h:1046:44:   required from 'double automl_zero::Executor<F>::Execute(std::vector<double>*, std::vector<double>*) [with int F = 4]'
+evaluator.cc:159:5:   required from 'double automl_zero::Evaluator::ExecuteImpl(const automl_zero::Task<F>&, automl_zero::IntegerT, const automl_zero::Algorithm&) [with int F = 4; automl_zero::IntegerT = long int]'
+evaluator.cc:122:75:   required from here
+task.h:317:26: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (current_example_ >= features_->size()) {
+task.h: In instantiation of 'bool automl_zero::TaskIterator<F>::Done() const [with int F = 4]':
+executor.h:1320:5:   required from 'double automl_zero::Executor<F>::Validate(std::vector<double>*) [with int F = 4]'
+executor.h:1046:44:   required from 'double automl_zero::Executor<F>::Execute(std::vector<double>*, std::vector<double>*) [with int F = 4]'
+evaluator.cc:159:5:   required from 'double automl_zero::Evaluator::ExecuteImpl(const automl_zero::Task<F>&, automl_zero::IntegerT, const automl_zero::Algorithm&) [with int F = 4; automl_zero::IntegerT = long int]'
+evaluator.cc:122:75:   required from here
+task.h:311:27: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     return current_epoch_ >= epochs_->size();
+            ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+task.h: In instantiation of 'void automl_zero::TaskIterator<F>::Next() [with int F = 8]':
+executor.h:1319:5:   required from 'double automl_zero::Executor<F>::Validate(std::vector<double>*) [with int F = 8]'
+executor.h:1046:44:   required from 'double automl_zero::Executor<F>::Execute(std::vector<double>*, std::vector<double>*) [with int F = 8]'
+evaluator.cc:159:5:   required from 'double automl_zero::Evaluator::ExecuteImpl(const automl_zero::Task<F>&, automl_zero::IntegerT, const automl_zero::Algorithm&) [with int F = 8; automl_zero::IntegerT = long int]'
+evaluator.cc:126:75:   required from here
+task.h:317:26: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (current_example_ >= features_->size()) {
+task.h: In instantiation of 'bool automl_zero::TaskIterator<F>::Done() const [with int F = 8]':
+executor.h:1320:5:   required from 'double automl_zero::Executor<F>::Validate(std::vector<double>*) [with int F = 8]'
+executor.h:1046:44:   required from 'double automl_zero::Executor<F>::Execute(std::vector<double>*, std::vector<double>*) [with int F = 8]'
+evaluator.cc:159:5:   required from 'double automl_zero::Evaluator::ExecuteImpl(const automl_zero::Task<F>&, automl_zero::IntegerT, const automl_zero::Algorithm&) [with int F = 8; automl_zero::IntegerT = long int]'
+evaluator.cc:126:75:   required from here
+task.h:311:27: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     return current_epoch_ >= epochs_->size();
+            ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+task.h: In instantiation of 'void automl_zero::TaskIterator<F>::Next() [with int F = 16]':
+executor.h:1319:5:   required from 'double automl_zero::Executor<F>::Validate(std::vector<double>*) [with int F = 16]'
+executor.h:1046:44:   required from 'double automl_zero::Executor<F>::Execute(std::vector<double>*, std::vector<double>*) [with int F = 16]'
+evaluator.cc:159:5:   required from 'double automl_zero::Evaluator::ExecuteImpl(const automl_zero::Task<F>&, automl_zero::IntegerT, const automl_zero::Algorithm&) [with int F = 16; automl_zero::IntegerT = long int]'
+evaluator.cc:130:76:   required from here
+task.h:317:26: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (current_example_ >= features_->size()) {
+task.h: In instantiation of 'bool automl_zero::TaskIterator<F>::Done() const [with int F = 16]':
+executor.h:1320:5:   required from 'double automl_zero::Executor<F>::Validate(std::vector<double>*) [with int F = 16]'
+executor.h:1046:44:   required from 'double automl_zero::Executor<F>::Execute(std::vector<double>*, std::vector<double>*) [with int F = 16]'
+evaluator.cc:159:5:   required from 'double automl_zero::Evaluator::ExecuteImpl(const automl_zero::Task<F>&, automl_zero::IntegerT, const automl_zero::Algorithm&) [with int F = 16; automl_zero::IntegerT = long int]'
+evaluator.cc:130:76:   required from here
+task.h:311:27: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     return current_epoch_ >= epochs_->size();
+            ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+task.h: In instantiation of 'void automl_zero::TaskIterator<F>::Next() [with int F = 32]':
+executor.h:1319:5:   required from 'double automl_zero::Executor<F>::Validate(std::vector<double>*) [with int F = 32]'
+executor.h:1046:44:   required from 'double automl_zero::Executor<F>::Execute(std::vector<double>*, std::vector<double>*) [with int F = 32]'
+evaluator.cc:159:5:   required from 'double automl_zero::Evaluator::ExecuteImpl(const automl_zero::Task<F>&, automl_zero::IntegerT, const automl_zero::Algorithm&) [with int F = 32; automl_zero::IntegerT = long int]'
+evaluator.cc:134:76:   required from here
+task.h:317:26: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (current_example_ >= features_->size()) {
+task.h: In instantiation of 'bool automl_zero::TaskIterator<F>::Done() const [with int F = 32]':
+executor.h:1320:5:   required from 'double automl_zero::Executor<F>::Validate(std::vector<double>*) [with int F = 32]'
+executor.h:1046:44:   required from 'double automl_zero::Executor<F>::Execute(std::vector<double>*, std::vector<double>*) [with int F = 32]'
+evaluator.cc:159:5:   required from 'double automl_zero::Evaluator::ExecuteImpl(const automl_zero::Task<F>&, automl_zero::IntegerT, const automl_zero::Algorithm&) [with int F = 32; automl_zero::IntegerT = long int]'
+evaluator.cc:134:76:   required from here
+task.h:311:27: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     return current_epoch_ >= epochs_->size();
+            ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+In file included from definitions.h:34:0,
+                 from instruction.h:24,
+                 from algorithm.h:24,
+                 from evaluator.h:23,
+                 from evaluator.cc:15:
+bazel-out/k8-opt/bin/external/com_google_glog/_virtual_includes/default_glog_headers/glog/logging.h: In instantiation of 'std::__cxx11::string* google::Check_LEImpl(const T1&, const T2&, const char*) [with T1 = long int; T2 = long unsigned int; std::__cxx11::string = std::__cxx11::basic_string<char>]':
+task.h:315:5:   required from 'void automl_zero::TaskIterator<F>::Next() [with int F = 2]'
+executor.h:1319:5:   required from 'double automl_zero::Executor<F>::Validate(std::vector<double>*) [with int F = 2]'
+executor.h:1046:44:   required from 'double automl_zero::Executor<F>::Execute(std::vector<double>*, std::vector<double>*) [with int F = 2]'
+evaluator.cc:159:5:   required from 'double automl_zero::Evaluator::ExecuteImpl(const automl_zero::Task<F>&, automl_zero::IntegerT, const automl_zero::Algorithm&) [with int F = 2; automl_zero::IntegerT = long int]'
+evaluator.cc:118:75:   required from here
+bazel-out/k8-opt/bin/external/com_google_glog/_virtual_includes/default_glog_headers/glog/logging.h:730:32: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+ DEFINE_CHECK_OP_IMPL(Check_LE, <=)
+                                ^
+bazel-out/k8-opt/bin/external/com_google_glog/_virtual_includes/default_glog_headers/glog/logging.h:148:53: note: in definition of macro 'GOOGLE_PREDICT_TRUE'
+ #define GOOGLE_PREDICT_TRUE(x) (__builtin_expect(!!(x), 1))
+                                                     ^
+bazel-out/k8-opt/bin/external/com_google_glog/_virtual_includes/default_glog_headers/glog/logging.h:730:1: note: in expansion of macro 'DEFINE_CHECK_OP_IMPL'
+ DEFINE_CHECK_OP_IMPL(Check_LE, <=)
+ ^~~~~~~~~~~~~~~~~~~~
+In file included from fec_cache.h:24:0,
+                 from evaluator.h:28,
+                 from evaluator.cc:15:
+executor.h: In member function 'double automl_zero::Executor<F>::Validate(std::vector<double>*) [with int F = 2]':
+executor.h:1326:10: warning: 'fitness' may be used uninitialized in this function [-Wmaybe-uninitialized]
+   double fitness;
+          ^~~~~~~
+executor.h: In member function 'double automl_zero::Executor<F>::Validate(std::vector<double>*) [with int F = 4]':
+executor.h:1326:10: warning: 'fitness' may be used uninitialized in this function [-Wmaybe-uninitialized]
+executor.h: In member function 'double automl_zero::Executor<F>::Validate(std::vector<double>*) [with int F = 32]':
+executor.h:1326:10: warning: 'fitness' may be used uninitialized in this function [-Wmaybe-uninitialized]
+executor.h: In member function 'double automl_zero::Executor<F>::Validate(std::vector<double>*) [with int F = 16]':
+executor.h:1326:10: warning: 'fitness' may be used uninitialized in this function [-Wmaybe-uninitialized]
+executor.h: In member function 'double automl_zero::Executor<F>::Validate(std::vector<double>*) [with int F = 8]':
+executor.h:1326:10: warning: 'fitness' may be used uninitialized in this function [-Wmaybe-uninitialized]
+INFO: From Compiling fec_cache.cc:
+In file included from fec_cache.h:24:0,
+                 from fec_cache.cc:15:
+executor.h:822:10: warning: variable templates only available with -std=c++14 or -std=gnu++14
+     128> kOpIndexToExecuteFunction = {
+          ^~~~~~~~~~~~~~~~~~~~~~~~~
+fec_cache.cc: In member function 'void automl_zero::LRUCache::MaybeResize()':
+fec_cache.cc:92:23: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   while (list_.size() > max_size_) {
+          ~~~~~~~~~~~~~^~~~~~~~~~~
+INFO: From Compiling task_util.cc:
+In file included from task_util.h:26:0,
+                 from task_util.cc:15:
+executor.h:822:10: warning: variable templates only available with -std=c++14 or -std=gnu++14
+     128> kOpIndexToExecuteFunction = {
+          ^~~~~~~~~~~~~~~~~~~~~~~~~
+task_util.cc: In function 'void automl_zero::FillTasksFromTaskSpec(const automl_zero::TaskSpec&, std::vector<std::unique_ptr<automl_zero::TaskInterface> >*)':
+task_util.cc:93:11: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+         i < first_param_seeds.size() ? first_param_seeds[i] : param_seed + 1;
+         ~~^~~~~~~~~~~~~~~~~~~~~~~~~~
+task_util.cc:95:11: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+         i < first_data_seeds.size() ? first_data_seeds[i] : data_seed + 1;
+         ~~^~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from task_util.cc:15:0:
+task_util.h: In instantiation of 'static void automl_zero::ProjectedBinaryClassificationTaskCreator<F>::Create(automl_zero::EvalType, const automl_zero::ProjectedBinaryClassificationTask&, automl_zero::IntegerT, automl_zero::IntegerT, automl_zero::IntegerT, automl_zero::RandomSeedT, automl_zero::TaskBuffer<F>*) [with int F = 2; automl_zero::IntegerT = long int; automl_zero::RandomSeedT = unsigned int]':
+task_util.h:483:58:   required from 'std::unique_ptr<automl_zero::Task<F> > automl_zero::CreateTask(automl_zero::IntegerT, automl_zero::RandomSeedT, automl_zero::RandomSeedT, const automl_zero::TaskSpec&) [with int F = 2; automl_zero::IntegerT = long int; automl_zero::RandomSeedT = unsigned int]'
+task_util.cc:101:73:   required from here
+task_util.h:227:28: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     for (IntegerT k = 0; k < buffer->train_features_.size(); ++k)  {
+task_util.h:240:28: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     for (IntegerT k = 0; k < buffer->valid_features_.size(); ++k)  {
+In file included from definitions.h:34:0,
+                 from task.h:27,
+                 from task_util.h:23,
+                 from task_util.cc:15:
+bazel-out/k8-opt/bin/external/com_google_glog/_virtual_includes/default_glog_headers/glog/logging.h: In instantiation of 'std::__cxx11::string* google::Check_EQImpl(const T1&, const T2&, const char*) [with T1 = long unsigned int; T2 = int; std::__cxx11::string = std::__cxx11::basic_string<char>]':
+task_util.h:528:3:   required from 'std::unique_ptr<automl_zero::Task<F> > automl_zero::CreateTask(automl_zero::IntegerT, automl_zero::RandomSeedT, automl_zero::RandomSeedT, const automl_zero::TaskSpec&) [with int F = 2; automl_zero::IntegerT = long int; automl_zero::RandomSeedT = unsigned int]'
+task_util.cc:101:73:   required from here
+bazel-out/k8-opt/bin/external/com_google_glog/_virtual_includes/default_glog_headers/glog/logging.h:728:32: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+ DEFINE_CHECK_OP_IMPL(Check_EQ, ==)  // Compilation error with CHECK_EQ(NULL, x)?
+                                ^
+bazel-out/k8-opt/bin/external/com_google_glog/_virtual_includes/default_glog_headers/glog/logging.h:148:53: note: in definition of macro 'GOOGLE_PREDICT_TRUE'
+ #define GOOGLE_PREDICT_TRUE(x) (__builtin_expect(!!(x), 1))
+                                                     ^
+bazel-out/k8-opt/bin/external/com_google_glog/_virtual_includes/default_glog_headers/glog/logging.h:728:1: note: in expansion of macro 'DEFINE_CHECK_OP_IMPL'
+ DEFINE_CHECK_OP_IMPL(Check_EQ, ==)  // Compilation error with CHECK_EQ(NULL, x)?
+ ^~~~~~~~~~~~~~~~~~~~
+In file included from task_util.cc:15:0:
+task_util.h: In instantiation of 'static void automl_zero::ProjectedBinaryClassificationTaskCreator<F>::Create(automl_zero::EvalType, const automl_zero::ProjectedBinaryClassificationTask&, automl_zero::IntegerT, automl_zero::IntegerT, automl_zero::IntegerT, automl_zero::RandomSeedT, automl_zero::TaskBuffer<F>*) [with int F = 4; automl_zero::IntegerT = long int; automl_zero::RandomSeedT = unsigned int]':
+task_util.h:483:58:   required from 'std::unique_ptr<automl_zero::Task<F> > automl_zero::CreateTask(automl_zero::IntegerT, automl_zero::RandomSeedT, automl_zero::RandomSeedT, const automl_zero::TaskSpec&) [with int F = 4; automl_zero::IntegerT = long int; automl_zero::RandomSeedT = unsigned int]'
+task_util.cc:105:73:   required from here
+task_util.h:227:28: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     for (IntegerT k = 0; k < buffer->train_features_.size(); ++k)  {
+task_util.h:240:28: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     for (IntegerT k = 0; k < buffer->valid_features_.size(); ++k)  {
+task_util.h: In instantiation of 'static void automl_zero::ProjectedBinaryClassificationTaskCreator<F>::Create(automl_zero::EvalType, const automl_zero::ProjectedBinaryClassificationTask&, automl_zero::IntegerT, automl_zero::IntegerT, automl_zero::IntegerT, automl_zero::RandomSeedT, automl_zero::TaskBuffer<F>*) [with int F = 8; automl_zero::IntegerT = long int; automl_zero::RandomSeedT = unsigned int]':
+task_util.h:483:58:   required from 'std::unique_ptr<automl_zero::Task<F> > automl_zero::CreateTask(automl_zero::IntegerT, automl_zero::RandomSeedT, automl_zero::RandomSeedT, const automl_zero::TaskSpec&) [with int F = 8; automl_zero::IntegerT = long int; automl_zero::RandomSeedT = unsigned int]'
+task_util.cc:109:73:   required from here
+task_util.h:227:28: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     for (IntegerT k = 0; k < buffer->train_features_.size(); ++k)  {
+task_util.h:240:28: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     for (IntegerT k = 0; k < buffer->valid_features_.size(); ++k)  {
+task_util.h: In instantiation of 'static void automl_zero::ProjectedBinaryClassificationTaskCreator<F>::Create(automl_zero::EvalType, const automl_zero::ProjectedBinaryClassificationTask&, automl_zero::IntegerT, automl_zero::IntegerT, automl_zero::IntegerT, automl_zero::RandomSeedT, automl_zero::TaskBuffer<F>*) [with int F = 16; automl_zero::IntegerT = long int; automl_zero::RandomSeedT = unsigned int]':
+task_util.h:483:58:   required from 'std::unique_ptr<automl_zero::Task<F> > automl_zero::CreateTask(automl_zero::IntegerT, automl_zero::RandomSeedT, automl_zero::RandomSeedT, const automl_zero::TaskSpec&) [with int F = 16; automl_zero::IntegerT = long int; automl_zero::RandomSeedT = unsigned int]'
+task_util.cc:113:74:   required from here
+task_util.h:227:28: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     for (IntegerT k = 0; k < buffer->train_features_.size(); ++k)  {
+task_util.h:240:28: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     for (IntegerT k = 0; k < buffer->valid_features_.size(); ++k)  {
+task_util.h: In instantiation of 'static void automl_zero::ProjectedBinaryClassificationTaskCreator<F>::Create(automl_zero::EvalType, const automl_zero::ProjectedBinaryClassificationTask&, automl_zero::IntegerT, automl_zero::IntegerT, automl_zero::IntegerT, automl_zero::RandomSeedT, automl_zero::TaskBuffer<F>*) [with int F = 32; automl_zero::IntegerT = long int; automl_zero::RandomSeedT = unsigned int]':
+task_util.h:483:58:   required from 'std::unique_ptr<automl_zero::Task<F> > automl_zero::CreateTask(automl_zero::IntegerT, automl_zero::RandomSeedT, automl_zero::RandomSeedT, const automl_zero::TaskSpec&) [with int F = 32; automl_zero::IntegerT = long int; automl_zero::RandomSeedT = unsigned int]'
+task_util.cc:117:74:   required from here
+task_util.h:227:28: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     for (IntegerT k = 0; k < buffer->train_features_.size(); ++k)  {
+task_util.h:240:28: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     for (IntegerT k = 0; k < buffer->valid_features_.size(); ++k)  {
+In file included from definitions.h:34:0,
+                 from task.h:27,
+                 from task_util.h:23,
+                 from task_util.cc:15:
+bazel-out/k8-opt/bin/external/com_google_glog/_virtual_includes/default_glog_headers/glog/logging.h: In instantiation of 'std::__cxx11::string* google::Check_GEImpl(const T1&, const T2&, const char*) [with T1 = int; T2 = long unsigned int; std::__cxx11::string = std::__cxx11::basic_string<char>]':
+task_util.h:217:5:   required from 'static void automl_zero::ProjectedBinaryClassificationTaskCreator<F>::Create(automl_zero::EvalType, const automl_zero::ProjectedBinaryClassificationTask&, automl_zero::IntegerT, automl_zero::IntegerT, automl_zero::IntegerT, automl_zero::RandomSeedT, automl_zero::TaskBuffer<F>*) [with int F = 2; automl_zero::IntegerT = long int; automl_zero::RandomSeedT = unsigned int]'
+task_util.h:483:58:   required from 'std::unique_ptr<automl_zero::Task<F> > automl_zero::CreateTask(automl_zero::IntegerT, automl_zero::RandomSeedT, automl_zero::RandomSeedT, const automl_zero::TaskSpec&) [with int F = 2; automl_zero::IntegerT = long int; automl_zero::RandomSeedT = unsigned int]'
+task_util.cc:101:73:   required from here
+bazel-out/k8-opt/bin/external/com_google_glog/_virtual_includes/default_glog_headers/glog/logging.h:732:32: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+ DEFINE_CHECK_OP_IMPL(Check_GE, >=)
+                                ^
+bazel-out/k8-opt/bin/external/com_google_glog/_virtual_includes/default_glog_headers/glog/logging.h:148:53: note: in definition of macro 'GOOGLE_PREDICT_TRUE'
+ #define GOOGLE_PREDICT_TRUE(x) (__builtin_expect(!!(x), 1))
+                                                     ^
+bazel-out/k8-opt/bin/external/com_google_glog/_virtual_includes/default_glog_headers/glog/logging.h:732:1: note: in expansion of macro 'DEFINE_CHECK_OP_IMPL'
+ DEFINE_CHECK_OP_IMPL(Check_GE, >=)
+ ^~~~~~~~~~~~~~~~~~~~
+task_util.cc:95:37: warning: 'data_seed' may be used uninitialized in this function [-Wmaybe-uninitialized]
+         i < first_data_seeds.size() ? first_data_seeds[i] : data_seed + 1;
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+task_util.cc:93:38: warning: 'param_seed' may be used uninitialized in this function [-Wmaybe-uninitialized]
+         i < first_param_seeds.size() ? first_param_seeds[i] : param_seed + 1;
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[336 / 428] Compiling external/com_google_protobuf/src/google/protobuf/descriptor.cc; 7s linux-sandbox ... (4 actions, 3 running)
+INFO: From Compiling mutator.cc:
+mutator.cc: In member function 'void automl_zero::Mutator::InsertInstruction(automl_zero::Algorithm*)':
+mutator.cc:253:36: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       if (algorithm->setup_.size() >= setup_size_max_ - 1) return;
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~
+mutator.cc:259:38: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       if (algorithm->predict_.size() >= predict_size_max_ - 1) return;
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~
+mutator.cc:265:36: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       if (algorithm->learn_.size() >= learn_size_max_ - 1) return;
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~
+In file included from definitions.h:34:0,
+                 from instruction.h:24,
+                 from algorithm.h:24,
+                 from mutator.h:21,
+                 from mutator.cc:15:
+bazel-out/k8-opt/bin/external/com_google_glog/_virtual_includes/default_glog_headers/glog/logging.h: In instantiation of 'std::__cxx11::string* google::Check_GTImpl(const T1&, const T2&, const char*) [with T1 = long unsigned int; T2 = int; std::__cxx11::string = std::__cxx11::basic_string<char>]':
+mutator.cc:343:3:   required from here
+bazel-out/k8-opt/bin/external/com_google_glog/_virtual_includes/default_glog_headers/glog/logging.h:733:32: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+ DEFINE_CHECK_OP_IMPL(Check_GT, > )
+                                ^
+bazel-out/k8-opt/bin/external/com_google_glog/_virtual_includes/default_glog_headers/glog/logging.h:148:53: note: in definition of macro 'GOOGLE_PREDICT_TRUE'
+ #define GOOGLE_PREDICT_TRUE(x) (__builtin_expect(!!(x), 1))
+                                                     ^
+bazel-out/k8-opt/bin/external/com_google_glog/_virtual_includes/default_glog_headers/glog/logging.h:733:1: note: in expansion of macro 'DEFINE_CHECK_OP_IMPL'
+ DEFINE_CHECK_OP_IMPL(Check_GT, > )
+ ^~~~~~~~~~~~~~~~~~~~
+mutator.cc:271:35: warning: 'component_function' may be used uninitialized in this function [-Wmaybe-uninitialized]
+   InsertInstructionUnconditionally(op, component_function);
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~
+mutator.cc:271:35: warning: 'op' may be used uninitialized in this function [-Wmaybe-uninitialized]
+mutator.cc: In member function 'void automl_zero::Mutator::RemoveInstruction(automl_zero::Algorithm*)':
+mutator.cc:293:35: warning: 'component_function' may be used uninitialized in this function [-Wmaybe-uninitialized]
+   RemoveInstructionUnconditionally(component_function);
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~
+mutator.cc: In member function 'void automl_zero::Mutator::TradeInstruction(automl_zero::Algorithm*)':
+mutator.cc:317:35: warning: 'component_function' may be used uninitialized in this function [-Wmaybe-uninitialized]
+   RemoveInstructionUnconditionally(component_function);
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~
+mutator.cc:316:35: warning: 'op' may be used uninitialized in this function [-Wmaybe-uninitialized]
+   InsertInstructionUnconditionally(op, component_function);
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~
+INFO: From Compiling regularized_evolution.cc:
+In file included from fec_cache.h:24:0,
+                 from evaluator.h:28,
+                 from regularized_evolution.h:26,
+                 from regularized_evolution.cc:15:
+executor.h:822:10: warning: variable templates only available with -std=c++14 or -std=gnu++14
+     128> kOpIndexToExecuteFunction = {
+          ^~~~~~~~~~~~~~~~~~~~~~~~~
+[364 / 428] Compiling external/com_google_protobuf/src/google/protobuf/extension_set.cc; 1s linux-sandbox ... (4 actions, 3 running)
+INFO: From Compiling compute_cost.cc:
+compute_cost.cc: In function 'double automl_zero::ComputeCost(const automl_zero::Instruction&)':
+compute_cost.cc:173:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+[399 / 428] Compiling external/com_google_protobuf/src/google/protobuf/wire_format.cc; 2s linux-sandbox ... (4 actions, 3 running)
+INFO: From Compiling fec_hashing.cc:
+In file included from fec_hashing.h:21:0,
+                 from fec_hashing.cc:15:
+executor.h:822:10: warning: variable templates only available with -std=c++14 or -std=gnu++14
+     128> kOpIndexToExecuteFunction = {
+          ^~~~~~~~~~~~~~~~~~~~~~~~~
+Target //:run_search_experiment up-to-date:
+  bazel-bin/run_search_experiment
+INFO: Elapsed time: 83.399s, Critical Path: 26.15s
+INFO: 215 processes: 215 linux-sandbox.
+INFO: Build completed successfully, 216 total actions
+INFO: Running command line: bazel-bin/run_search_experiment '--search_experiment_spec=     search_tasks {       tasks {         projected_binary_classification_task {           dataset_name: '\''logic_multiply'\''           path: '\''/home/ubuntu/codes/google-research/automl_zero/binary_logic_data/'\''           held_out_pairs {positive_class: 0 negative_class: 1}           max_supported_data_seed: 1         }         features_size: 2         num_train_examples: 145151         num_valid_examples: 20736         num_train_epochs: 1         num_tasks: 1         eval_type: ACCURACY       }     }     setup_ops: [SCALAR_PRODUCT_OP, SCALAR_SUM_OP, SCALAR_HEAVYSIDE_OP, VECTOR_MEAN_OP]     predict_ops: [SCALAR_PRODUCT_OP, SCALAR_SUM_OP, SCALAR_HEAVYSIDE_OP, VECTOR_MEAN_OP]     learn_ops: [SCALAR_PRODUCT_OP, SCALAR_SUM_OP, SCALAR_HEAVYSIDE_OP, VECTOR_MEAN_OP]     setup_size_init: 1     mutate_setup_size_min: 1     mutate_setup_size_max: 13     predict_size_init: 1     mutate_predict_size_min: 1     mutate_predict_size_max: 21     learn_size_init: 1     mutate_learn_size_min: 1     mutate_learn_size_max: 34     train_budget {train_budget_baseline: NEURAL_NET_ALGORITHM}     fitness_combination_mode: MEAN_FITNESS_COMBINATION     population_size: 1000     tournament_size: 100     initial_population: NO_OP_ALGORITHM     max_train_steps: 1000000000000     allowed_mutation_types {
+      mutation_types: [INSERT_INSTRUCTION_MUTATION_TYPE, REMOVE_INSTRUCTION_MUTATION_TYPE, ALTER_PARAM_MUTATION_TYPE, TRADE_INSTRUCTION_MUTATION_TYPE]     }     mutate_prob: 0.9     progress_every: 10000     ' '--final_tasks=
+    tasks {       projected_binary_classification_task {         dataset_name: '\''logic_multiply'\''         path: '\''/home/ubuntu/codes/google-research/automl_zero/binary_logic_data/'\''         held_out_pairs {positive_class: 0 negative_class: 1}         max_supported_data_seed: 1       }       features_size: 2       num_train_examples: 145151       num_valid_examples: 20736       num_train_epochs: 1       num_tasks: 1       eval_type: ACCURACY     }     ' '--random_seed=2081894615' '--select_tasks=
+    tasks {       projected_binary_classification_task {         dataset_name: '\''logic_multiply'\''         path: '\''/home/ubuntu/codes/google-research/automl_zero/binary_logic_data/'\''         held_out_pairs {positive_class: 0 negative_class: 1}         max_supported_data_seed: 1       }       features_size: 2       num_train_examples: 145151       num_valid_examples: 20736       num_train_epochs: 1       num_tasks: 10       eval_type: ACCURACY     }     '
+INFO: Build completed successfully, 216 total actions
 Random seed = 2081894615
 Running evolution experiment (on the T_search tasks)...
-indivs=1000, elapsed_secs=4, mean=0.980469, stdev=0.000000, best fit=0.980469,
-indivs=11000, elapsed_secs=52, mean=0.973742, stdev=0.080116, best fit=0.980469,
-indivs=21000, elapsed_secs=106, mean=0.972781, stdev=0.085604, best fit=0.980469,
-indivs=31000, elapsed_secs=164, mean=0.971820, stdev=0.090751, best fit=0.980469,
-indivs=41000, elapsed_secs=223, mean=0.972781, stdev=0.085604, best fit=0.980469,
-indivs=51000, elapsed_secs=282, mean=0.974703, stdev=0.074210, best fit=0.980469,
-indivs=61000, elapsed_secs=343, mean=0.972781, stdev=0.085604, best fit=0.980469,
-indivs=71000, elapsed_secs=407, mean=0.970859, stdev=0.095612, best fit=0.980469,
-indivs=81000, elapsed_secs=472, mean=0.972781, stdev=0.085604, best fit=0.980469,
-indivs=91000, elapsed_secs=540, mean=0.973742, stdev=0.080116, best fit=0.980469,
-indivs=101000, elapsed_secs=610, mean=0.973742, stdev=0.080116, best fit=0.980469,
-indivs=111000, elapsed_secs=681, mean=0.972781, stdev=0.085604, best fit=0.980469,
-indivs=121000, elapsed_secs=752, mean=0.974703, stdev=0.074210, best fit=0.980469,
-indivs=131000, elapsed_secs=821, mean=0.976625, stdev=0.060653, best fit=0.980469,
-indivs=141000, elapsed_secs=886, mean=0.975664, stdev=0.067778, best fit=0.980469,
-indivs=151000, elapsed_secs=954, mean=0.973742, stdev=0.080116, best fit=0.980469,
-indivs=161000, elapsed_secs=1024, mean=0.974703, stdev=0.074210, best fit=0.980469,
-indivs=171000, elapsed_secs=1094, mean=0.967516, stdev=0.109767, best fit=0.980469,
-indivs=181000, elapsed_secs=1164, mean=0.970859, stdev=0.095612, best fit=0.980469,
-indivs=191000, elapsed_secs=1233, mean=0.973281, stdev=0.081392, best fit=0.980469,
-indivs=201000, elapsed_secs=1303, mean=0.973742, stdev=0.080116, best fit=0.980469,
-indivs=211000, elapsed_secs=1373, mean=0.967977, stdev=0.108849, best fit=0.980469,
-indivs=221000, elapsed_secs=1443, mean=0.971820, stdev=0.090751, best fit=0.980469,
-indivs=231000, elapsed_secs=1514, mean=0.968941, stdev=0.104632, best fit=0.980517,
-indivs=241000, elapsed_secs=1584, mean=0.951223, stdev=0.164497, best fit=0.980517,
-indivs=251000, elapsed_secs=1659, mean=0.953145, stdev=0.159126, best fit=0.980517,
-indivs=261000, elapsed_secs=1739, mean=0.952645, stdev=0.161259, best fit=0.980517,
-indivs=271000, elapsed_secs=1821, mean=0.948802, stdev=0.171667, best fit=0.980517,
-indivs=281000, elapsed_secs=1905, mean=0.949302, stdev=0.169676, best fit=0.980517,
-indivs=291000, elapsed_secs=1990, mean=0.956588, stdev=0.148208, best fit=0.980517,
-indivs=301000, elapsed_secs=2076, mean=0.944497, stdev=0.181891, best fit=0.980517,
-indivs=311000, elapsed_secs=2162, mean=0.950823, stdev=0.164916, best fit=0.980517,
-indivs=321000, elapsed_secs=2254, mean=0.940193, stdev=0.191474, best fit=0.980517,
-indivs=331000, elapsed_secs=2346, mean=0.950727, stdev=0.165195, best fit=0.980517,
-indivs=341000, elapsed_secs=2438, mean=0.939692, stdev=0.193216, best fit=0.980517,
-indivs=351000, elapsed_secs=2531, mean=0.943998, stdev=0.183737, best fit=0.980517,
-indivs=361000, elapsed_secs=2627, mean=0.950569, stdev=0.165623, best fit=0.980517,
-indivs=371000, elapsed_secs=2724, mean=0.937771, stdev=0.197532, best fit=0.980517,
-indivs=381000, elapsed_secs=2823, mean=0.952089, stdev=0.162123, best fit=0.980517,
-indivs=391000, elapsed_secs=2925, mean=0.948803, stdev=0.171667, best fit=0.980517,
-indivs=401000, elapsed_secs=3029, mean=0.948401, stdev=0.172062, best fit=0.980517,
-indivs=411000, elapsed_secs=3134, mean=0.955530, stdev=0.152927, best fit=0.980517,
-indivs=421000, elapsed_secs=3239, mean=0.949609, stdev=0.168214, best fit=0.980517,
-indivs=431000, elapsed_secs=3348, mean=0.950724, stdev=0.166556, best fit=0.980517,
-indivs=441000, elapsed_secs=3460, mean=0.964179, stdev=0.124227, best fit=0.980517,
-indivs=451000, elapsed_secs=3574, mean=0.950263, stdev=0.167109, best fit=0.980517,
-indivs=461000, elapsed_secs=3688, mean=0.951225, stdev=0.164497, best fit=0.980517,
-indivs=471000, elapsed_secs=3800, mean=0.957452, stdev=0.147078, best fit=0.980517,
-indivs=481000, elapsed_secs=3912, mean=0.954569, stdev=0.155760, best fit=0.980517,
-indivs=491000, elapsed_secs=4025, mean=0.947940, stdev=0.172592, best fit=0.980517,
-indivs=501000, elapsed_secs=4138, mean=0.945519, stdev=0.179395, best fit=0.980517,
-indivs=511000, elapsed_secs=4251, mean=0.947842, stdev=0.174158, best fit=0.980517,
-indivs=521000, elapsed_secs=4365, mean=0.958413, stdev=0.144055, best fit=0.980517,
-indivs=531000, elapsed_secs=4476, mean=0.957050, stdev=0.146032, best fit=0.980517,
-indivs=541000, elapsed_secs=4584, mean=0.945920, stdev=0.179022, best fit=0.980517,
-indivs=551000, elapsed_secs=4691, mean=0.950302, stdev=0.165619, best fit=0.980517,
-indivs=561000, elapsed_secs=4797, mean=0.956491, stdev=0.150034, best fit=0.980517,
-indivs=571000, elapsed_secs=4902, mean=0.947842, stdev=0.174158, best fit=0.980517,
-indivs=581000, elapsed_secs=5008, mean=0.943537, stdev=0.184222, best fit=0.980517,
-indivs=591000, elapsed_secs=5113, mean=0.946420, stdev=0.177122, best fit=0.980517,
-indivs=601000, elapsed_secs=5224, mean=0.945862, stdev=0.177889, best fit=0.980517,
-indivs=611000, elapsed_secs=5338, mean=0.950764, stdev=0.165058, best fit=0.980517,
-indivs=621000, elapsed_secs=5449, mean=0.946881, stdev=0.176609, best fit=0.980517,
-indivs=631000, elapsed_secs=5562, mean=0.951686, stdev=0.163932, best fit=0.980517,
-indivs=641000, elapsed_secs=5675, mean=0.950668, stdev=0.165339, best fit=0.980517,
-indivs=651000, elapsed_secs=5787, mean=0.955530, stdev=0.152927, best fit=0.980517,
-indivs=661000, elapsed_secs=5899, mean=0.946881, stdev=0.176609, best fit=0.980517,
-indivs=671000, elapsed_secs=6012, mean=0.952284, stdev=0.160148, best fit=0.980517,
-indivs=681000, elapsed_secs=6125, mean=0.954168, stdev=0.156208, best fit=0.980517,
+indivs=1000, elapsed_secs=5, mean=0.980469, stdev=0.000000, best fit=0.980469,
+indivs=11000, elapsed_secs=60, mean=0.975664, stdev=0.067778, best fit=0.980469,
+indivs=21000, elapsed_secs=123, mean=0.978547, stdev=0.042931, best fit=0.980469,
+indivs=31000, elapsed_secs=192, mean=0.977586, stdev=0.052554, best fit=0.980469,
+indivs=41000, elapsed_secs=265, mean=0.979508, stdev=0.030372, best fit=0.980469,
+indivs=51000, elapsed_secs=342, mean=0.979911, stdev=0.017614, best fit=0.980469,
+indivs=61000, elapsed_secs=424, mean=0.978547, stdev=0.042931, best fit=0.980469,
+indivs=71000, elapsed_secs=516, mean=0.969898, stdev=0.100228, best fit=0.980469,
+indivs=81000, elapsed_secs=610, mean=0.975664, stdev=0.067778, best fit=0.980469,
+indivs=91000, elapsed_secs=705, mean=0.977586, stdev=0.052554, best fit=0.980469,
+indivs=101000, elapsed_secs=803, mean=0.977586, stdev=0.052554, best fit=0.980469,
+indivs=111000, elapsed_secs=900, mean=0.977586, stdev=0.052554, best fit=0.980469,
+indivs=121000, elapsed_secs=998, mean=0.976125, stdev=0.062648, best fit=0.980469,
+indivs=131000, elapsed_secs=1099, mean=0.972781, stdev=0.085604, best fit=0.980469,
+indivs=141000, elapsed_secs=1202, mean=0.976625, stdev=0.060653, best fit=0.980469,
+indivs=151000, elapsed_secs=1303, mean=0.977586, stdev=0.052554, best fit=0.980469,
+indivs=161000, elapsed_secs=1406, mean=0.979508, stdev=0.030372, best fit=0.980469,
+indivs=171000, elapsed_secs=1514, mean=0.972781, stdev=0.085604, best fit=0.980469,
+indivs=181000, elapsed_secs=1626, mean=0.976625, stdev=0.060653, best fit=0.980469,
+indivs=191000, elapsed_secs=1734, mean=0.972781, stdev=0.085604, best fit=0.980469,
+indivs=201000, elapsed_secs=1837, mean=0.975664, stdev=0.067778, best fit=0.980469,
+indivs=211000, elapsed_secs=1933, mean=0.977586, stdev=0.052554, best fit=0.980469,
+indivs=221000, elapsed_secs=2029, mean=0.976068, stdev=0.063125, best fit=0.980469,
+indivs=231000, elapsed_secs=2131, mean=0.979508, stdev=0.030372, best fit=0.980469,
+indivs=241000, elapsed_secs=2232, mean=0.979508, stdev=0.030372, best fit=0.980469,
+indivs=251000, elapsed_secs=2326, mean=0.974703, stdev=0.074210, best fit=0.980469,
+indivs=261000, elapsed_secs=2425, mean=0.977586, stdev=0.052554, best fit=0.980469,
+indivs=271000, elapsed_secs=2524, mean=0.979508, stdev=0.030372, best fit=0.980469,
+indivs=281000, elapsed_secs=2621, mean=0.970859, stdev=0.095612, best fit=0.980469,
+indivs=291000, elapsed_secs=2720, mean=0.975664, stdev=0.067778, best fit=0.980469,
+indivs=301000, elapsed_secs=2819, mean=0.976625, stdev=0.060653, best fit=0.980469,
+indivs=311000, elapsed_secs=2919, mean=0.979508, stdev=0.030372, best fit=0.980469,
+indivs=321000, elapsed_secs=3021, mean=0.979508, stdev=0.030372, best fit=0.980469,
+indivs=331000, elapsed_secs=3128, mean=0.975664, stdev=0.067778, best fit=0.980469,
+indivs=341000, elapsed_secs=3236, mean=0.974703, stdev=0.074211, best fit=0.980469,
+indivs=351000, elapsed_secs=3349, mean=0.977586, stdev=0.052554, best fit=0.980469,
+indivs=361000, elapsed_secs=3468, mean=0.975664, stdev=0.067778, best fit=0.980469,
+indivs=371000, elapsed_secs=3587, mean=0.973742, stdev=0.080116, best fit=0.980469,
+indivs=381000, elapsed_secs=3703, mean=0.979508, stdev=0.030372, best fit=0.980469,
+indivs=391000, elapsed_secs=3815, mean=0.977586, stdev=0.052554, best fit=0.980469,
+indivs=401000, elapsed_secs=3922, mean=0.943036, stdev=0.186042, best fit=0.980517,
+indivs=411000, elapsed_secs=4030, mean=0.949763, stdev=0.169133, best fit=0.980517,
+indivs=421000, elapsed_secs=4141, mean=0.952087, stdev=0.162128, best fit=0.980517,
+indivs=431000, elapsed_secs=4254, mean=0.956491, stdev=0.150034, best fit=0.980517,
+indivs=441000, elapsed_secs=4371, mean=0.961855, stdev=0.131754, best fit=0.980517,
+indivs=451000, elapsed_secs=4489, mean=0.955128, stdev=0.153388, best fit=0.980517,
+indivs=461000, elapsed_secs=4615, mean=0.955971, stdev=0.150907, best fit=0.980517,
+indivs=471000, elapsed_secs=4740, mean=0.954569, stdev=0.155759, best fit=0.980517,
+indivs=481000, elapsed_secs=4872, mean=0.954010, stdev=0.156666, best fit=0.980517,
+indivs=491000, elapsed_secs=5002, mean=0.948244, stdev=0.172471, best fit=0.980517,
+indivs=501000, elapsed_secs=5133, mean=0.948186, stdev=0.172790, best fit=0.980517,
+indivs=511000, elapsed_secs=5267, mean=0.953932, stdev=0.157136, best fit=0.980517,
+indivs=521000, elapsed_secs=5404, mean=0.958393, stdev=0.144183, best fit=0.980517,
+indivs=531000, elapsed_secs=5545, mean=0.951686, stdev=0.163932, best fit=0.980517,
+indivs=541000, elapsed_secs=5689, mean=0.968023, stdev=0.108855, best fit=0.980517,
+indivs=551000, elapsed_secs=5834, mean=0.962237, stdev=0.131340, best fit=0.980517,
+indivs=561000, elapsed_secs=5982, mean=0.964179, stdev=0.124227, best fit=0.980517,
+indivs=571000, elapsed_secs=6129, mean=0.963757, stdev=0.124972, best fit=0.980517,
+indivs=581000, elapsed_secs=6275, mean=0.956875, stdev=0.148167, best fit=0.980517,
+indivs=591000, elapsed_secs=6422, mean=0.962218, stdev=0.131481, best fit=0.980517,
+indivs=601000, elapsed_secs=6568, mean=0.957451, stdev=0.147078, best fit=0.980517,
+indivs=611000, elapsed_secs=6715, mean=0.964179, stdev=0.124227, best fit=0.980517,
+indivs=621000, elapsed_secs=6862, mean=0.966964, stdev=0.113731, best fit=0.980517,
+indivs=631000, elapsed_secs=7008, mean=0.954374, stdev=0.156940, best fit=0.980517,
+indivs=641000, elapsed_secs=7154, mean=0.948608, stdev=0.172732, best fit=0.980517,
+indivs=651000, elapsed_secs=7300, mean=0.958374, stdev=0.144312, best fit=0.980517,
+indivs=661000, elapsed_secs=7446, mean=0.961776, stdev=0.132082, best fit=0.980517,
+indivs=671000, elapsed_secs=7589, mean=0.964640, stdev=0.121705, best fit=0.980517,
+indivs=681000, elapsed_secs=7732, mean=0.968003, stdev=0.109026, best fit=0.980517,
+indivs=691000, elapsed_secs=7877, mean=0.965081, stdev=0.121043, best fit=0.980517,
+indivs=701000, elapsed_secs=8023, mean=0.958315, stdev=0.144696, best fit=0.980517,
+indivs=711000, elapsed_secs=8169, mean=0.951589, stdev=0.164492, best fit=0.980517,
+indivs=721000, elapsed_secs=8316, mean=0.960257, stdev=0.138328, best fit=0.980517,
+indivs=731000, elapsed_secs=8462, mean=0.958374, stdev=0.144312, best fit=0.980517,
+indivs=741000, elapsed_secs=8605, mean=0.959777, stdev=0.139159, best fit=0.980517,
+indivs=751000, elapsed_secs=8746, mean=0.956452, stdev=0.150280, best fit=0.980517,
+indivs=761000, elapsed_secs=8890, mean=0.947745, stdev=0.174684, best fit=0.980517,
+indivs=771000, elapsed_secs=9035, mean=0.965101, stdev=0.120889, best fit=0.980517,
+indivs=781000, elapsed_secs=9181, mean=0.962199, stdev=0.131623, best fit=0.980517,
+indivs=791000, elapsed_secs=9328, mean=0.962159, stdev=0.131905, best fit=0.980517,
+indivs=801000, elapsed_secs=9478, mean=0.961179, stdev=0.135364, best fit=0.980517,
+indivs=811000, elapsed_secs=9624, mean=0.948726, stdev=0.172094, best fit=0.980517,
+indivs=821000, elapsed_secs=9770, mean=0.959316, stdev=0.141355, best fit=0.980517,
+indivs=831000, elapsed_secs=9916, mean=0.956932, stdev=0.148101, best fit=0.980517,
+indivs=841000, elapsed_secs=10063, mean=0.955355, stdev=0.154010, best fit=0.980517,
+indivs=851000, elapsed_secs=10209, mean=0.964159, stdev=0.124377, best fit=0.980517,
+indivs=861000, elapsed_secs=10356, mean=0.957393, stdev=0.147455, best fit=0.980517,
+indivs=871000, elapsed_secs=10500, mean=0.971866, stdev=0.090756, best fit=0.980517,
+indivs=881000, elapsed_secs=10643, mean=0.960296, stdev=0.138059, best fit=0.980517,
+indivs=891000, elapsed_secs=10786, mean=0.966502, stdev=0.114215, best fit=0.980517,
+indivs=901000, elapsed_secs=10933, mean=0.966081, stdev=0.116970, best fit=0.980517,
+indivs=911000, elapsed_secs=11085, mean=0.957374, stdev=0.147580, best fit=0.980517,
+indivs=921000, elapsed_secs=11238, mean=0.956451, stdev=0.148780, best fit=0.980517,
+indivs=931000, elapsed_secs=11391, mean=0.962218, stdev=0.131481, best fit=0.980517,
+indivs=941000, elapsed_secs=11544, mean=0.960679, stdev=0.136353, best fit=0.980517,
+indivs=951000, elapsed_secs=11699, mean=0.968464, stdev=0.106127, best fit=0.980517,
+indivs=961000, elapsed_secs=11858, mean=0.961237, stdev=0.134952, best fit=0.980517,
+indivs=971000, elapsed_secs=12016, mean=0.957355, stdev=0.147706, best fit=0.980517,
+indivs=981000, elapsed_secs=12174, mean=0.960816, stdev=0.135628, best fit=0.980517,
+indivs=991000, elapsed_secs=12332, mean=0.948549, stdev=0.173050, best fit=0.980517,
+indivs=1001000, elapsed_secs=12488, mean=0.953089, stdev=0.159473, best fit=0.980517,
+indivs=1011000, elapsed_secs=12641, mean=0.956432, stdev=0.150403, best fit=0.980517,
+indivs=1021000, elapsed_secs=12797, mean=0.962678, stdev=0.129108, best fit=0.980517,
+indivs=1031000, elapsed_secs=12953, mean=0.961257, stdev=0.134814, best fit=0.980517,
+indivs=1041000, elapsed_secs=13106, mean=0.963758, stdev=0.124969, best fit=0.980517,
+indivs=1051000, elapsed_secs=13264, mean=0.956393, stdev=0.150649, best fit=0.980517,
+indivs=1061000, elapsed_secs=13422, mean=0.954511, stdev=0.156115, best fit=0.980517,
+indivs=1071000, elapsed_secs=13578, mean=0.965101, stdev=0.120889, best fit=0.980517,
+indivs=1081000, elapsed_secs=13733, mean=0.961679, stdev=0.132439, best fit=0.980517,
+indivs=1091000, elapsed_secs=13887, mean=0.955836, stdev=0.151586, best fit=0.980517,
+indivs=1101000, elapsed_secs=14041, mean=0.963179, stdev=0.128055, best fit=0.980517,
+indivs=1111000, elapsed_secs=14187, mean=0.964640, stdev=0.121705, best fit=0.980517,
+indivs=1121000, elapsed_secs=14334, mean=0.959296, stdev=0.141486, best fit=0.980517,
+indivs=1131000, elapsed_secs=14485, mean=0.953550, stdev=0.158884, best fit=0.980517,
+indivs=1141000, elapsed_secs=14640, mean=0.955912, stdev=0.151104, best fit=0.980517,
+indivs=1151000, elapsed_secs=14794, mean=0.959355, stdev=0.141092, best fit=0.980517,
+indivs=1161000, elapsed_secs=14945, mean=0.950167, stdev=0.167658, best fit=0.980517,
+indivs=1171000, elapsed_secs=15097, mean=0.957776, stdev=0.145559, best fit=0.980517,
+indivs=1181000, elapsed_secs=15250, mean=0.961622, stdev=0.132860, best fit=0.980517,
+indivs=1191000, elapsed_secs=15398, mean=0.962198, stdev=0.131623, best fit=0.980517,
+indivs=1201000, elapsed_secs=15542, mean=0.956413, stdev=0.150526, best fit=0.980517,
+indivs=1211000, elapsed_secs=15686, mean=0.958393, stdev=0.144183, best fit=0.980517,
+indivs=1221000, elapsed_secs=15828, mean=0.972828, stdev=0.085609, best fit=0.980517,
+indivs=1231000, elapsed_secs=15971, mean=0.963499, stdev=0.126080, best fit=0.980517,
+indivs=1241000, elapsed_secs=16114, mean=0.961276, stdev=0.134676, best fit=0.980517,
+indivs=1251000, elapsed_secs=16255, mean=0.963198, stdev=0.127910, best fit=0.980517,
+indivs=1261000, elapsed_secs=16393, mean=0.962816, stdev=0.128340, best fit=0.980517,
+indivs=1271000, elapsed_secs=16531, mean=0.958413, stdev=0.144055, best fit=0.980517,
+indivs=1281000, elapsed_secs=16670, mean=0.963679, stdev=0.125316, best fit=0.980517,
+indivs=1291000, elapsed_secs=16812, mean=0.951647, stdev=0.164156, best fit=0.980517,
+indivs=1301000, elapsed_secs=16956, mean=0.951608, stdev=0.164380, best fit=0.980517,
+indivs=1311000, elapsed_secs=17097, mean=0.964159, stdev=0.124377, best fit=0.980517,
+indivs=1321000, elapsed_secs=17240, mean=0.958335, stdev=0.144568, best fit=0.980517,
+indivs=1331000, elapsed_secs=17384, mean=0.963198, stdev=0.127910, best fit=0.980517,
+indivs=1341000, elapsed_secs=17533, mean=0.958315, stdev=0.144696, best fit=0.980517,
+indivs=1351000, elapsed_secs=17681, mean=0.957933, stdev=0.144847, best fit=0.980517,
+indivs=1361000, elapsed_secs=17829, mean=0.957894, stdev=0.145103, best fit=0.980517,
+indivs=1371000, elapsed_secs=17975, mean=0.951647, stdev=0.164157, best fit=0.980517,
+indivs=1381000, elapsed_secs=18120, mean=0.946960, stdev=0.175171, best fit=0.980517,
+indivs=1391000, elapsed_secs=18267, mean=0.964640, stdev=0.121705, best fit=0.980517,
+indivs=1401000, elapsed_secs=18413, mean=0.964582, stdev=0.121789, best fit=0.980517,
+indivs=1411000, elapsed_secs=18558, mean=0.962257, stdev=0.131199, best fit=0.980517,
+indivs=1421000, elapsed_secs=18701, mean=0.961296, stdev=0.134538, best fit=0.980517,
+indivs=1431000, elapsed_secs=18847, mean=0.967522, stdev=0.109939, best fit=0.980517,
+indivs=1441000, elapsed_secs=18997, mean=0.961237, stdev=0.134952, best fit=0.980517,
+indivs=1451000, elapsed_secs=19143, mean=0.963601, stdev=0.125546, best fit=0.980517,
+indivs=1461000, elapsed_secs=19286, mean=0.966100, stdev=0.116810, best fit=0.980517,
+indivs=1471000, elapsed_secs=19430, mean=0.961296, stdev=0.134538, best fit=0.980517,
+indivs=1481000, elapsed_secs=19574, mean=0.959296, stdev=0.141486, best fit=0.980517,
+indivs=1491000, elapsed_secs=19722, mean=0.959354, stdev=0.141092, best fit=0.980517,
+indivs=1501000, elapsed_secs=19870, mean=0.960296, stdev=0.138059, best fit=0.980517,
+indivs=1511000, elapsed_secs=20019, mean=0.962679, stdev=0.129108, best fit=0.980517,
+indivs=1521000, elapsed_secs=20165, mean=0.965120, stdev=0.120734, best fit=0.980517,
+indivs=1531000, elapsed_secs=20314, mean=0.967984, stdev=0.109198, best fit=0.980517,
+indivs=1541000, elapsed_secs=20462, mean=0.954510, stdev=0.156114, best fit=0.980517,
+indivs=1551000, elapsed_secs=20612, mean=0.963718, stdev=0.125019, best fit=0.980517,
+indivs=1561000, elapsed_secs=20760, mean=0.953206, stdev=0.158976, best fit=0.980517,
+indivs=1571000, elapsed_secs=20910, mean=0.956413, stdev=0.150526, best fit=0.980517,
+indivs=1581000, elapsed_secs=21060, mean=0.962237, stdev=0.131340, best fit=0.980517,
+indivs=1591000, elapsed_secs=21211, mean=0.960218, stdev=0.138596, best fit=0.980517,
+indivs=1601000, elapsed_secs=21362, mean=0.961237, stdev=0.134952, best fit=0.980517,
+indivs=1611000, elapsed_secs=21513, mean=0.962640, stdev=0.129248, best fit=0.980517,
+indivs=1621000, elapsed_secs=21662, mean=0.957335, stdev=0.147831, best fit=0.980517,
+indivs=1631000, elapsed_secs=21809, mean=0.965120, stdev=0.120734, best fit=0.980517,
+indivs=1641000, elapsed_secs=21957, mean=0.961199, stdev=0.135227, best fit=0.980517,
+indivs=1651000, elapsed_secs=22102, mean=0.954856, stdev=0.154565, best fit=0.980517,
+indivs=1661000, elapsed_secs=22247, mean=0.954511, stdev=0.156115, best fit=0.980517,
+indivs=1671000, elapsed_secs=22389, mean=0.957894, stdev=0.145103, best fit=0.980517,
+indivs=1681000, elapsed_secs=22532, mean=0.958315, stdev=0.144696, best fit=0.980517,
+indivs=1691000, elapsed_secs=22674, mean=0.963620, stdev=0.123962, best fit=0.980517,
+indivs=1701000, elapsed_secs=22818, mean=0.960257, stdev=0.138328, best fit=0.980517,
+indivs=1711000, elapsed_secs=22965, mean=0.957952, stdev=0.144936, best fit=0.980517,
+indivs=1721000, elapsed_secs=23111, mean=0.954491, stdev=0.156233, best fit=0.980517,
+indivs=1731000, elapsed_secs=23257, mean=0.960194, stdev=0.136674, best fit=0.980517,
+indivs=1741000, elapsed_secs=23401, mean=0.963257, stdev=0.125803, best fit=0.980517,
+indivs=1751000, elapsed_secs=23541, mean=0.961296, stdev=0.134538, best fit=0.980517,
+indivs=1761000, elapsed_secs=23680, mean=0.963198, stdev=0.127910, best fit=0.980517,
+indivs=1771000, elapsed_secs=23818, mean=0.964621, stdev=0.122113, best fit=0.980517,
+indivs=1781000, elapsed_secs=23956, mean=0.962179, stdev=0.131764, best fit=0.980517,
+indivs=1791000, elapsed_secs=24096, mean=0.961257, stdev=0.134814, best fit=0.980517,
+indivs=1801000, elapsed_secs=24239, mean=0.951764, stdev=0.162378, best fit=0.980517,
+indivs=1811000, elapsed_secs=24384, mean=0.957355, stdev=0.147706, best fit=0.980517,
+indivs=1821000, elapsed_secs=24529, mean=0.943940, stdev=0.184034, best fit=0.980517,
+indivs=1831000, elapsed_secs=24675, mean=0.962120, stdev=0.132187, best fit=0.980517,
+indivs=1841000, elapsed_secs=24820, mean=0.956471, stdev=0.150157, best fit=0.980517,
+indivs=1851000, elapsed_secs=24966, mean=0.957374, stdev=0.147580, best fit=0.980517,
+indivs=1861000, elapsed_secs=25113, mean=0.965620, stdev=0.117817, best fit=0.980517,
+indivs=1871000, elapsed_secs=25259, mean=0.958317, stdev=0.142909, best fit=0.980517,
+indivs=1881000, elapsed_secs=25407, mean=0.965581, stdev=0.118134, best fit=0.980517,
+indivs=1891000, elapsed_secs=25558, mean=0.951166, stdev=0.164832, best fit=0.980517,
+indivs=1901000, elapsed_secs=25709, mean=0.969925, stdev=0.100420, best fit=0.980517,
+indivs=1911000, elapsed_secs=25857, mean=0.965101, stdev=0.120889, best fit=0.980517,
+indivs=1921000, elapsed_secs=26004, mean=0.961641, stdev=0.132720, best fit=0.980517,
+indivs=1931000, elapsed_secs=26152, mean=0.960218, stdev=0.138596, best fit=0.980517,
+indivs=1941000, elapsed_secs=26304, mean=0.951432, stdev=0.165384, best fit=0.980517,
+indivs=1951000, elapsed_secs=26458, mean=0.959277, stdev=0.141616, best fit=0.980517,
+indivs=1961000, elapsed_secs=26610, mean=0.957374, stdev=0.147580, best fit=0.980517,
+indivs=1971000, elapsed_secs=26759, mean=0.959874, stdev=0.138718, best fit=0.980517,
+indivs=1981000, elapsed_secs=26905, mean=0.953893, stdev=0.155735, best fit=0.980517,
+indivs=1991000, elapsed_secs=27052, mean=0.960316, stdev=0.137925, best fit=0.980517,
+indivs=2001000, elapsed_secs=27196, mean=0.956374, stdev=0.150771, best fit=0.980517,
+indivs=2011000, elapsed_secs=27341, mean=0.956374, stdev=0.150771, best fit=0.980517,
+indivs=2021000, elapsed_secs=27490, mean=0.949549, stdev=0.170323, best fit=0.980517,
+indivs=2031000, elapsed_secs=27638, mean=0.960680, stdev=0.136017, best fit=0.980517,
+indivs=2041000, elapsed_secs=27785, mean=0.944745, stdev=0.182501, best fit=0.980517,
+indivs=2051000, elapsed_secs=27932, mean=0.956569, stdev=0.148332, best fit=0.980517,
+indivs=2061000, elapsed_secs=28081, mean=0.957432, stdev=0.147204, best fit=0.980517,
+indivs=2071000, elapsed_secs=28231, mean=0.963757, stdev=0.124972, best fit=0.980517,
+indivs=2081000, elapsed_secs=28380, mean=0.960816, stdev=0.135628, best fit=0.980517,
+indivs=2091000, elapsed_secs=28526, mean=0.958875, stdev=0.142123, best fit=0.980517,
+indivs=2101000, elapsed_secs=28672, mean=0.960217, stdev=0.138596, best fit=0.980517,
+indivs=2111000, elapsed_secs=28818, mean=0.964758, stdev=0.119280, best fit=0.980517,
+indivs=2121000, elapsed_secs=28969, mean=0.962237, stdev=0.131340, best fit=0.980517,
+indivs=2131000, elapsed_secs=29118, mean=0.959718, stdev=0.139237, best fit=0.980517,
+indivs=2141000, elapsed_secs=29271, mean=0.952932, stdev=0.160115, best fit=0.980517,
+indivs=2151000, elapsed_secs=29423, mean=0.957778, stdev=0.145553, best fit=0.980517,
+indivs=2161000, elapsed_secs=29571, mean=0.958315, stdev=0.144696, best fit=0.980517,
+indivs=2171000, elapsed_secs=29719, mean=0.954471, stdev=0.154910, best fit=0.980517,
+indivs=2181000, elapsed_secs=29866, mean=0.957393, stdev=0.147454, best fit=0.980517,
+indivs=2191000, elapsed_secs=30013, mean=0.965523, stdev=0.118229, best fit=0.980517,
+indivs=2201000, elapsed_secs=30158, mean=0.951647, stdev=0.164156, best fit=0.980517,
+indivs=2211000, elapsed_secs=30305, mean=0.961257, stdev=0.134814, best fit=0.980517,
+indivs=2221000, elapsed_secs=30449, mean=0.970043, stdev=0.097464, best fit=0.980517,
+indivs=2231000, elapsed_secs=30588, mean=0.968023, stdev=0.108855, best fit=0.980517,
+indivs=2241000, elapsed_secs=30730, mean=0.954892, stdev=0.154335, best fit=0.980517,
+indivs=2251000, elapsed_secs=30873, mean=0.955931, stdev=0.150984, best fit=0.980517,
+indivs=2261000, elapsed_secs=31018, mean=0.956913, stdev=0.148096, best fit=0.980517,
+indivs=2271000, elapsed_secs=31162, mean=0.954952, stdev=0.154139, best fit=0.980517,
+indivs=2281000, elapsed_secs=31309, mean=0.963278, stdev=0.125903, best fit=0.980517,
+indivs=2291000, elapsed_secs=31452, mean=0.966660, stdev=0.111523, best fit=0.980517,
+indivs=2301000, elapsed_secs=31598, mean=0.964120, stdev=0.124677, best fit=0.980517,
+indivs=2311000, elapsed_secs=31745, mean=0.963522, stdev=0.126145, best fit=0.980517,
+indivs=2321000, elapsed_secs=31896, mean=0.958933, stdev=0.141734, best fit=0.980517,
+indivs=2331000, elapsed_secs=32048, mean=0.955777, stdev=0.151952, best fit=0.980517,
+indivs=2341000, elapsed_secs=32198, mean=0.956452, stdev=0.150280, best fit=0.980517,
+indivs=2351000, elapsed_secs=32348, mean=0.951570, stdev=0.164604, best fit=0.980517,
+indivs=2361000, elapsed_secs=32492, mean=0.954069, stdev=0.156476, best fit=0.980517,
+indivs=2371000, elapsed_secs=32633, mean=0.957932, stdev=0.144847, best fit=0.980517,
+indivs=2381000, elapsed_secs=32774, mean=0.958374, stdev=0.144311, best fit=0.980517,
+indivs=2391000, elapsed_secs=32917, mean=0.951588, stdev=0.164492, best fit=0.980517,
+indivs=2401000, elapsed_secs=33057, mean=0.966042, stdev=0.117289, best fit=0.980517,
+indivs=2411000, elapsed_secs=33197, mean=0.955530, stdev=0.152926, best fit=0.980517,
+indivs=2421000, elapsed_secs=33338, mean=0.963120, stdev=0.128491, best fit=0.980517,
+indivs=2431000, elapsed_secs=33477, mean=0.955530, stdev=0.152926, best fit=0.980517,
+indivs=2441000, elapsed_secs=33618, mean=0.961237, stdev=0.134952, best fit=0.980517,
+indivs=2451000, elapsed_secs=33762, mean=0.950186, stdev=0.167549, best fit=0.980517,
+indivs=2461000, elapsed_secs=33907, mean=0.962238, stdev=0.131340, best fit=0.980517,
+indivs=2471000, elapsed_secs=34053, mean=0.962101, stdev=0.130026, best fit=0.980517,
+indivs=2481000, elapsed_secs=34199, mean=0.968427, stdev=0.106049, best fit=0.980517,
+indivs=2491000, elapsed_secs=34346, mean=0.969925, stdev=0.100420, best fit=0.980517,
+indivs=2501000, elapsed_secs=34489, mean=0.957433, stdev=0.147204, best fit=0.980517,
+indivs=2511000, elapsed_secs=34629, mean=0.956452, stdev=0.150280, best fit=0.980517,
+indivs=2521000, elapsed_secs=34770, mean=0.952550, stdev=0.161829, best fit=0.980517,
+indivs=2531000, elapsed_secs=34911, mean=0.951128, stdev=0.165055, best fit=0.980517,
+indivs=2541000, elapsed_secs=35057, mean=0.957432, stdev=0.147203, best fit=0.980517,
+indivs=2551000, elapsed_secs=35207, mean=0.959276, stdev=0.141617, best fit=0.980517,
+indivs=2561000, elapsed_secs=35358, mean=0.950413, stdev=0.168311, best fit=0.980517,
+indivs=2571000, elapsed_secs=35505, mean=0.965525, stdev=0.118221, best fit=0.980517,
+indivs=2581000, elapsed_secs=35649, mean=0.950569, stdev=0.167436, best fit=0.980517,
+indivs=2591000, elapsed_secs=35795, mean=0.955874, stdev=0.151348, best fit=0.980517,
+indivs=2601000, elapsed_secs=35943, mean=0.950549, stdev=0.167546, best fit=0.980517,
+indivs=2611000, elapsed_secs=36088, mean=0.972427, stdev=0.086507, best fit=0.980517,
+indivs=2621000, elapsed_secs=36234, mean=0.962238, stdev=0.131340, best fit=0.980517,
+indivs=2631000, elapsed_secs=36379, mean=0.962179, stdev=0.131764, best fit=0.980517,
+indivs=2641000, elapsed_secs=36525, mean=0.965042, stdev=0.121351, best fit=0.980517,
+indivs=2651000, elapsed_secs=36676, mean=0.953471, stdev=0.159348, best fit=0.980517,
+indivs=2661000, elapsed_secs=36829, mean=0.961679, stdev=0.132446, best fit=0.980517,
+indivs=2671000, elapsed_secs=36979, mean=0.963140, stdev=0.126334, best fit=0.980517,
+indivs=2681000, elapsed_secs=37127, mean=0.961718, stdev=0.132503, best fit=0.980517,
+indivs=2691000, elapsed_secs=37272, mean=0.973769, stdev=0.080354, best fit=0.980517,
+indivs=2701000, elapsed_secs=37418, mean=0.951608, stdev=0.164381, best fit=0.980517,
+indivs=2711000, elapsed_secs=37565, mean=0.963944, stdev=0.123604, best fit=0.980517,
+indivs=2721000, elapsed_secs=37712, mean=0.962816, stdev=0.128340, best fit=0.980517,
+indivs=2731000, elapsed_secs=37856, mean=0.962756, stdev=0.128530, best fit=0.980517,
+indivs=2741000, elapsed_secs=37999, mean=0.966081, stdev=0.116970, best fit=0.980517,
+indivs=2751000, elapsed_secs=38141, mean=0.966082, stdev=0.116970, best fit=0.980517,
+indivs=2761000, elapsed_secs=38284, mean=0.961296, stdev=0.134538, best fit=0.980517,
+indivs=2771000, elapsed_secs=38428, mean=0.960335, stdev=0.137790, best fit=0.980517,
+indivs=2781000, elapsed_secs=38573, mean=0.959374, stdev=0.140960, best fit=0.980517,
+indivs=2791000, elapsed_secs=38716, mean=0.956471, stdev=0.150157, best fit=0.980517,
+indivs=2801000, elapsed_secs=38861, mean=0.955491, stdev=0.153168, best fit=0.980517,
+indivs=2811000, elapsed_secs=39007, mean=0.971445, stdev=0.091808, best fit=0.980517,
+indivs=2821000, elapsed_secs=39152, mean=0.956452, stdev=0.150280, best fit=0.980517,
+indivs=2831000, elapsed_secs=39299, mean=0.956413, stdev=0.150526, best fit=0.980517,
+indivs=2841000, elapsed_secs=39445, mean=0.961698, stdev=0.132499, best fit=0.980517,
+indivs=2851000, elapsed_secs=39589, mean=0.953088, stdev=0.159473, best fit=0.980517,
+indivs=2861000, elapsed_secs=39733, mean=0.949706, stdev=0.169459, best fit=0.980517,
+indivs=2871000, elapsed_secs=39878, mean=0.949686, stdev=0.169567, best fit=0.980517,
+indivs=2881000, elapsed_secs=40019, mean=0.954088, stdev=0.156481, best fit=0.980517,
+indivs=2891000, elapsed_secs=40160, mean=0.954530, stdev=0.155996, best fit=0.980517,
+indivs=2901000, elapsed_secs=40301, mean=0.957413, stdev=0.147329, best fit=0.980517,
+indivs=2911000, elapsed_secs=40440, mean=0.958874, stdev=0.141769, best fit=0.980517,
+indivs=2921000, elapsed_secs=40579, mean=0.951206, stdev=0.164800, best fit=0.980517,
+indivs=2931000, elapsed_secs=40721, mean=0.959257, stdev=0.141748, best fit=0.980517,
+indivs=2941000, elapsed_secs=40862, mean=0.948842, stdev=0.170216, best fit=0.980517,
+indivs=2951000, elapsed_secs=41002, mean=0.961218, stdev=0.135089, best fit=0.980517,
+indivs=2961000, elapsed_secs=41143, mean=0.962257, stdev=0.131198, best fit=0.980517,
+indivs=2971000, elapsed_secs=41287, mean=0.959276, stdev=0.141617, best fit=0.980517,
+indivs=2981000, elapsed_secs=41433, mean=0.958315, stdev=0.144696, best fit=0.980517,
+indivs=2991000, elapsed_secs=41580, mean=0.966201, stdev=0.114715, best fit=0.980517,
+indivs=3001000, elapsed_secs=41729, mean=0.952807, stdev=0.158276, best fit=0.980517,
+indivs=3011000, elapsed_secs=41875, mean=0.954913, stdev=0.152836, best fit=0.980517,
+indivs=3021000, elapsed_secs=42021, mean=0.951186, stdev=0.164721, best fit=0.980517,
+indivs=3031000, elapsed_secs=42167, mean=0.955971, stdev=0.151033, best fit=0.980517,
+indivs=3041000, elapsed_secs=42315, mean=0.970349, stdev=0.097171, best fit=0.980517,
+indivs=3051000, elapsed_secs=42462, mean=0.967023, stdev=0.113237, best fit=0.980517,
+indivs=3061000, elapsed_secs=42607, mean=0.960315, stdev=0.137925, best fit=0.980517,
+indivs=3071000, elapsed_secs=42752, mean=0.964140, stdev=0.122710, best fit=0.980517,
+indivs=3081000, elapsed_secs=42893, mean=0.962757, stdev=0.128530, best fit=0.980517,
+indivs=3091000, elapsed_secs=43033, mean=0.955932, stdev=0.151151, best fit=0.980517,
+indivs=3101000, elapsed_secs=43177, mean=0.961238, stdev=0.134951, best fit=0.980517,
+indivs=3111000, elapsed_secs=43324, mean=0.960296, stdev=0.138059, best fit=0.980517,
+indivs=3121000, elapsed_secs=43470, mean=0.961698, stdev=0.132499, best fit=0.980517,
+indivs=3131000, elapsed_secs=43617, mean=0.964544, stdev=0.122095, best fit=0.980517,
+indivs=3141000, elapsed_secs=43763, mean=0.958374, stdev=0.144312, best fit=0.980517,
+indivs=3151000, elapsed_secs=43905, mean=0.959335, stdev=0.141223, best fit=0.980517,
+indivs=3161000, elapsed_secs=44045, mean=0.951686, stdev=0.163931, best fit=0.980517,
+indivs=3171000, elapsed_secs=44184, mean=0.962816, stdev=0.128340, best fit=0.980517,
+indivs=3181000, elapsed_secs=44325, mean=0.958412, stdev=0.144055, best fit=0.980517,
+indivs=3191000, elapsed_secs=44467, mean=0.961296, stdev=0.134538, best fit=0.980517,
+indivs=3201000, elapsed_secs=44610, mean=0.957452, stdev=0.147078, best fit=0.980517,
+indivs=3211000, elapsed_secs=44752, mean=0.968964, stdev=0.104816, best fit=0.980517,
+indivs=3221000, elapsed_secs=44893, mean=0.967503, stdev=0.110283, best fit=0.980517,
+indivs=3231000, elapsed_secs=45036, mean=0.955491, stdev=0.153168, best fit=0.980517,
+indivs=3241000, elapsed_secs=45179, mean=0.961296, stdev=0.134538, best fit=0.980517,
+indivs=3251000, elapsed_secs=45328, mean=0.962718, stdev=0.128819, best fit=0.980517,
+indivs=3261000, elapsed_secs=45478, mean=0.963140, stdev=0.128346, best fit=0.980517,
+indivs=3271000, elapsed_secs=45631, mean=0.957413, stdev=0.145888, best fit=0.980517,
+indivs=3281000, elapsed_secs=45785, mean=0.959257, stdev=0.141748, best fit=0.980517,
+indivs=3291000, elapsed_secs=45940, mean=0.963198, stdev=0.127910, best fit=0.980517,
+indivs=3301000, elapsed_secs=46094, mean=0.961121, stdev=0.135775, best fit=0.980517,
+indivs=3311000, elapsed_secs=46247, mean=0.956835, stdev=0.148596, best fit=0.980517,
+indivs=3321000, elapsed_secs=46398, mean=0.958452, stdev=0.142541, best fit=0.980517,
+indivs=3331000, elapsed_secs=46543, mean=0.961198, stdev=0.135227, best fit=0.980517,
+indivs=3341000, elapsed_secs=46687, mean=0.964659, stdev=0.121552, best fit=0.980517,
+indivs=3351000, elapsed_secs=46832, mean=0.962238, stdev=0.131340, best fit=0.980517,
+indivs=3361000, elapsed_secs=46981, mean=0.970504, stdev=0.096416, best fit=0.980517,
+indivs=3371000, elapsed_secs=47125, mean=0.967523, stdev=0.110113, best fit=0.980517,
+indivs=3381000, elapsed_secs=47267, mean=0.953452, stdev=0.159464, best fit=0.980517,
+indivs=3391000, elapsed_secs=47413, mean=0.958893, stdev=0.141773, best fit=0.980517,
+indivs=3401000, elapsed_secs=47560, mean=0.955354, stdev=0.154009, best fit=0.980517,
+indivs=3411000, elapsed_secs=47709, mean=0.964062, stdev=0.125124, best fit=0.980517,
+indivs=3421000, elapsed_secs=47860, mean=0.954452, stdev=0.156469, best fit=0.980517,
+indivs=3431000, elapsed_secs=48006, mean=0.957393, stdev=0.147454, best fit=0.980517,
+indivs=3441000, elapsed_secs=48153, mean=0.966101, stdev=0.116810, best fit=0.980517,
+indivs=3451000, elapsed_secs=48301, mean=0.953667, stdev=0.157046, best fit=0.980517,
+indivs=3461000, elapsed_secs=48446, mean=0.970906, stdev=0.095617, best fit=0.980517,
+indivs=3471000, elapsed_secs=48592, mean=0.968503, stdev=0.105773, best fit=0.980517,
+indivs=3481000, elapsed_secs=48740, mean=0.957433, stdev=0.147204, best fit=0.980517,
+indivs=3491000, elapsed_secs=48888, mean=0.960276, stdev=0.138193, best fit=0.980517,
+indivs=3501000, elapsed_secs=49039, mean=0.969945, stdev=0.100233, best fit=0.980517,
+indivs=3511000, elapsed_secs=49188, mean=0.962218, stdev=0.131481, best fit=0.980517,
+indivs=3521000, elapsed_secs=49331, mean=0.963679, stdev=0.125316, best fit=0.980517,
+indivs=3531000, elapsed_secs=49481, mean=0.953011, stdev=0.160131, best fit=0.980517,
+indivs=3541000, elapsed_secs=49632, mean=0.953990, stdev=0.157069, best fit=0.980517,
+indivs=3551000, elapsed_secs=49784, mean=0.962814, stdev=0.126536, best fit=0.980517,
+indivs=3561000, elapsed_secs=49934, mean=0.958875, stdev=0.141904, best fit=0.980517,
+indivs=3571000, elapsed_secs=50087, mean=0.961198, stdev=0.135227, best fit=0.980517,
+indivs=3581000, elapsed_secs=50238, mean=0.959777, stdev=0.139159, best fit=0.980517,
+indivs=3591000, elapsed_secs=50388, mean=0.959296, stdev=0.141486, best fit=0.980517,
+indivs=3601000, elapsed_secs=50543, mean=0.954109, stdev=0.156564, best fit=0.980517,
+indivs=3611000, elapsed_secs=50699, mean=0.956874, stdev=0.148346, best fit=0.980517,
+indivs=3621000, elapsed_secs=50850, mean=0.951608, stdev=0.164380, best fit=0.980517,
+indivs=3631000, elapsed_secs=51000, mean=0.969926, stdev=0.100419, best fit=0.980517,
+indivs=3641000, elapsed_secs=51150, mean=0.958335, stdev=0.144568, best fit=0.980517,
+indivs=3651000, elapsed_secs=51301, mean=0.957355, stdev=0.147706, best fit=0.980517,
+indivs=3661000, elapsed_secs=51452, mean=0.954394, stdev=0.156822, best fit=0.980517,
+indivs=3671000, elapsed_secs=51605, mean=0.958335, stdev=0.144568, best fit=0.980517,
+indivs=3681000, elapsed_secs=51758, mean=0.949089, stdev=0.170749, best fit=0.980517,
+indivs=3691000, elapsed_secs=51911, mean=0.958198, stdev=0.145463, best fit=0.980517,
+indivs=3701000, elapsed_secs=52065, mean=0.958816, stdev=0.142296, best fit=0.980517,
+indivs=3711000, elapsed_secs=52213, mean=0.960776, stdev=0.135670, best fit=0.980517,
+indivs=3721000, elapsed_secs=52360, mean=0.964660, stdev=0.121552, best fit=0.980517,
+indivs=3731000, elapsed_secs=52506, mean=0.966062, stdev=0.117129, best fit=0.980517,
+indivs=3741000, elapsed_secs=52647, mean=0.960316, stdev=0.137925, best fit=0.980517,
+indivs=3751000, elapsed_secs=52792, mean=0.955530, stdev=0.152926, best fit=0.980517,
+indivs=3761000, elapsed_secs=52939, mean=0.964140, stdev=0.124527, best fit=0.980517,
+indivs=3771000, elapsed_secs=53086, mean=0.960296, stdev=0.138059, best fit=0.980517,
+indivs=3781000, elapsed_secs=53233, mean=0.957452, stdev=0.147078, best fit=0.980517,
+indivs=3791000, elapsed_secs=53379, mean=0.961238, stdev=0.134952, best fit=0.980517,
+indivs=3801000, elapsed_secs=53525, mean=0.965139, stdev=0.120580, best fit=0.980517,
+indivs=3811000, elapsed_secs=53673, mean=0.958817, stdev=0.141974, best fit=0.980517,
+indivs=3821000, elapsed_secs=53823, mean=0.964582, stdev=0.121789, best fit=0.980517,
+indivs=3831000, elapsed_secs=53971, mean=0.954050, stdev=0.156717, best fit=0.980517,
+indivs=3841000, elapsed_secs=54120, mean=0.960737, stdev=0.135944, best fit=0.980517,
+indivs=3851000, elapsed_secs=54267, mean=0.965140, stdev=0.120580, best fit=0.980517,
+indivs=3861000, elapsed_secs=54416, mean=0.967062, stdev=0.112906, best fit=0.980517,
+indivs=3871000, elapsed_secs=54565, mean=0.967023, stdev=0.113237, best fit=0.980517,
+indivs=3881000, elapsed_secs=54715, mean=0.963179, stdev=0.128055, best fit=0.980517,
+indivs=3891000, elapsed_secs=54864, mean=0.968003, stdev=0.109026, best fit=0.980517,
+indivs=3901000, elapsed_secs=55011, mean=0.948490, stdev=0.173368, best fit=0.980517,
+indivs=3911000, elapsed_secs=55156, mean=0.957355, stdev=0.147706, best fit=0.980517,
+indivs=3921000, elapsed_secs=55300, mean=0.959355, stdev=0.141092, best fit=0.980517,
+indivs=3931000, elapsed_secs=55447, mean=0.964179, stdev=0.124227, best fit=0.980517,
+indivs=3941000, elapsed_secs=55594, mean=0.963198, stdev=0.127910, best fit=0.980517,
+indivs=3951000, elapsed_secs=55739, mean=0.961257, stdev=0.134814, best fit=0.980517,
+indivs=3961000, elapsed_secs=55883, mean=0.959757, stdev=0.138964, best fit=0.980517,
+indivs=3971000, elapsed_secs=56027, mean=0.964258, stdev=0.122162, best fit=0.980517,
+indivs=3981000, elapsed_secs=56170, mean=0.964140, stdev=0.124527, best fit=0.980517,
+indivs=3991000, elapsed_secs=56312, mean=0.956913, stdev=0.148096, best fit=0.980517,
+indivs=4001000, elapsed_secs=56458, mean=0.953088, stdev=0.159473, best fit=0.980517,
+indivs=4011000, elapsed_secs=56608, mean=0.964640, stdev=0.121705, best fit=0.980517,
+indivs=4021000, elapsed_secs=56758, mean=0.955413, stdev=0.152142, best fit=0.980517,
+indivs=4031000, elapsed_secs=56911, mean=0.959237, stdev=0.141878, best fit=0.980517,
+indivs=4041000, elapsed_secs=57061, mean=0.951589, stdev=0.164492, best fit=0.980517,
+indivs=4051000, elapsed_secs=57210, mean=0.961718, stdev=0.132503, best fit=0.980517,
+indivs=4061000, elapsed_secs=57359, mean=0.955953, stdev=0.151362, best fit=0.980517,
+indivs=4071000, elapsed_secs=57513, mean=0.960737, stdev=0.134047, best fit=0.980517,
+indivs=4081000, elapsed_secs=57665, mean=0.955472, stdev=0.153288, best fit=0.980517,
+indivs=4091000, elapsed_secs=57817, mean=0.948706, stdev=0.172200, best fit=0.980517,
+indivs=4101000, elapsed_secs=57971, mean=0.957896, stdev=0.143758, best fit=0.980517,
+indivs=4111000, elapsed_secs=58125, mean=0.957296, stdev=0.148081, best fit=0.980517,
+indivs=4121000, elapsed_secs=58279, mean=0.939959, stdev=0.193703, best fit=0.980517,
+indivs=4131000, elapsed_secs=58432, mean=0.960257, stdev=0.138328, best fit=0.980517,
+indivs=4141000, elapsed_secs=58584, mean=0.937174, stdev=0.199670, best fit=0.980517,
+indivs=4151000, elapsed_secs=58734, mean=0.954511, stdev=0.156115, best fit=0.980517,
+indivs=4161000, elapsed_secs=58881, mean=0.954090, stdev=0.156680, best fit=0.980517,
+indivs=4171000, elapsed_secs=59027, mean=0.955952, stdev=0.151156, best fit=0.980517,
+indivs=4181000, elapsed_secs=59177, mean=0.947706, stdev=0.174893, best fit=0.980517,
+indivs=4191000, elapsed_secs=59328, mean=0.955491, stdev=0.153168, best fit=0.980517,
+indivs=4201000, elapsed_secs=59476, mean=0.965081, stdev=0.121043, best fit=0.980517,
+indivs=4211000, elapsed_secs=59625, mean=0.968984, stdev=0.104637, best fit=0.980517,
+indivs=4221000, elapsed_secs=59773, mean=0.955011, stdev=0.153780, best fit=0.980517,
+indivs=4231000, elapsed_secs=59920, mean=0.956031, stdev=0.150872, best fit=0.980517,
+indivs=4241000, elapsed_secs=60069, mean=0.964140, stdev=0.124527, best fit=0.980517,
+indivs=4251000, elapsed_secs=60221, mean=0.953070, stdev=0.159784, best fit=0.980517,
+indivs=4261000, elapsed_secs=60372, mean=0.963941, stdev=0.124660, best fit=0.980517,
+indivs=4271000, elapsed_secs=60521, mean=0.952991, stdev=0.160050, best fit=0.980517,
+indivs=4281000, elapsed_secs=60670, mean=0.961777, stdev=0.132082, best fit=0.980517,
+indivs=4291000, elapsed_secs=60819, mean=0.964159, stdev=0.124377, best fit=0.980517,
+indivs=4301000, elapsed_secs=60968, mean=0.959472, stdev=0.139013, best fit=0.980517,
+indivs=4311000, elapsed_secs=61117, mean=0.963198, stdev=0.127910, best fit=0.980517,
+indivs=4321000, elapsed_secs=61267, mean=0.965120, stdev=0.120734, best fit=0.980517,
+indivs=4331000, elapsed_secs=61417, mean=0.961639, stdev=0.132726, best fit=0.980517,
+indivs=4341000, elapsed_secs=61570, mean=0.961238, stdev=0.134952, best fit=0.980517,
+indivs=4351000, elapsed_secs=61723, mean=0.961081, stdev=0.133818, best fit=0.980517,
+indivs=4361000, elapsed_secs=61872, mean=0.964503, stdev=0.122408, best fit=0.980517,
+indivs=4371000, elapsed_secs=62017, mean=0.952255, stdev=0.159804, best fit=0.980517,
+indivs=4381000, elapsed_secs=62163, mean=0.967945, stdev=0.109540, best fit=0.980517,
+indivs=4391000, elapsed_secs=62310, mean=0.962698, stdev=0.128964, best fit=0.980517,
+indivs=4401000, elapsed_secs=62456, mean=0.957834, stdev=0.145177, best fit=0.980517,
+indivs=4411000, elapsed_secs=62603, mean=0.961238, stdev=0.133377, best fit=0.980517,
+indivs=4421000, elapsed_secs=62751, mean=0.958778, stdev=0.142235, best fit=0.980517,
+indivs=4431000, elapsed_secs=62898, mean=0.958413, stdev=0.144055, best fit=0.980517,
+indivs=4441000, elapsed_secs=63047, mean=0.959335, stdev=0.141223, best fit=0.980517,
+indivs=4451000, elapsed_secs=63199, mean=0.954893, stdev=0.154332, best fit=0.980517,
+indivs=4461000, elapsed_secs=63350, mean=0.967043, stdev=0.113072, best fit=0.980517,
+indivs=4471000, elapsed_secs=63503, mean=0.947225, stdev=0.175517, best fit=0.980517,
+indivs=4481000, elapsed_secs=63654, mean=0.959737, stdev=0.139426, best fit=0.980517,
+indivs=4491000, elapsed_secs=63805, mean=0.955491, stdev=0.151782, best fit=0.980517,
+indivs=4501000, elapsed_secs=63958, mean=0.965562, stdev=0.118292, best fit=0.980517,
+indivs=4511000, elapsed_secs=64112, mean=0.958835, stdev=0.142165, best fit=0.980517,
+indivs=4521000, elapsed_secs=64262, mean=0.955629, stdev=0.151136, best fit=0.980517,
+indivs=4531000, elapsed_secs=64411, mean=0.963640, stdev=0.125613, best fit=0.980517,
+indivs=4541000, elapsed_secs=64557, mean=0.956912, stdev=0.148226, best fit=0.980517,
+indivs=4551000, elapsed_secs=64703, mean=0.962237, stdev=0.131340, best fit=0.980517,
+indivs=4561000, elapsed_secs=64847, mean=0.965218, stdev=0.118450, best fit=0.980517,
+indivs=4571000, elapsed_secs=64988, mean=0.964159, stdev=0.124377, best fit=0.980517,
+indivs=4581000, elapsed_secs=65132, mean=0.967062, stdev=0.110896, best fit=0.980517,
+indivs=4591000, elapsed_secs=65279, mean=0.961179, stdev=0.135364, best fit=0.980517,
+indivs=4601000, elapsed_secs=65429, mean=0.958257, stdev=0.145080, best fit=0.980517,
+indivs=4611000, elapsed_secs=65577, mean=0.967042, stdev=0.113072, best fit=0.980517,
+indivs=4621000, elapsed_secs=65724, mean=0.962179, stdev=0.131764, best fit=0.980517,
+indivs=4631000, elapsed_secs=65870, mean=0.965121, stdev=0.120734, best fit=0.980517,
+indivs=4641000, elapsed_secs=66013, mean=0.961218, stdev=0.135089, best fit=0.980517,
+indivs=4651000, elapsed_secs=66158, mean=0.964101, stdev=0.124827, best fit=0.980517,
+indivs=4661000, elapsed_secs=66302, mean=0.961257, stdev=0.134814, best fit=0.980517,
+indivs=4671000, elapsed_secs=66444, mean=0.959335, stdev=0.141223, best fit=0.980517,
+indivs=4681000, elapsed_secs=66587, mean=0.955490, stdev=0.153168, best fit=0.980517,
+indivs=4691000, elapsed_secs=66727, mean=0.962659, stdev=0.128905, best fit=0.980517,
+indivs=4701000, elapsed_secs=66872, mean=0.959999, stdev=0.137698, best fit=0.980517,
+indivs=4711000, elapsed_secs=67022, mean=0.957316, stdev=0.147955, best fit=0.980517,
+indivs=4721000, elapsed_secs=67171, mean=0.957894, stdev=0.143372, best fit=0.980517,
+indivs=4731000, elapsed_secs=67322, mean=0.955011, stdev=0.153904, best fit=0.980517,
+indivs=4741000, elapsed_secs=67473, mean=0.961561, stdev=0.131350, best fit=0.980517,
+indivs=4751000, elapsed_secs=67623, mean=0.956432, stdev=0.148690, best fit=0.980517,
+indivs=4761000, elapsed_secs=67770, mean=0.961218, stdev=0.133372, best fit=0.980517,
+indivs=4771000, elapsed_secs=67917, mean=0.965101, stdev=0.120889, best fit=0.980517,
+indivs=4781000, elapsed_secs=68063, mean=0.956432, stdev=0.148690, best fit=0.980517,
+indivs=4791000, elapsed_secs=68207, mean=0.948726, stdev=0.172094, best fit=0.980517,
+indivs=4801000, elapsed_secs=68352, mean=0.966062, stdev=0.117129, best fit=0.980517,
+indivs=4811000, elapsed_secs=68502, mean=0.962238, stdev=0.131340, best fit=0.980517,
+indivs=4821000, elapsed_secs=68652, mean=0.957432, stdev=0.147203, best fit=0.980517,
+indivs=4831000, elapsed_secs=68798, mean=0.959875, stdev=0.138718, best fit=0.980517,
+indivs=4841000, elapsed_secs=68942, mean=0.954912, stdev=0.154213, best fit=0.980517,
+indivs=4851000, elapsed_secs=69085, mean=0.962296, stdev=0.129290, best fit=0.980517,
+indivs=4861000, elapsed_secs=69228, mean=0.960257, stdev=0.138328, best fit=0.980517,
+indivs=4871000, elapsed_secs=69370, mean=0.961277, stdev=0.134676, best fit=0.980517,
+indivs=4881000, elapsed_secs=69512, mean=0.963621, stdev=0.125398, best fit=0.980517,
+indivs=4891000, elapsed_secs=69656, mean=0.957413, stdev=0.147329, best fit=0.980517,
+indivs=4901000, elapsed_secs=69804, mean=0.953971, stdev=0.157187, best fit=0.980517,
+indivs=4911000, elapsed_secs=69950, mean=0.954952, stdev=0.154467, best fit=0.980517,
+indivs=4921000, elapsed_secs=70093, mean=0.951686, stdev=0.163932, best fit=0.980517,
+indivs=4931000, elapsed_secs=70239, mean=0.950667, stdev=0.166886, best fit=0.980517,
+indivs=4941000, elapsed_secs=70388, mean=0.963062, stdev=0.128925, best fit=0.980517,
+indivs=4951000, elapsed_secs=70538, mean=0.955492, stdev=0.153168, best fit=0.980517,
+indivs=4961000, elapsed_secs=70686, mean=0.958874, stdev=0.141904, best fit=0.980517,
+indivs=4971000, elapsed_secs=70830, mean=0.960815, stdev=0.135396, best fit=0.980517,
+indivs=4981000, elapsed_secs=70975, mean=0.952952, stdev=0.160280, best fit=0.980517,
+indivs=4991000, elapsed_secs=71119, mean=0.965062, stdev=0.121197, best fit=0.980517,
+indivs=5001000, elapsed_secs=71261, mean=0.950647, stdev=0.166996, best fit=0.980517,
+indivs=5011000, elapsed_secs=71402, mean=0.952569, stdev=0.160320, best fit=0.980517,
+indivs=5021000, elapsed_secs=71543, mean=0.956491, stdev=0.150034, best fit=0.980517,
+indivs=5031000, elapsed_secs=71686, mean=0.961218, stdev=0.135089, best fit=0.980517,
+indivs=5041000, elapsed_secs=71828, mean=0.968004, stdev=0.109026, best fit=0.980517,
+indivs=5051000, elapsed_secs=71972, mean=0.959315, stdev=0.141355, best fit=0.980517,
+indivs=5061000, elapsed_secs=72113, mean=0.955069, stdev=0.153748, best fit=0.980517,
+indivs=5071000, elapsed_secs=72254, mean=0.959796, stdev=0.138888, best fit=0.980517,
+indivs=5081000, elapsed_secs=72398, mean=0.964081, stdev=0.124975, best fit=0.980517,
+indivs=5091000, elapsed_secs=72542, mean=0.953530, stdev=0.159001, best fit=0.980517,
+indivs=5101000, elapsed_secs=72690, mean=0.957276, stdev=0.148206, best fit=0.980517,
+indivs=5111000, elapsed_secs=72840, mean=0.957315, stdev=0.147956, best fit=0.980517,
+indivs=5121000, elapsed_secs=72988, mean=0.954471, stdev=0.156351, best fit=0.980517,
+indivs=5131000, elapsed_secs=73134, mean=0.956433, stdev=0.150403, best fit=0.980517,
+indivs=5141000, elapsed_secs=73280, mean=0.948707, stdev=0.170889, best fit=0.980517,
+indivs=5151000, elapsed_secs=73426, mean=0.951550, stdev=0.164716, best fit=0.980517,
+indivs=5161000, elapsed_secs=73572, mean=0.945264, stdev=0.180540, best fit=0.980517,
+indivs=5171000, elapsed_secs=73720, mean=0.959835, stdev=0.138759, best fit=0.980517,
+indivs=5181000, elapsed_secs=73872, mean=0.967003, stdev=0.113402, best fit=0.980517,
+indivs=5191000, elapsed_secs=74021, mean=0.958355, stdev=0.144440, best fit=0.980517,
+indivs=5201000, elapsed_secs=74169, mean=0.959237, stdev=0.141878, best fit=0.980517,
+indivs=5211000, elapsed_secs=74320, mean=0.952550, stdev=0.161829, best fit=0.980517,
+indivs=5221000, elapsed_secs=74474, mean=0.955433, stdev=0.153529, best fit=0.980517,
+indivs=5231000, elapsed_secs=74626, mean=0.965081, stdev=0.121043, best fit=0.980517,
+indivs=5241000, elapsed_secs=74776, mean=0.944921, stdev=0.180605, best fit=0.980517,
+indivs=5251000, elapsed_secs=74922, mean=0.964160, stdev=0.124377, best fit=0.980517,
+indivs=5261000, elapsed_secs=75070, mean=0.961678, stdev=0.132446, best fit=0.980517,
+indivs=5271000, elapsed_secs=75214, mean=0.960835, stdev=0.133822, best fit=0.980517,
+indivs=5281000, elapsed_secs=75355, mean=0.961218, stdev=0.135089, best fit=0.980517,
+indivs=5291000, elapsed_secs=75498, mean=0.963238, stdev=0.126201, best fit=0.980517,
+indivs=5301000, elapsed_secs=75642, mean=0.959335, stdev=0.141223, best fit=0.980517,
+indivs=5311000, elapsed_secs=75785, mean=0.967062, stdev=0.112906, best fit=0.980517,
+indivs=5321000, elapsed_secs=75932, mean=0.965466, stdev=0.118694, best fit=0.980517,
+indivs=5331000, elapsed_secs=76078, mean=0.962699, stdev=0.128964, best fit=0.980517,
+indivs=5341000, elapsed_secs=76229, mean=0.960257, stdev=0.138328, best fit=0.980517,
+indivs=5351000, elapsed_secs=76384, mean=0.962640, stdev=0.129396, best fit=0.980517,
+indivs=5361000, elapsed_secs=76540, mean=0.955433, stdev=0.153529, best fit=0.980517,
+indivs=5371000, elapsed_secs=76694, mean=0.967523, stdev=0.110113, best fit=0.980517,
+indivs=5381000, elapsed_secs=76848, mean=0.960600, stdev=0.136569, best fit=0.980517,
+indivs=5391000, elapsed_secs=77002, mean=0.967042, stdev=0.113072, best fit=0.980517,
+indivs=5401000, elapsed_secs=77153, mean=0.964140, stdev=0.124527, best fit=0.980517,
+indivs=5411000, elapsed_secs=77305, mean=0.958815, stdev=0.142295, best fit=0.980517,
+indivs=5421000, elapsed_secs=77460, mean=0.954952, stdev=0.152800, best fit=0.980517,
+indivs=5431000, elapsed_secs=77614, mean=0.953128, stdev=0.158024, best fit=0.980517,
+indivs=5441000, elapsed_secs=77766, mean=0.953472, stdev=0.159348, best fit=0.980517,
+indivs=5451000, elapsed_secs=77915, mean=0.948949, stdev=0.169741, best fit=0.980517,
+indivs=5461000, elapsed_secs=78064, mean=0.953933, stdev=0.157299, best fit=0.980517,
+indivs=5471000, elapsed_secs=78212, mean=0.950666, stdev=0.166886, best fit=0.980517,
+indivs=5481000, elapsed_secs=78359, mean=0.956374, stdev=0.150771, best fit=0.980517,
+indivs=5491000, elapsed_secs=78504, mean=0.945686, stdev=0.180243, best fit=0.980517,
+indivs=5501000, elapsed_secs=78654, mean=0.948667, stdev=0.172413, best fit=0.980517,
+indivs=5511000, elapsed_secs=78802, mean=0.944823, stdev=0.182101, best fit=0.980517,
+indivs=5521000, elapsed_secs=78948, mean=0.957432, stdev=0.147203, best fit=0.980517,
+indivs=5531000, elapsed_secs=79093, mean=0.949745, stdev=0.169242, best fit=0.980517,
+indivs=5541000, elapsed_secs=79236, mean=0.954913, stdev=0.154503, best fit=0.980517,
+indivs=5551000, elapsed_secs=79383, mean=0.951569, stdev=0.164604, best fit=0.980517,
+indivs=5561000, elapsed_secs=79532, mean=0.956237, stdev=0.149629, best fit=0.980517,
+indivs=5571000, elapsed_secs=79683, mean=0.957158, stdev=0.146919, best fit=0.980517,
+indivs=5581000, elapsed_secs=79834, mean=0.964121, stdev=0.124676, best fit=0.980517,
+indivs=5591000, elapsed_secs=79984, mean=0.953951, stdev=0.157019, best fit=0.980517,
+indivs=5601000, elapsed_secs=80131, mean=0.958335, stdev=0.144568, best fit=0.980517,
+indivs=5611000, elapsed_secs=80276, mean=0.959374, stdev=0.140960, best fit=0.980517,
+indivs=5621000, elapsed_secs=80421, mean=0.969386, stdev=0.101720, best fit=0.980517,
+indivs=5631000, elapsed_secs=80569, mean=0.952569, stdev=0.161716, best fit=0.980517,
+indivs=5641000, elapsed_secs=80715, mean=0.966081, stdev=0.116970, best fit=0.980517,
+indivs=5651000, elapsed_secs=80862, mean=0.959296, stdev=0.141486, best fit=0.980517,
+indivs=5661000, elapsed_secs=81011, mean=0.957355, stdev=0.147706, best fit=0.980517,
+indivs=5671000, elapsed_secs=81162, mean=0.964121, stdev=0.124677, best fit=0.980517,
+indivs=5681000, elapsed_secs=81312, mean=0.965140, stdev=0.120580, best fit=0.980517,
+indivs=5691000, elapsed_secs=81461, mean=0.965081, stdev=0.121043, best fit=0.980517,
+indivs=5701000, elapsed_secs=81606, mean=0.961218, stdev=0.135089, best fit=0.980517,
+indivs=5711000, elapsed_secs=81753, mean=0.962739, stdev=0.128916, best fit=0.980517,
+indivs=5721000, elapsed_secs=81902, mean=0.960777, stdev=0.135529, best fit=0.980517,
+indivs=5731000, elapsed_secs=82049, mean=0.968945, stdev=0.104994, best fit=0.980517,
+indivs=5741000, elapsed_secs=82193, mean=0.952089, stdev=0.162286, best fit=0.980517,
+indivs=5751000, elapsed_secs=82337, mean=0.959355, stdev=0.141092, best fit=0.980517,
+indivs=5761000, elapsed_secs=82487, mean=0.959759, stdev=0.137663, best fit=0.980517,
+indivs=5771000, elapsed_secs=82643, mean=0.962218, stdev=0.131481, best fit=0.980517,
+indivs=5781000, elapsed_secs=82795, mean=0.958296, stdev=0.144824, best fit=0.980517,
+indivs=5791000, elapsed_secs=82946, mean=0.961680, stdev=0.132439, best fit=0.980517,
+indivs=5801000, elapsed_secs=83097, mean=0.958413, stdev=0.144055, best fit=0.980517,
+indivs=5811000, elapsed_secs=83246, mean=0.962198, stdev=0.131623, best fit=0.980517,
+indivs=5821000, elapsed_secs=83396, mean=0.959296, stdev=0.141486, best fit=0.980517,
+indivs=5831000, elapsed_secs=83542, mean=0.952530, stdev=0.161943, best fit=0.980517,
+indivs=5841000, elapsed_secs=83689, mean=0.961237, stdev=0.134952, best fit=0.980517,
+indivs=5851000, elapsed_secs=83839, mean=0.958315, stdev=0.144696, best fit=0.980517,
+indivs=5861000, elapsed_secs=83989, mean=0.961257, stdev=0.134814, best fit=0.980517,
+indivs=5871000, elapsed_secs=84140, mean=0.959855, stdev=0.138851, best fit=0.980517,
+indivs=5881000, elapsed_secs=84294, mean=0.959296, stdev=0.141486, best fit=0.980517,
+indivs=5891000, elapsed_secs=84446, mean=0.961640, stdev=0.132726, best fit=0.980517,
+indivs=5901000, elapsed_secs=84594, mean=0.955816, stdev=0.151883, best fit=0.980517,
+indivs=5911000, elapsed_secs=84742, mean=0.950091, stdev=0.165200, best fit=0.980517,
+indivs=5921000, elapsed_secs=84889, mean=0.962199, stdev=0.131623, best fit=0.980517,
+indivs=5931000, elapsed_secs=85039, mean=0.957858, stdev=0.143477, best fit=0.980517,
+indivs=5941000, elapsed_secs=85190, mean=0.953570, stdev=0.158768, best fit=0.980517,
+indivs=5951000, elapsed_secs=85343, mean=0.957296, stdev=0.146341, best fit=0.980517,
+indivs=5961000, elapsed_secs=85497, mean=0.948726, stdev=0.170933, best fit=0.980517,
+indivs=5971000, elapsed_secs=85648, mean=0.959374, stdev=0.140960, best fit=0.980517,
+indivs=5981000, elapsed_secs=85798, mean=0.961218, stdev=0.135089, best fit=0.980517,
+indivs=5991000, elapsed_secs=85946, mean=0.956433, stdev=0.150403, best fit=0.980517,
+indivs=6001000, elapsed_secs=86094, mean=0.946128, stdev=0.178413, best fit=0.980517,
+indivs=6011000, elapsed_secs=86242, mean=0.955854, stdev=0.151471, best fit=0.980517,
+indivs=6021000, elapsed_secs=86387, mean=0.947686, stdev=0.174998, best fit=0.980517,
+indivs=6031000, elapsed_secs=86531, mean=0.961120, stdev=0.135775, best fit=0.980517,
+indivs=6041000, elapsed_secs=86673, mean=0.960238, stdev=0.138462, best fit=0.980517,
+indivs=6051000, elapsed_secs=86815, mean=0.946823, stdev=0.176920, best fit=0.980517,
+indivs=6061000, elapsed_secs=86957, mean=0.959855, stdev=0.138625, best fit=0.980517,
+indivs=6071000, elapsed_secs=87099, mean=0.963218, stdev=0.125990, best fit=0.980517,
+indivs=6081000, elapsed_secs=87239, mean=0.959315, stdev=0.141355, best fit=0.980517,
+indivs=6091000, elapsed_secs=87378, mean=0.951511, stdev=0.163098, best fit=0.980517,
+indivs=6101000, elapsed_secs=87521, mean=0.951913, stdev=0.163147, best fit=0.980517,
+indivs=6111000, elapsed_secs=87665, mean=0.966062, stdev=0.117129, best fit=0.980517,
+indivs=6121000, elapsed_secs=87807, mean=0.957394, stdev=0.147455, best fit=0.980517,
+indivs=6131000, elapsed_secs=87949, mean=0.961296, stdev=0.134538, best fit=0.980517,
+indivs=6141000, elapsed_secs=88092, mean=0.954393, stdev=0.156822, best fit=0.980517,
+indivs=6151000, elapsed_secs=88235, mean=0.967062, stdev=0.112906, best fit=0.980517,
+indivs=6161000, elapsed_secs=88380, mean=0.958413, stdev=0.144055, best fit=0.980517,
+indivs=6171000, elapsed_secs=88530, mean=0.949071, stdev=0.170701, best fit=0.980517,
+indivs=6181000, elapsed_secs=88678, mean=0.955030, stdev=0.153785, best fit=0.980517,
+indivs=6191000, elapsed_secs=88822, mean=0.961757, stdev=0.132223, best fit=0.980517,
+indivs=6201000, elapsed_secs=88966, mean=0.966023, stdev=0.117448, best fit=0.980517,
+indivs=6211000, elapsed_secs=89109, mean=0.968003, stdev=0.109026, best fit=0.980517,
+indivs=6221000, elapsed_secs=89248, mean=0.962198, stdev=0.131623, best fit=0.980517,
+indivs=6231000, elapsed_secs=89391, mean=0.960316, stdev=0.137925, best fit=0.980517,
+indivs=6241000, elapsed_secs=89533, mean=0.958394, stdev=0.144183, best fit=0.980517,
+indivs=6251000, elapsed_secs=89677, mean=0.953530, stdev=0.159001, best fit=0.980517,
+indivs=6261000, elapsed_secs=89820, mean=0.957933, stdev=0.144847, best fit=0.980517,
+indivs=6271000, elapsed_secs=89962, mean=0.951667, stdev=0.164044, best fit=0.980517,
+indivs=6281000, elapsed_secs=90106, mean=0.963218, stdev=0.127764, best fit=0.980517,
+indivs=6291000, elapsed_secs=90252, mean=0.962218, stdev=0.131481, best fit=0.980517,
+indivs=6301000, elapsed_secs=90396, mean=0.961257, stdev=0.134814, best fit=0.980517,
+indivs=6311000, elapsed_secs=90539, mean=0.961296, stdev=0.134538, best fit=0.980517,
+indivs=6321000, elapsed_secs=90685, mean=0.969945, stdev=0.100233, best fit=0.980517,
+indivs=6331000, elapsed_secs=90831, mean=0.966120, stdev=0.114824, best fit=0.980517,
+indivs=6341000, elapsed_secs=90980, mean=0.962679, stdev=0.129108, best fit=0.980517,
+indivs=6351000, elapsed_secs=91130, mean=0.962797, stdev=0.128485, best fit=0.980517,
+indivs=6361000, elapsed_secs=91278, mean=0.963218, stdev=0.127764, best fit=0.980517,
+indivs=6371000, elapsed_secs=91423, mean=0.963139, stdev=0.126334, best fit=0.980517,
+indivs=6381000, elapsed_secs=91568, mean=0.958315, stdev=0.144696, best fit=0.980517,
+indivs=6391000, elapsed_secs=91713, mean=0.966081, stdev=0.116970, best fit=0.980517,
+indivs=6401000, elapsed_secs=91854, mean=0.959874, stdev=0.138491, best fit=0.980517,
+indivs=6411000, elapsed_secs=91996, mean=0.964159, stdev=0.124377, best fit=0.980517,
+indivs=6421000, elapsed_secs=92137, mean=0.957394, stdev=0.147455, best fit=0.980517,
+indivs=6431000, elapsed_secs=92279, mean=0.958354, stdev=0.142876, best fit=0.980517,
+indivs=6441000, elapsed_secs=92421, mean=0.964179, stdev=0.124227, best fit=0.980517,
+indivs=6451000, elapsed_secs=92562, mean=0.960316, stdev=0.137925, best fit=0.980517,
+indivs=6461000, elapsed_secs=92704, mean=0.952932, stdev=0.160115, best fit=0.980517,
+indivs=6471000, elapsed_secs=92850, mean=0.950049, stdev=0.168048, best fit=0.980517,
+indivs=6481000, elapsed_secs=92995, mean=0.957797, stdev=0.145425, best fit=0.980517,
+indivs=6491000, elapsed_secs=93140, mean=0.960316, stdev=0.137925, best fit=0.980517,
+indivs=6501000, elapsed_secs=93286, mean=0.957452, stdev=0.147078, best fit=0.980517,
+indivs=6511000, elapsed_secs=93429, mean=0.953589, stdev=0.158652, best fit=0.980517,
+indivs=6521000, elapsed_secs=93571, mean=0.963218, stdev=0.127764, best fit=0.980517,
+indivs=6531000, elapsed_secs=93711, mean=0.960315, stdev=0.137925, best fit=0.980517,
+indivs=6541000, elapsed_secs=93856, mean=0.960296, stdev=0.138059, best fit=0.980517,
+indivs=6551000, elapsed_secs=94001, mean=0.968022, stdev=0.108855, best fit=0.980517,
+indivs=6561000, elapsed_secs=94147, mean=0.958854, stdev=0.142035, best fit=0.980517,
+indivs=6571000, elapsed_secs=94293, mean=0.953569, stdev=0.158769, best fit=0.980517,
+indivs=6581000, elapsed_secs=94439, mean=0.957393, stdev=0.147455, best fit=0.980517,
+indivs=6591000, elapsed_secs=94589, mean=0.949666, stdev=0.169675, best fit=0.980517,
+indivs=6601000, elapsed_secs=94739, mean=0.961238, stdev=0.134952, best fit=0.980517,
+indivs=6611000, elapsed_secs=94887, mean=0.955451, stdev=0.153409, best fit=0.980517,
+indivs=6621000, elapsed_secs=95036, mean=0.959257, stdev=0.141747, best fit=0.980517,
+indivs=6631000, elapsed_secs=95188, mean=0.960218, stdev=0.138596, best fit=0.980517,
+indivs=6641000, elapsed_secs=95338, mean=0.956972, stdev=0.147851, best fit=0.980517,
+indivs=6651000, elapsed_secs=95488, mean=0.961238, stdev=0.134952, best fit=0.980517,
+indivs=6661000, elapsed_secs=95636, mean=0.949647, stdev=0.169783, best fit=0.980517,
+indivs=6671000, elapsed_secs=95783, mean=0.947726, stdev=0.173312, best fit=0.980517,
+indivs=6681000, elapsed_secs=95930, mean=0.959776, stdev=0.139022, best fit=0.980517,
+indivs=6691000, elapsed_secs=96076, mean=0.955511, stdev=0.153047, best fit=0.980517,
+indivs=6701000, elapsed_secs=96222, mean=0.959355, stdev=0.141092, best fit=0.980517,
+indivs=6711000, elapsed_secs=96369, mean=0.961737, stdev=0.132363, best fit=0.980517,
+indivs=6721000, elapsed_secs=96517, mean=0.959296, stdev=0.141486, best fit=0.980517,
+indivs=6731000, elapsed_secs=96664, mean=0.950706, stdev=0.166666, best fit=0.980517,
+indivs=6741000, elapsed_secs=96812, mean=0.957952, stdev=0.143252, best fit=0.980517,
+indivs=6751000, elapsed_secs=96958, mean=0.959316, stdev=0.141355, best fit=0.980517,
+indivs=6761000, elapsed_secs=97102, mean=0.959335, stdev=0.141223, best fit=0.980517,
+indivs=6771000, elapsed_secs=97246, mean=0.963659, stdev=0.125465, best fit=0.980517,
+indivs=6781000, elapsed_secs=97390, mean=0.960296, stdev=0.138059, best fit=0.980517,
+indivs=6791000, elapsed_secs=97531, mean=0.967965, stdev=0.106993, best fit=0.980517,
+indivs=6801000, elapsed_secs=97677, mean=0.962179, stdev=0.131764, best fit=0.980517,
+indivs=6811000, elapsed_secs=97822, mean=0.950666, stdev=0.166886, best fit=0.980517,
+indivs=6821000, elapsed_secs=97968, mean=0.958757, stdev=0.142371, best fit=0.980517,
+indivs=6831000, elapsed_secs=98116, mean=0.964101, stdev=0.124826, best fit=0.980517,
+indivs=6841000, elapsed_secs=98267, mean=0.963198, stdev=0.127910, best fit=0.980517,
+indivs=6851000, elapsed_secs=98420, mean=0.963140, stdev=0.128346, best fit=0.980517,
+indivs=6861000, elapsed_secs=98573, mean=0.965581, stdev=0.118134, best fit=0.980517,
+indivs=6871000, elapsed_secs=98721, mean=0.954549, stdev=0.155878, best fit=0.980517,
+indivs=6881000, elapsed_secs=98866, mean=0.963179, stdev=0.128055, best fit=0.980517,
+indivs=6891000, elapsed_secs=99014, mean=0.967562, stdev=0.109773, best fit=0.980517,
+indivs=6901000, elapsed_secs=99160, mean=0.965562, stdev=0.118292, best fit=0.980517,
 Experiment done. Retrieving candidate algorithm.
 Search fitness for candidate algorithm = 0.980517
 Evaluating candidate algorithm from experiment (on T_select tasks)... 
@@ -79,36 +1054,41 @@ Final evaluation of best algorithm (on unseen tasks)...
 Final evaluation fitness (on unseen data) = 0.980517
 Algorithm found: 
 def Setup():
-  s11 = heaviside(s5, 1.0)
-  s31 = s25 * s26
-  s23 = mean(v1)
-  s24 = s1 + s2
-  s11 = s27 * s28
+  s1 = mean(v2)
+  s51 = heaviside(s50, 1.0)
+  s11 = heaviside(s24, 1.0)
 def Predict():
-  s17 = s23 * s16
-  s26 = s21 + s32
-  s26 = heaviside(s17, 1.0)
-  s1 = s8 + s6
-  s6 = s1 * s13
-  s4 = s18 * s9
-  s27 = mean(v10)
-  s8 = heaviside(s33, 1.0)
+  s53 = heaviside(s29, 1.0)
+  s29 = mean(v4)
+  s13 = s37 * s14
+  s49 = heaviside(s25, 1.0)
+  s14 = s17 * s10
+  s1 = s17 + s15
+  s40 = s30 * s33
+  s43 = heaviside(s13, 1.0)
+  s30 = s48 + s0
+  s49 = mean(v4)
+  s15 = heaviside(s48, 1.0)
+  s21 = s23 * s49
   s26 = mean(v8)
-  s13 = s6 + s3
-  s11 = s19 * s25
+  s10 = mean(v4)
+  s38 = mean(v8)
+  s36 = s44 * s2
+  s8 = s23 * s0
+  s19 = s7 + s19
+  s47 = s39 + s51
 def Learn():
-  s4 = s33 + s3
-  s22 = s1 + s26
-  s14 = heaviside(s3, 1.0)
-  s19 = heaviside(s33, 1.0)
-  s2 = s8 * s27
-  s16 = s2 + s5
-  s3 = s25 * s0
-  s12 = s33 + s26
-  s18 = s23 * s18
-  s31 = s9 + s20
-  s11 = s12 * s24
-  s8 = mean(v2)
-  s25 = s24 + s25
-  s12 = mean(v10)
-  s14 = s0 + s28
+  s11 = s7 + s26
+  s11 = s18 * s24
+  s1 = s22 * s26
+  s8 = mean(v8)
+  s46 = s15 + s38
+  s26 = s11 + s9
+  s53 = heaviside(s54, 1.0)
+  s26 = mean(v8)
+  s15 = mean(v11)
+  s54 = mean(v8)
+  s32 = s20 + s21
+  s51 = mean(v4)
+  s30 = mean(v10)
+
