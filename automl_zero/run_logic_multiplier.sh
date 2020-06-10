@@ -53,7 +53,7 @@ bazel run -c opt \
     learn_size_init: 1 \
     mutate_learn_size_min: 1 \
     mutate_learn_size_max: 34 \
-    train_budget {train_budget_baseline: NEURAL_NET_ALGORITHM} \
+    train_budget {train_budget_baseline: NO_OP_ALGORITHM} \
     fitness_combination_mode: MEAN_FITNESS_COMBINATION \
     population_size: 1000 \
     tournament_size: 100 \
