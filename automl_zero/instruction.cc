@@ -241,7 +241,7 @@ void Instruction::SetOpAndRandomizeParams(
     case SCALAR_MIN_OP:
     case SCALAR_MAX_OP:
     case GREATER_THAN_OP:
-    case LESS_THAN_OP:
+    case LESS_THAN_EQ_OP:
     case NAND_OP:
     case VECTOR_SUM_OP:
     case VECTOR_DIFF_OP:
@@ -337,7 +337,7 @@ void Instruction::AlterParam(
     case SCALAR_MIN_OP:
     case SCALAR_MAX_OP:
     case GREATER_THAN_OP:
-    case LESS_THAN_OP:
+    case LESS_THAN_EQ_OP:
     case NAND_OP:
     case VECTOR_SUM_OP:
     case VECTOR_DIFF_OP:
@@ -392,7 +392,7 @@ void Instruction::RandomizeIn1(RandomGenerator* rand_gen) {
     case SCALAR_MIN_OP:
     case SCALAR_MAX_OP:
     case GREATER_THAN_OP:
-    case LESS_THAN_OP:
+    case LESS_THAN_EQ_OP:
     case NAND_OP:
     case SCALAR_ABS_OP:
     case SCALAR_HEAVYSIDE_OP:
@@ -504,7 +504,7 @@ void Instruction::RandomizeIn2(RandomGenerator* rand_gen) {
     case SCALAR_MIN_OP:
     case SCALAR_MAX_OP:
     case GREATER_THAN_OP:
-    case LESS_THAN_OP:
+    case LESS_THAN_EQ_OP:
     case NAND_OP:
       in2_ = rand_gen->ScalarInAddress();
       return;
@@ -545,7 +545,7 @@ void Instruction::RandomizeOut(RandomGenerator* rand_gen) {
     case SCALAR_MIN_OP:
     case SCALAR_MAX_OP:
     case GREATER_THAN_OP:
-    case LESS_THAN_OP:
+    case LESS_THAN_EQ_OP:
     case NAND_OP:
     case SCALAR_ABS_OP:
     case SCALAR_HEAVYSIDE_OP:
@@ -625,7 +625,7 @@ void Instruction::RandomizeData(RandomGenerator* rand_gen) {
     case SCALAR_MIN_OP:
     case SCALAR_MAX_OP:
     case GREATER_THAN_OP:
-    case LESS_THAN_OP:
+    case LESS_THAN_EQ_OP:
     case NAND_OP:
     case SCALAR_ABS_OP:
     case SCALAR_HEAVYSIDE_OP:
@@ -722,7 +722,7 @@ void Instruction::AlterData(RandomGenerator* rand_gen) {
     case SCALAR_MIN_OP:
     case SCALAR_MAX_OP:
     case GREATER_THAN_OP:
-    case LESS_THAN_OP:
+    case LESS_THAN_EQ_OP:
     case NAND_OP:
     case SCALAR_ABS_OP:
     case SCALAR_HEAVYSIDE_OP:
@@ -880,12 +880,12 @@ std::string Instruction::ToString() const {
       stream << "  s" << out_ << " = s" << in1_ << " > s" << in2_
              << std::endl;
       break;
-    case LESS_THAN_OP:
+    case LESS_THAN_EQ_OP:
       stream << "  s" << out_ << " = s" << in1_ << " <= s" << in2_
              << std::endl;
       break;
     case NAND_OP:
-      stream << "  s" << out_ << " = s" << in1_ << " > s" << in2_
+      stream << "  s" << out_ << " = not(s" << in1_ << " and s" << in2_ << ")"
              << std::endl;
       break;
     case SCALAR_ABS_OP:
