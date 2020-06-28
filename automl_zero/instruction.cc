@@ -240,6 +240,9 @@ void Instruction::SetOpAndRandomizeParams(
     case SCALAR_DIVISION_OP:
     case SCALAR_MIN_OP:
     case SCALAR_MAX_OP:
+    case GREATER_THAN_OP:
+    case LESS_THAN_OP:
+    case NAND_OP:
     case VECTOR_SUM_OP:
     case VECTOR_DIFF_OP:
     case VECTOR_PRODUCT_OP:
@@ -333,6 +336,9 @@ void Instruction::AlterParam(
     case SCALAR_DIVISION_OP:
     case SCALAR_MIN_OP:
     case SCALAR_MAX_OP:
+    case GREATER_THAN_OP:
+    case LESS_THAN_OP:
+    case NAND_OP:
     case VECTOR_SUM_OP:
     case VECTOR_DIFF_OP:
     case VECTOR_PRODUCT_OP:
@@ -385,6 +391,9 @@ void Instruction::RandomizeIn1(RandomGenerator* rand_gen) {
     case SCALAR_DIVISION_OP:
     case SCALAR_MIN_OP:
     case SCALAR_MAX_OP:
+    case GREATER_THAN_OP:
+    case LESS_THAN_OP:
+    case NAND_OP:
     case SCALAR_ABS_OP:
     case SCALAR_HEAVYSIDE_OP:
     case SCALAR_SIN_OP:
@@ -494,6 +503,9 @@ void Instruction::RandomizeIn2(RandomGenerator* rand_gen) {
     case SCALAR_DIVISION_OP:
     case SCALAR_MIN_OP:
     case SCALAR_MAX_OP:
+    case GREATER_THAN_OP:
+    case LESS_THAN_OP:
+    case NAND_OP:
       in2_ = rand_gen->ScalarInAddress();
       return;
     case VECTOR_SUM_OP:
@@ -532,6 +544,9 @@ void Instruction::RandomizeOut(RandomGenerator* rand_gen) {
     case SCALAR_DIVISION_OP:
     case SCALAR_MIN_OP:
     case SCALAR_MAX_OP:
+    case GREATER_THAN_OP:
+    case LESS_THAN_OP:
+    case NAND_OP:
     case SCALAR_ABS_OP:
     case SCALAR_HEAVYSIDE_OP:
     case SCALAR_CONST_SET_OP:
@@ -609,6 +624,9 @@ void Instruction::RandomizeData(RandomGenerator* rand_gen) {
     case SCALAR_DIVISION_OP:
     case SCALAR_MIN_OP:
     case SCALAR_MAX_OP:
+    case GREATER_THAN_OP:
+    case LESS_THAN_OP:
+    case NAND_OP:
     case SCALAR_ABS_OP:
     case SCALAR_HEAVYSIDE_OP:
     case SCALAR_SIN_OP:
@@ -703,6 +721,9 @@ void Instruction::AlterData(RandomGenerator* rand_gen) {
     case SCALAR_DIVISION_OP:
     case SCALAR_MIN_OP:
     case SCALAR_MAX_OP:
+    case GREATER_THAN_OP:
+    case LESS_THAN_OP:
+    case NAND_OP:
     case SCALAR_ABS_OP:
     case SCALAR_HEAVYSIDE_OP:
     case SCALAR_SIN_OP:
@@ -854,6 +875,18 @@ std::string Instruction::ToString() const {
     case SCALAR_MAX_OP:
       stream << "  s" << out_ << " = maximum(s" << in1_ << ", s" << in2_
              << ")" << std::endl;
+      break;
+    case GREATER_THAN_OP:
+      stream << "  s" << out_ << " = s" << in1_ << " > s" << in2_
+             << std::endl;
+      break;
+    case LESS_THAN_OP:
+      stream << "  s" << out_ << " = s" << in1_ << " <= s" << in2_
+             << std::endl;
+      break;
+    case NAND_OP:
+      stream << "  s" << out_ << " = s" << in1_ << " > s" << in2_
+             << std::endl;
       break;
     case SCALAR_ABS_OP:
       stream << "  s" << out_ << " = abs(s" << in1_ << ")" << std::endl;

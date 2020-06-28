@@ -432,6 +432,9 @@ TEST(InstructionTest, RandomizesIn1) {
       case SCALAR_DIVISION_OP:
       case SCALAR_MIN_OP:
       case SCALAR_MAX_OP:
+      case GREATER_THAN_OP:
+      case LESS_THAN_EQ_OP:
+      case NAND_OP:
       case SCALAR_ABS_OP:
       case SCALAR_HEAVYSIDE_OP:
       case SCALAR_SIN_OP:
@@ -561,6 +564,9 @@ TEST(InstructionTest, RandomizesIn2) {
       case SCALAR_DIVISION_OP:
       case SCALAR_MIN_OP:
       case SCALAR_MAX_OP:
+      case GREATER_THAN_OP:
+      case LESS_THAN_EQ_OP:
+      case NAND_OP:
         EXPECT_TRUE(IsEventually(
             function<AddressT(void)>([op, &rand_gen](){
               return RandomizeIn2(op, &rand_gen);}),
@@ -621,6 +627,9 @@ TEST(InstructionTest, RandomizesOut) {
       case SCALAR_DIVISION_OP:
       case SCALAR_MIN_OP:
       case SCALAR_MAX_OP:
+      case GREATER_THAN_OP:
+      case LESS_THAN_EQ_OP:
+      case NAND_OP:
       case SCALAR_ABS_OP:
       case SCALAR_HEAVYSIDE_OP:
       case SCALAR_CONST_SET_OP:
@@ -711,6 +720,9 @@ TEST(InstructionTest, RandomizesData) {
       case SCALAR_DIVISION_OP:
       case SCALAR_MIN_OP:
       case SCALAR_MAX_OP:
+      case GREATER_THAN_OP:
+      case LESS_THAN_EQ_OP:
+      case NAND_OP:
       case SCALAR_ABS_OP:
       case SCALAR_HEAVYSIDE_OP:
       case SCALAR_SIN_OP:
@@ -888,6 +900,9 @@ TEST(InstructionTest, RandomizesCorrectFields) {
       case SCALAR_DIVISION_OP:
       case SCALAR_MIN_OP:
       case SCALAR_MAX_OP:
+      case GREATER_THAN_OP:
+      case LESS_THAN_EQ_OP:
+      case NAND_OP:
       case VECTOR_SUM_OP:
       case VECTOR_DIFF_OP:
       case VECTOR_PRODUCT_OP:
@@ -1050,6 +1065,9 @@ TEST(InstructionTest, AltersCorrectFields) {
       case SCALAR_DIVISION_OP:
       case SCALAR_MIN_OP:
       case SCALAR_MAX_OP:
+      case GREATER_THAN_OP:
+      case LESS_THAN_EQ_OP:
+      case NAND_OP:
       case VECTOR_SUM_OP:
       case VECTOR_DIFF_OP:
       case VECTOR_PRODUCT_OP:

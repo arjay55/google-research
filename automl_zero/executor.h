@@ -171,6 +171,34 @@ inline void ExecuteScalarSumOp(
 }
 
 template<FeatureIndexT F>
+inline void ExecuteDiscreteGreaterthanOp(
+    const Instruction& instruction, RandomGenerator* rand_gen,
+    Memory<F>* memory) {
+      memory->scalar_[instruction.out_] = float (memory->scalar_[instruction.in1_] > memory->scalar_[instruction.in2_);
+
+}
+
+template<FeatureIndexT F>
+inline void ExecuteDiscreteLessthaneqOp(
+    const Instruction& instruction, RandomGenerator* rand_gen,
+    Memory<F>* memory) {
+      memory->scalar_[instruction.out_] = float (memory->scalar_[instruction.in1_] <= memory->scalar_[instruction.in2_);
+}
+
+template<FeatureIndexT F>
+inline void ExecuteDiscreteNAND(
+    const Instruction& instruction, RandomGenerator* rand_gen,
+    Memory<F>* memory) {
+      int inst1;
+      int inst2;
+
+      inst1 = int (memory->scalar_[instruction.in1_]);
+      inst2 = int (memory->scalar_[instruction.in2_]);
+      memory->scalar_[instruction.out_] = float (!(inst1 && inst2));
+}
+
+
+template<FeatureIndexT F>
 inline void ExecuteScalarDiffOp(
     const Instruction& instruction, RandomGenerator* rand_gen,
     Memory<F>* memory) {
@@ -866,9 +894,9 @@ static constexpr std::array<
         &ExecuteScalarGaussianSetOp,       // SCALAR_GAUSSIAN_SET_OP = 62
         &ExecuteVectorGaussianSetOp,       // VECTOR_GAUSSIAN_SET_OP = 63
         &ExecuteMatrixGaussianSetOp,       // MATRIX_GAUSSIAN_SET_OP = 64
-        &ExecuteUnsupportedOp,             // UNSUPPORTED_OP = 65
-        &ExecuteUnsupportedOp,             // UNSUPPORTED_OP = 66
-        &ExecuteUnsupportedOp,             // UNSUPPORTED_OP = 67
+        &ExecuteDiscreteGreaterthanOp,     // GREATER_THAN_OP = 65 start of discrete operations Arjay 06282020
+        &ExecuteDiscreteLessthaneqOp,      // LESS_THAN_EQ_OP = 66
+        &ExecuteDiscreteNAND,              // NAND_OP = 67
         &ExecuteUnsupportedOp,             // UNSUPPORTED_OP = 68
         &ExecuteUnsupportedOp,             // UNSUPPORTED_OP = 69
         &ExecuteUnsupportedOp,             // UNSUPPORTED_OP = 70

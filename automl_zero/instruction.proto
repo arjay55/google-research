@@ -85,4 +85,7 @@ enum Op {
   SCALAR_GAUSSIAN_SET_OP = 62;  // OP62 in paper.
   VECTOR_GAUSSIAN_SET_OP = 63;  // OP63 in paper.
   MATRIX_GAUSSIAN_SET_OP = 64;  // OP64 in paper.
+  GREATER_THAN_OP = 65;
+  LESS_THAN_EQ_OP = 66;
+  NAND_OP = 67;
 }
