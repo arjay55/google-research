@@ -168,7 +168,12 @@ double ComputeCost(const Instruction& instruction) {
       return 10993088.0;
     case VECTOR_ROW_BROADCAST_OP:
       return 11087322.0;
-    // Do not add default clause. All ops should be supported here.
+    case GREATER_THAN_OP:
+      return 5585730.0; // dummy value based from VECTOR_ST_DEV_OP
+    case LESS_THAN_EQ_OP:
+      return 5585730.0; // dummy value based from VECTOR_ST_DEV_OP
+    case NAND_OP:
+      return 5585730.0; // dummy value based from VECTOR_ST_DEV_OP
   }
 }
 
