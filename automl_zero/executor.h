@@ -174,7 +174,7 @@ template<FeatureIndexT F>
 inline void ExecuteDiscreteGreaterthanOp(
     const Instruction& instruction, RandomGenerator* rand_gen,
     Memory<F>* memory) {
-      memory->scalar_[instruction.out_] = float (memory->scalar_[instruction.in1_] > memory->scalar_[instruction.in2_);
+      memory->scalar_[instruction.out_] = float (memory->scalar_[instruction.in1_] > memory->scalar_[instruction.in2_]);
 
 }
 
@@ -182,7 +182,7 @@ template<FeatureIndexT F>
 inline void ExecuteDiscreteLessthaneqOp(
     const Instruction& instruction, RandomGenerator* rand_gen,
     Memory<F>* memory) {
-      memory->scalar_[instruction.out_] = float (memory->scalar_[instruction.in1_] <= memory->scalar_[instruction.in2_);
+      memory->scalar_[instruction.out_] = float (memory->scalar_[instruction.in1_] <= memory->scalar_[instruction.in2_]);
 }
 
 template<FeatureIndexT F>
