@@ -36,7 +36,7 @@ import tensorflow_datasets as tfds
 import task_pb2
 
 flags.DEFINE_string(
-    'data_dir', '/tmp/binary_cifar10_data/',
+    'data_dir', '/tmp/binary_mnist_data/',
     'Path of the folder to save the datasets.')
 
 flags.DEFINE_string(
@@ -56,7 +56,7 @@ flags.DEFINE_integer('num_test_examples', 1000,
 flags.DEFINE_integer('projected_dim', 16,
                      'The dimensionality to project the data into.')
 
-flags.DEFINE_string('dataset_name', 'cifar10',
+flags.DEFINE_string('dataset_name', 'mnist',
                     'Name of the dataset to generatee '
                     'more binary classification datasets.')
 
