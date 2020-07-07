@@ -174,6 +174,12 @@ double ComputeCost(const Instruction& instruction) {
       return 5585730.0; // dummy value based from VECTOR_ST_DEV_OP
     case NAND_OP:
       return 5585730.0; // dummy value based from VECTOR_ST_DEV_OP
+    case AND_OP:
+      return 5585730.0;
+    case OR_OP:
+      return 5585730.0;
+    case NOT_OP:
+      return 5585730.0;
   }
 }
 

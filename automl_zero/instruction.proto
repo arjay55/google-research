@@ -88,4 +88,7 @@ enum Op {
   GREATER_THAN_OP = 65;
   LESS_THAN_EQ_OP = 66;
   NAND_OP = 67;
+  AND_OP = 68;
+  OR_OP = 69;
+  NOT_OP = 70;
 }

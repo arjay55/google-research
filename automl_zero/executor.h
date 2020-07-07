@@ -197,6 +197,38 @@ inline void ExecuteDiscreteNAND(
       memory->scalar_[instruction.out_] = float (!(inst1 && inst2));
 }
 
+template<FeatureIndexT F>
+inline void ExecuteDiscreteAND(
+    const Instruction& instruction, RandomGenerator* rand_gen,
+    Memory<F>* memory) {
+      int inst1;
+      int inst2;
+
+      inst1 = int (memory->scalar_[instruction.in1_]);
+      inst2 = int (memory->scalar_[instruction.in2_]);
+      memory->scalar_[instruction.out_] = float (inst1 && inst2);
+}
+
+template<FeatureIndexT F>
+inline void ExecuteDiscreteOR(
+    const Instruction& instruction, RandomGenerator* rand_gen,
+    Memory<F>* memory) {
+      int inst1;
+      int inst2;
+
+      inst1 = int (memory->scalar_[instruction.in1_]);
+      inst2 = int (memory->scalar_[instruction.in2_]);
+      memory->scalar_[instruction.out_] = float (inst1 || inst2);
+}
+
+template<FeatureIndexT F>
+inline void ExecuteDiscreteNOT(
+    const Instruction& instruction, RandomGenerator* rand_gen,
+    Memory<F>* memory) {
+      int inst1;
+
+      memory->scalar_[instruction.out_] =float(! memory->scalar_[instruction.in1_]);
+}
 
 template<FeatureIndexT F>
 inline void ExecuteScalarDiffOp(
@@ -897,9 +929,9 @@ static constexpr std::array<
         &ExecuteDiscreteGreaterthanOp,     // GREATER_THAN_OP = 65 start of discrete operations Arjay 06282020
         &ExecuteDiscreteLessthaneqOp,      // LESS_THAN_EQ_OP = 66
         &ExecuteDiscreteNAND,              // NAND_OP = 67
-        &ExecuteUnsupportedOp,             // UNSUPPORTED_OP = 68
-        &ExecuteUnsupportedOp,             // UNSUPPORTED_OP = 69
-        &ExecuteUnsupportedOp,             // UNSUPPORTED_OP = 70
+        &ExecuteDiscreteAND,               // AND_OP = 68
+        &ExecuteDiscreteOR,                // OR_OP = 69
+        &ExecuteDiscreteNOT,               // NOT_OP = 70
         &ExecuteUnsupportedOp,             // UNSUPPORTED_OP = 71
         &ExecuteUnsupportedOp,             // UNSUPPORTED_OP = 72
         &ExecuteUnsupportedOp,             // UNSUPPORTED_OP = 73

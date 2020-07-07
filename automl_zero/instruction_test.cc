@@ -41,7 +41,7 @@ using ::testing::Test;
 constexpr double kTolerance = 0.0001;
 
 // Must match the number of ops in the op enum in instruction.proto.
-constexpr IntegerT kNumOps = 65;
+constexpr IntegerT kNumOps = 71;
 
 enum DiffId : IntegerT {
   kNoDifference = 0,
@@ -435,6 +435,12 @@ TEST(InstructionTest, RandomizesIn1) {
       case GREATER_THAN_OP:
       case LESS_THAN_EQ_OP:
       case NAND_OP:
+      case AND_OP:
+      case OR_OP:
+      case NOT_OP:
+      case AND_OP:
+      case OR_OP:
+      case NOT_OP:
       case SCALAR_ABS_OP:
       case SCALAR_HEAVYSIDE_OP:
       case SCALAR_SIN_OP:
@@ -567,6 +573,9 @@ TEST(InstructionTest, RandomizesIn2) {
       case GREATER_THAN_OP:
       case LESS_THAN_EQ_OP:
       case NAND_OP:
+      case AND_OP:
+      case OR_OP:
+      case NOT_OP:
         EXPECT_TRUE(IsEventually(
             function<AddressT(void)>([op, &rand_gen](){
               return RandomizeIn2(op, &rand_gen);}),
@@ -630,6 +639,9 @@ TEST(InstructionTest, RandomizesOut) {
       case GREATER_THAN_OP:
       case LESS_THAN_EQ_OP:
       case NAND_OP:
+      case AND_OP:
+      case OR_OP:
+      case NOT_OP:
       case SCALAR_ABS_OP:
       case SCALAR_HEAVYSIDE_OP:
       case SCALAR_CONST_SET_OP:
@@ -723,6 +735,9 @@ TEST(InstructionTest, RandomizesData) {
       case GREATER_THAN_OP:
       case LESS_THAN_EQ_OP:
       case NAND_OP:
+      case AND_OP:
+      case OR_OP:
+      case NOT_OP:
       case SCALAR_ABS_OP:
       case SCALAR_HEAVYSIDE_OP:
       case SCALAR_SIN_OP:
@@ -903,6 +918,9 @@ TEST(InstructionTest, RandomizesCorrectFields) {
       case GREATER_THAN_OP:
       case LESS_THAN_EQ_OP:
       case NAND_OP:
+      case AND_OP:
+      case OR_OP:
+      case NOT_OP:
       case VECTOR_SUM_OP:
       case VECTOR_DIFF_OP:
       case VECTOR_PRODUCT_OP:
@@ -1068,6 +1086,9 @@ TEST(InstructionTest, AltersCorrectFields) {
       case GREATER_THAN_OP:
       case LESS_THAN_EQ_OP:
       case NAND_OP:
+      case AND_OP:
+      case OR_OP:
+      case NOT_OP:
       case VECTOR_SUM_OP:
       case VECTOR_DIFF_OP:
       case VECTOR_PRODUCT_OP:

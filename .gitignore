@@ -24,3 +24,5 @@ automl_zero/bazel-out
 automl_zero/bazel-testlogs
 automl_zero/executor_logic.h
 automl_zero/binary_mnist_data
+automl_zero/result_MNIST_relational_logic_0.txt
+automl_zero/result_MNIST_relational_logic_1.txt
