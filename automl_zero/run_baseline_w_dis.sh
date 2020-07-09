@@ -56,17 +56,17 @@ bazel run -c opt \
     mutate_setup_size_min: 1 \
     mutate_setup_size_max: 13 \
     predict_size_init: 1 \
-    mutate_predict_size_min: 1 \
+    mutate_predict_size_min: 3 \
     mutate_predict_size_max: 21 \
     learn_size_init: 1 \
-    mutate_learn_size_min: 1 \
+    mutate_learn_size_min: 3 \
     mutate_learn_size_max: 34 \
     train_budget {train_budget_baseline: NEURAL_NET_ALGORITHM} \
     fitness_combination_mode: MEAN_FITNESS_COMBINATION \
-    population_size: 100 \
+    population_size: 500 \
     tournament_size: 10 \
     initial_population: NO_OP_ALGORITHM \
-    max_train_steps: 100000000000 \
+    max_train_steps: 200000000000 \
     allowed_mutation_types {
       mutation_types: [ALTER_PARAM_MUTATION_TYPE, RANDOMIZE_COMPONENT_FUNCTION_MUTATION_TYPE, INSERT_INSTRUCTION_MUTATION_TYPE, REMOVE_INSTRUCTION_MUTATION_TYPE] \
     } \
