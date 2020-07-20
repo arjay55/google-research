@@ -1,0 +1,943 @@
+Starting local Bazel server and connecting to it...
+Loading: 
+Loading: 0 packages loaded
+Analyzing: target //:run_search_experiment (1 packages loaded, 0 targets configured)
+Analyzing: target //:run_search_experiment (15 packages loaded, 21 targets configured)
+Analyzing: target //:run_search_experiment (29 packages loaded, 1103 targets configured)
+INFO: Analyzed target //:run_search_experiment (40 packages loaded, 1466 targets configured).
+INFO: Found 1 target...
+INFO: Deleting stale sandbox base /home/ubuntu/.cache/bazel/_bazel_ubuntu/5d5d5e021bc1d0875072d389657ba4fc/sandbox
+[2 / 4] [Prepa] BazelWorkspaceStatusAction stable-status.txt
+[30 / 428] Compiling external/com_google_absl/absl/strings/match.cc; 0s linux-sandbox ... (2 actions running)
+[34 / 428] Compiling external/com_google_protobuf/src/google/protobuf/struct.pb.cc; 0s linux-sandbox ... (2 actions running)
+[36 / 428] Compiling external/com_google_protobuf/src/google/protobuf/struct.pb.cc; 1s linux-sandbox ... (2 actions running)
+[40 / 428] Compiling external/com_google_protobuf/src/google/protobuf/struct.pb.cc; 2s linux-sandbox ... (2 actions running)
+[46 / 428] Compiling external/com_google_protobuf/src/google/protobuf/util/internal/type_info_test_helper.cc; 1s linux-sandbox ... (2 actions running)
+[58 / 428] Compiling external/com_google_protobuf/src/google/protobuf/util/json_util.cc; 1s linux-sandbox
+[64 / 428] Compiling external/com_google_protobuf/src/google/protobuf/util/internal/datapiece.cc; 1s linux-sandbox ... (2 actions running)
+[78 / 428] Compiling external/com_google_protobuf/src/google/protobuf/util/type_resolver_util.cc; 1s linux-sandbox ... (2 actions running)
+[84 / 428] Compiling external/com_google_protobuf/src/google/protobuf/generated_message_reflection.cc; 1s linux-sandbox ... (2 actions running)
+[93 / 428] Compiling external/com_google_protobuf/src/google/protobuf/descriptor.pb.cc; 0s linux-sandbox ... (2 actions, 1 running)
+[96 / 428] Compiling external/com_google_protobuf/src/google/protobuf/descriptor.pb.cc; 3s linux-sandbox ... (2 actions, 1 running)
+[104 / 428] Compiling external/com_google_protobuf/src/google/protobuf/type.pb.cc; 0s linux-sandbox ... (2 actions, 1 running)
+[115 / 428] Compiling external/com_google_protobuf/src/google/protobuf/text_format.cc; 2s linux-sandbox ... (2 actions, 1 running)
+[135 / 428] Compiling external/com_google_protobuf/src/google/protobuf/generated_message_util.cc; 1s linux-sandbox ... (2 actions running)
+[173 / 428] Compiling external/com_google_absl/absl/synchronization/internal/create_thread_identity.cc; 0s linux-sandbox ... (2 actions running)
+[210 / 428] Compiling external/com_google_protobuf/src/google/protobuf/util/message_differencer.cc; 3s linux-sandbox ... (2 actions running)
+[287 / 428] Compiling external/com_github_gflags_gflags/src/gflags.cc; 0s linux-sandbox
+[312 / 428] Compiling external/com_google_protobuf/src/google/protobuf/descriptor.cc; 8s linux-sandbox ... (2 actions running)
+[336 / 428] Compiling external/com_google_protobuf/src/google/protobuf/util/internal/protostream_objectwriter.cc; 0s linux-sandbox ... (2 actions running)
+[371 / 428] Compiling train_budget.pb.cc; 0s linux-sandbox ... (2 actions running)
+INFO: From Compiling algorithm.cc:
+algorithm.cc: In member function 'const std::vector<std::shared_ptr<const automl_zero::Instruction> >& automl_zero::Algorithm::ComponentFunction(automl_zero::ComponentFunctionT) const':
+algorithm.cc:172:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+algorithm.cc: In member function 'std::vector<std::shared_ptr<const automl_zero::Instruction> >* automl_zero::Algorithm::MutableComponentFunction(automl_zero::ComponentFunctionT)':
+algorithm.cc:184:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+INFO: From Compiling compute_cost.cc:
+compute_cost.cc: In function 'double automl_zero::ComputeCost(const automl_zero::Instruction&)':
+compute_cost.cc:184:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+INFO: From Compiling fec_hashing.cc:
+In file included from fec_hashing.h:21:0,
+                 from fec_hashing.cc:15:
+executor.h:863:10: warning: variable templates only available with -std=c++14 or -std=gnu++14
+     128> kOpIndexToExecuteFunction = {
+          ^~~~~~~~~~~~~~~~~~~~~~~~~
+INFO: From Compiling mutator.cc:
+mutator.cc: In member function 'void automl_zero::Mutator::InsertInstruction(automl_zero::Algorithm*)':
+mutator.cc:253:36: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       if (algorithm->setup_.size() >= setup_size_max_ - 1) return;
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~
+mutator.cc:259:38: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       if (algorithm->predict_.size() >= predict_size_max_ - 1) return;
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~
+mutator.cc:265:36: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       if (algorithm->learn_.size() >= learn_size_max_ - 1) return;
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~
+In file included from definitions.h:34:0,
+                 from instruction.h:24,
+                 from algorithm.h:24,
+                 from mutator.h:21,
+                 from mutator.cc:15:
+bazel-out/k8-opt/bin/external/com_google_glog/_virtual_includes/default_glog_headers/glog/logging.h: In instantiation of 'std::__cxx11::string* google::Check_GTImpl(const T1&, const T2&, const char*) [with T1 = long unsigned int; T2 = int; std::__cxx11::string = std::__cxx11::basic_string<char>]':
+mutator.cc:343:3:   required from here
+bazel-out/k8-opt/bin/external/com_google_glog/_virtual_includes/default_glog_headers/glog/logging.h:733:32: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+ DEFINE_CHECK_OP_IMPL(Check_GT, > )
+                                ^
+bazel-out/k8-opt/bin/external/com_google_glog/_virtual_includes/default_glog_headers/glog/logging.h:148:53: note: in definition of macro 'GOOGLE_PREDICT_TRUE'
+ #define GOOGLE_PREDICT_TRUE(x) (__builtin_expect(!!(x), 1))
+                                                     ^
+bazel-out/k8-opt/bin/external/com_google_glog/_virtual_includes/default_glog_headers/glog/logging.h:733:1: note: in expansion of macro 'DEFINE_CHECK_OP_IMPL'
+ DEFINE_CHECK_OP_IMPL(Check_GT, > )
+ ^~~~~~~~~~~~~~~~~~~~
+mutator.cc:271:35: warning: 'component_function' may be used uninitialized in this function [-Wmaybe-uninitialized]
+   InsertInstructionUnconditionally(op, component_function);
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~
+mutator.cc:271:35: warning: 'op' may be used uninitialized in this function [-Wmaybe-uninitialized]
+mutator.cc: In member function 'void automl_zero::Mutator::RemoveInstruction(automl_zero::Algorithm*)':
+mutator.cc:293:35: warning: 'component_function' may be used uninitialized in this function [-Wmaybe-uninitialized]
+   RemoveInstructionUnconditionally(component_function);
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~
+mutator.cc: In member function 'void automl_zero::Mutator::TradeInstruction(automl_zero::Algorithm*)':
+mutator.cc:317:35: warning: 'component_function' may be used uninitialized in this function [-Wmaybe-uninitialized]
+   RemoveInstructionUnconditionally(component_function);
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~
+mutator.cc:316:35: warning: 'op' may be used uninitialized in this function [-Wmaybe-uninitialized]
+   InsertInstructionUnconditionally(op, component_function);
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~
+INFO: From Compiling fec_cache.cc:
+In file included from fec_cache.h:24:0,
+                 from fec_cache.cc:15:
+executor.h:863:10: warning: variable templates only available with -std=c++14 or -std=gnu++14
+     128> kOpIndexToExecuteFunction = {
+          ^~~~~~~~~~~~~~~~~~~~~~~~~
+fec_cache.cc: In member function 'void automl_zero::LRUCache::MaybeResize()':
+fec_cache.cc:92:23: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   while (list_.size() > max_size_) {
+          ~~~~~~~~~~~~~^~~~~~~~~~~
+[380 / 428] Compiling task_util.cc; 14s linux-sandbox ... (2 actions running)
+INFO: From Compiling evaluator.cc:
+In file included from fec_cache.h:24:0,
+                 from evaluator.h:28,
+                 from evaluator.cc:15:
+executor.h:863:10: warning: variable templates only available with -std=c++14 or -std=gnu++14
+     128> kOpIndexToExecuteFunction = {
+          ^~~~~~~~~~~~~~~~~~~~~~~~~
+evaluator.cc: In member function 'double automl_zero::Evaluator::Evaluate(const automl_zero::Algorithm&)':
+evaluator.cc:89:26: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for (IntegerT i = 0; i < tasks_.size(); ++i) {
+                        ~~^~~~~~~~~~~~~~~
+In file included from definitions.h:34:0,
+                 from instruction.h:24,
+                 from algorithm.h:24,
+                 from evaluator.h:23,
+                 from evaluator.cc:15:
+bazel-out/k8-opt/bin/external/com_google_glog/_virtual_includes/default_glog_headers/glog/logging.h: In instantiation of 'std::__cxx11::string* google::Check_GTImpl(const T1&, const T2&, const char*) [with T1 = long unsigned int; T2 = int; std::__cxx11::string = std::__cxx11::basic_string<char>]':
+evaluator.cc:78:3:   required from here
+bazel-out/k8-opt/bin/external/com_google_glog/_virtual_includes/default_glog_headers/glog/logging.h:733:32: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+ DEFINE_CHECK_OP_IMPL(Check_GT, > )
+                                ^
+bazel-out/k8-opt/bin/external/com_google_glog/_virtual_includes/default_glog_headers/glog/logging.h:148:53: note: in definition of macro 'GOOGLE_PREDICT_TRUE'
+ #define GOOGLE_PREDICT_TRUE(x) (__builtin_expect(!!(x), 1))
+                                                     ^
+bazel-out/k8-opt/bin/external/com_google_glog/_virtual_includes/default_glog_headers/glog/logging.h:733:1: note: in expansion of macro 'DEFINE_CHECK_OP_IMPL'
+ DEFINE_CHECK_OP_IMPL(Check_GT, > )
+ ^~~~~~~~~~~~~~~~~~~~
+In file included from fec_cache.h:24:0,
+                 from evaluator.h:28,
+                 from evaluator.cc:15:
+executor.h: In instantiation of 'void automl_zero::ExecuteDiscreteNOT(const automl_zero::Instruction&, automl_zero::RandomGenerator*, automl_zero::Memory<F>*) [with int F = 2]':
+executor.h:863:10:   required from 'constexpr const std::array<void (*)(const automl_zero::Instruction&, automl_zero::RandomGenerator*, automl_zero::Memory<2>*), 128> automl_zero::kOpIndexToExecuteFunction<2>'
+executor.h:998:5:   required from 'void automl_zero::ExecuteInstruction(const automl_zero::Instruction&, automl_zero::RandomGenerator*, automl_zero::Memory<F>*) [with int F = 2]'
+executor.h:1054:23:   required from 'automl_zero::Executor<F>::Executor(const automl_zero::Algorithm&, const automl_zero::Task<F>&, automl_zero::IntegerT, automl_zero::IntegerT, automl_zero::RandomGenerator*, double) [with int F = 2; automl_zero::IntegerT = long int]'
+evaluator.cc:153:17:   required from 'double automl_zero::Evaluator::ExecuteImpl(const automl_zero::Task<F>&, automl_zero::IntegerT, const automl_zero::Algorithm&) [with int F = 2; automl_zero::IntegerT = long int]'
+evaluator.cc:118:75:   required from here
+executor.h:228:11: warning: unused variable 'inst1' [-Wunused-variable]
+       int inst1;
+           ^~~~~
+In file included from evaluator.h:24:0,
+                 from evaluator.cc:15:
+task.h: In instantiation of 'void automl_zero::TaskIterator<F>::Next() [with int F = 2]':
+executor.h:1360:5:   required from 'double automl_zero::Executor<F>::Validate(std::vector<double>*) [with int F = 2]'
+executor.h:1087:44:   required from 'double automl_zero::Executor<F>::Execute(std::vector<double>*, std::vector<double>*) [with int F = 2]'
+evaluator.cc:159:5:   required from 'double automl_zero::Evaluator::ExecuteImpl(const automl_zero::Task<F>&, automl_zero::IntegerT, const automl_zero::Algorithm&) [with int F = 2; automl_zero::IntegerT = long int]'
+evaluator.cc:118:75:   required from here
+task.h:317:26: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (current_example_ >= features_->size()) {
+task.h: In instantiation of 'bool automl_zero::TaskIterator<F>::Done() const [with int F = 2]':
+executor.h:1361:5:   required from 'double automl_zero::Executor<F>::Validate(std::vector<double>*) [with int F = 2]'
+executor.h:1087:44:   required from 'double automl_zero::Executor<F>::Execute(std::vector<double>*, std::vector<double>*) [with int F = 2]'
+evaluator.cc:159:5:   required from 'double automl_zero::Evaluator::ExecuteImpl(const automl_zero::Task<F>&, automl_zero::IntegerT, const automl_zero::Algorithm&) [with int F = 2; automl_zero::IntegerT = long int]'
+evaluator.cc:118:75:   required from here
+task.h:311:27: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     return current_epoch_ >= epochs_->size();
+            ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+In file included from fec_cache.h:24:0,
+                 from evaluator.h:28,
+                 from evaluator.cc:15:
+executor.h: In instantiation of 'void automl_zero::ExecuteDiscreteNOT(const automl_zero::Instruction&, automl_zero::RandomGenerator*, automl_zero::Memory<F>*) [with int F = 4]':
+executor.h:863:10:   required from 'constexpr const std::array<void (*)(const automl_zero::Instruction&, automl_zero::RandomGenerator*, automl_zero::Memory<4>*), 128> automl_zero::kOpIndexToExecuteFunction<4>'
+executor.h:998:5:   required from 'void automl_zero::ExecuteInstruction(const automl_zero::Instruction&, automl_zero::RandomGenerator*, automl_zero::Memory<F>*) [with int F = 4]'
+executor.h:1054:23:   required from 'automl_zero::Executor<F>::Executor(const automl_zero::Algorithm&, const automl_zero::Task<F>&, automl_zero::IntegerT, automl_zero::IntegerT, automl_zero::RandomGenerator*, double) [with int F = 4; automl_zero::IntegerT = long int]'
+evaluator.cc:153:17:   required from 'double automl_zero::Evaluator::ExecuteImpl(const automl_zero::Task<F>&, automl_zero::IntegerT, const automl_zero::Algorithm&) [with int F = 4; automl_zero::IntegerT = long int]'
+evaluator.cc:122:75:   required from here
+executor.h:228:11: warning: unused variable 'inst1' [-Wunused-variable]
+       int inst1;
+           ^~~~~
+In file included from evaluator.h:24:0,
+                 from evaluator.cc:15:
+task.h: In instantiation of 'void automl_zero::TaskIterator<F>::Next() [with int F = 4]':
+executor.h:1360:5:   required from 'double automl_zero::Executor<F>::Validate(std::vector<double>*) [with int F = 4]'
+executor.h:1087:44:   required from 'double automl_zero::Executor<F>::Execute(std::vector<double>*, std::vector<double>*) [with int F = 4]'
+evaluator.cc:159:5:   required from 'double automl_zero::Evaluator::ExecuteImpl(const automl_zero::Task<F>&, automl_zero::IntegerT, const automl_zero::Algorithm&) [with int F = 4; automl_zero::IntegerT = long int]'
+evaluator.cc:122:75:   required from here
+task.h:317:26: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (current_example_ >= features_->size()) {
+task.h: In instantiation of 'bool automl_zero::TaskIterator<F>::Done() const [with int F = 4]':
+executor.h:1361:5:   required from 'double automl_zero::Executor<F>::Validate(std::vector<double>*) [with int F = 4]'
+executor.h:1087:44:   required from 'double automl_zero::Executor<F>::Execute(std::vector<double>*, std::vector<double>*) [with int F = 4]'
+evaluator.cc:159:5:   required from 'double automl_zero::Evaluator::ExecuteImpl(const automl_zero::Task<F>&, automl_zero::IntegerT, const automl_zero::Algorithm&) [with int F = 4; automl_zero::IntegerT = long int]'
+evaluator.cc:122:75:   required from here
+task.h:311:27: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     return current_epoch_ >= epochs_->size();
+            ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+In file included from fec_cache.h:24:0,
+                 from evaluator.h:28,
+                 from evaluator.cc:15:
+executor.h: In instantiation of 'void automl_zero::ExecuteDiscreteNOT(const automl_zero::Instruction&, automl_zero::RandomGenerator*, automl_zero::Memory<F>*) [with int F = 8]':
+executor.h:863:10:   required from 'constexpr const std::array<void (*)(const automl_zero::Instruction&, automl_zero::RandomGenerator*, automl_zero::Memory<8>*), 128> automl_zero::kOpIndexToExecuteFunction<8>'
+executor.h:998:5:   required from 'void automl_zero::ExecuteInstruction(const automl_zero::Instruction&, automl_zero::RandomGenerator*, automl_zero::Memory<F>*) [with int F = 8]'
+executor.h:1054:23:   required from 'automl_zero::Executor<F>::Executor(const automl_zero::Algorithm&, const automl_zero::Task<F>&, automl_zero::IntegerT, automl_zero::IntegerT, automl_zero::RandomGenerator*, double) [with int F = 8; automl_zero::IntegerT = long int]'
+evaluator.cc:153:17:   required from 'double automl_zero::Evaluator::ExecuteImpl(const automl_zero::Task<F>&, automl_zero::IntegerT, const automl_zero::Algorithm&) [with int F = 8; automl_zero::IntegerT = long int]'
+evaluator.cc:126:75:   required from here
+executor.h:228:11: warning: unused variable 'inst1' [-Wunused-variable]
+       int inst1;
+           ^~~~~
+In file included from evaluator.h:24:0,
+                 from evaluator.cc:15:
+task.h: In instantiation of 'void automl_zero::TaskIterator<F>::Next() [with int F = 8]':
+executor.h:1360:5:   required from 'double automl_zero::Executor<F>::Validate(std::vector<double>*) [with int F = 8]'
+executor.h:1087:44:   required from 'double automl_zero::Executor<F>::Execute(std::vector<double>*, std::vector<double>*) [with int F = 8]'
+evaluator.cc:159:5:   required from 'double automl_zero::Evaluator::ExecuteImpl(const automl_zero::Task<F>&, automl_zero::IntegerT, const automl_zero::Algorithm&) [with int F = 8; automl_zero::IntegerT = long int]'
+evaluator.cc:126:75:   required from here
+task.h:317:26: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (current_example_ >= features_->size()) {
+task.h: In instantiation of 'bool automl_zero::TaskIterator<F>::Done() const [with int F = 8]':
+executor.h:1361:5:   required from 'double automl_zero::Executor<F>::Validate(std::vector<double>*) [with int F = 8]'
+executor.h:1087:44:   required from 'double automl_zero::Executor<F>::Execute(std::vector<double>*, std::vector<double>*) [with int F = 8]'
+evaluator.cc:159:5:   required from 'double automl_zero::Evaluator::ExecuteImpl(const automl_zero::Task<F>&, automl_zero::IntegerT, const automl_zero::Algorithm&) [with int F = 8; automl_zero::IntegerT = long int]'
+evaluator.cc:126:75:   required from here
+task.h:311:27: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     return current_epoch_ >= epochs_->size();
+            ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+In file included from fec_cache.h:24:0,
+                 from evaluator.h:28,
+                 from evaluator.cc:15:
+executor.h: In instantiation of 'void automl_zero::ExecuteDiscreteNOT(const automl_zero::Instruction&, automl_zero::RandomGenerator*, automl_zero::Memory<F>*) [with int F = 16]':
+executor.h:863:10:   required from 'constexpr const std::array<void (*)(const automl_zero::Instruction&, automl_zero::RandomGenerator*, automl_zero::Memory<16>*), 128> automl_zero::kOpIndexToExecuteFunction<16>'
+executor.h:998:5:   required from 'void automl_zero::ExecuteInstruction(const automl_zero::Instruction&, automl_zero::RandomGenerator*, automl_zero::Memory<F>*) [with int F = 16]'
+executor.h:1054:23:   required from 'automl_zero::Executor<F>::Executor(const automl_zero::Algorithm&, const automl_zero::Task<F>&, automl_zero::IntegerT, automl_zero::IntegerT, automl_zero::RandomGenerator*, double) [with int F = 16; automl_zero::IntegerT = long int]'
+evaluator.cc:153:17:   required from 'double automl_zero::Evaluator::ExecuteImpl(const automl_zero::Task<F>&, automl_zero::IntegerT, const automl_zero::Algorithm&) [with int F = 16; automl_zero::IntegerT = long int]'
+evaluator.cc:130:76:   required from here
+executor.h:228:11: warning: unused variable 'inst1' [-Wunused-variable]
+       int inst1;
+           ^~~~~
+In file included from evaluator.h:24:0,
+                 from evaluator.cc:15:
+task.h: In instantiation of 'void automl_zero::TaskIterator<F>::Next() [with int F = 16]':
+executor.h:1360:5:   required from 'double automl_zero::Executor<F>::Validate(std::vector<double>*) [with int F = 16]'
+executor.h:1087:44:   required from 'double automl_zero::Executor<F>::Execute(std::vector<double>*, std::vector<double>*) [with int F = 16]'
+evaluator.cc:159:5:   required from 'double automl_zero::Evaluator::ExecuteImpl(const automl_zero::Task<F>&, automl_zero::IntegerT, const automl_zero::Algorithm&) [with int F = 16; automl_zero::IntegerT = long int]'
+evaluator.cc:130:76:   required from here
+task.h:317:26: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (current_example_ >= features_->size()) {
+task.h: In instantiation of 'bool automl_zero::TaskIterator<F>::Done() const [with int F = 16]':
+executor.h:1361:5:   required from 'double automl_zero::Executor<F>::Validate(std::vector<double>*) [with int F = 16]'
+executor.h:1087:44:   required from 'double automl_zero::Executor<F>::Execute(std::vector<double>*, std::vector<double>*) [with int F = 16]'
+evaluator.cc:159:5:   required from 'double automl_zero::Evaluator::ExecuteImpl(const automl_zero::Task<F>&, automl_zero::IntegerT, const automl_zero::Algorithm&) [with int F = 16; automl_zero::IntegerT = long int]'
+evaluator.cc:130:76:   required from here
+task.h:311:27: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     return current_epoch_ >= epochs_->size();
+            ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+In file included from fec_cache.h:24:0,
+                 from evaluator.h:28,
+                 from evaluator.cc:15:
+executor.h: In instantiation of 'void automl_zero::ExecuteDiscreteNOT(const automl_zero::Instruction&, automl_zero::RandomGenerator*, automl_zero::Memory<F>*) [with int F = 32]':
+executor.h:863:10:   required from 'constexpr const std::array<void (*)(const automl_zero::Instruction&, automl_zero::RandomGenerator*, automl_zero::Memory<32>*), 128> automl_zero::kOpIndexToExecuteFunction<32>'
+executor.h:998:5:   required from 'void automl_zero::ExecuteInstruction(const automl_zero::Instruction&, automl_zero::RandomGenerator*, automl_zero::Memory<F>*) [with int F = 32]'
+executor.h:1054:23:   required from 'automl_zero::Executor<F>::Executor(const automl_zero::Algorithm&, const automl_zero::Task<F>&, automl_zero::IntegerT, automl_zero::IntegerT, automl_zero::RandomGenerator*, double) [with int F = 32; automl_zero::IntegerT = long int]'
+evaluator.cc:153:17:   required from 'double automl_zero::Evaluator::ExecuteImpl(const automl_zero::Task<F>&, automl_zero::IntegerT, const automl_zero::Algorithm&) [with int F = 32; automl_zero::IntegerT = long int]'
+evaluator.cc:134:76:   required from here
+executor.h:228:11: warning: unused variable 'inst1' [-Wunused-variable]
+       int inst1;
+           ^~~~~
+In file included from evaluator.h:24:0,
+                 from evaluator.cc:15:
+task.h: In instantiation of 'void automl_zero::TaskIterator<F>::Next() [with int F = 32]':
+executor.h:1360:5:   required from 'double automl_zero::Executor<F>::Validate(std::vector<double>*) [with int F = 32]'
+executor.h:1087:44:   required from 'double automl_zero::Executor<F>::Execute(std::vector<double>*, std::vector<double>*) [with int F = 32]'
+evaluator.cc:159:5:   required from 'double automl_zero::Evaluator::ExecuteImpl(const automl_zero::Task<F>&, automl_zero::IntegerT, const automl_zero::Algorithm&) [with int F = 32; automl_zero::IntegerT = long int]'
+evaluator.cc:134:76:   required from here
+task.h:317:26: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if (current_example_ >= features_->size()) {
+task.h: In instantiation of 'bool automl_zero::TaskIterator<F>::Done() const [with int F = 32]':
+executor.h:1361:5:   required from 'double automl_zero::Executor<F>::Validate(std::vector<double>*) [with int F = 32]'
+executor.h:1087:44:   required from 'double automl_zero::Executor<F>::Execute(std::vector<double>*, std::vector<double>*) [with int F = 32]'
+evaluator.cc:159:5:   required from 'double automl_zero::Evaluator::ExecuteImpl(const automl_zero::Task<F>&, automl_zero::IntegerT, const automl_zero::Algorithm&) [with int F = 32; automl_zero::IntegerT = long int]'
+evaluator.cc:134:76:   required from here
+task.h:311:27: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     return current_epoch_ >= epochs_->size();
+            ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+In file included from definitions.h:34:0,
+                 from instruction.h:24,
+                 from algorithm.h:24,
+                 from evaluator.h:23,
+                 from evaluator.cc:15:
+bazel-out/k8-opt/bin/external/com_google_glog/_virtual_includes/default_glog_headers/glog/logging.h: In instantiation of 'std::__cxx11::string* google::Check_LEImpl(const T1&, const T2&, const char*) [with T1 = long int; T2 = long unsigned int; std::__cxx11::string = std::__cxx11::basic_string<char>]':
+task.h:315:5:   required from 'void automl_zero::TaskIterator<F>::Next() [with int F = 2]'
+executor.h:1360:5:   required from 'double automl_zero::Executor<F>::Validate(std::vector<double>*) [with int F = 2]'
+executor.h:1087:44:   required from 'double automl_zero::Executor<F>::Execute(std::vector<double>*, std::vector<double>*) [with int F = 2]'
+evaluator.cc:159:5:   required from 'double automl_zero::Evaluator::ExecuteImpl(const automl_zero::Task<F>&, automl_zero::IntegerT, const automl_zero::Algorithm&) [with int F = 2; automl_zero::IntegerT = long int]'
+evaluator.cc:118:75:   required from here
+bazel-out/k8-opt/bin/external/com_google_glog/_virtual_includes/default_glog_headers/glog/logging.h:730:32: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+ DEFINE_CHECK_OP_IMPL(Check_LE, <=)
+                                ^
+bazel-out/k8-opt/bin/external/com_google_glog/_virtual_includes/default_glog_headers/glog/logging.h:148:53: note: in definition of macro 'GOOGLE_PREDICT_TRUE'
+ #define GOOGLE_PREDICT_TRUE(x) (__builtin_expect(!!(x), 1))
+                                                     ^
+bazel-out/k8-opt/bin/external/com_google_glog/_virtual_includes/default_glog_headers/glog/logging.h:730:1: note: in expansion of macro 'DEFINE_CHECK_OP_IMPL'
+ DEFINE_CHECK_OP_IMPL(Check_LE, <=)
+ ^~~~~~~~~~~~~~~~~~~~
+In file included from fec_cache.h:24:0,
+                 from evaluator.h:28,
+                 from evaluator.cc:15:
+executor.h: In member function 'double automl_zero::Executor<F>::Validate(std::vector<double>*) [with int F = 2]':
+executor.h:1367:10: warning: 'fitness' may be used uninitialized in this function [-Wmaybe-uninitialized]
+   double fitness;
+          ^~~~~~~
+executor.h: In member function 'double automl_zero::Executor<F>::Validate(std::vector<double>*) [with int F = 4]':
+executor.h:1367:10: warning: 'fitness' may be used uninitialized in this function [-Wmaybe-uninitialized]
+executor.h: In member function 'double automl_zero::Executor<F>::Validate(std::vector<double>*) [with int F = 32]':
+executor.h:1367:10: warning: 'fitness' may be used uninitialized in this function [-Wmaybe-uninitialized]
+executor.h: In member function 'double automl_zero::Executor<F>::Validate(std::vector<double>*) [with int F = 16]':
+executor.h:1367:10: warning: 'fitness' may be used uninitialized in this function [-Wmaybe-uninitialized]
+executor.h: In member function 'double automl_zero::Executor<F>::Validate(std::vector<double>*) [with int F = 8]':
+executor.h:1367:10: warning: 'fitness' may be used uninitialized in this function [-Wmaybe-uninitialized]
+INFO: From Compiling task_util.cc:
+In file included from task_util.h:26:0,
+                 from task_util.cc:15:
+executor.h:863:10: warning: variable templates only available with -std=c++14 or -std=gnu++14
+     128> kOpIndexToExecuteFunction = {
+          ^~~~~~~~~~~~~~~~~~~~~~~~~
+task_util.cc: In function 'void automl_zero::FillTasksFromTaskSpec(const automl_zero::TaskSpec&, std::vector<std::unique_ptr<automl_zero::TaskInterface> >*)':
+task_util.cc:93:11: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+         i < first_param_seeds.size() ? first_param_seeds[i] : param_seed + 1;
+         ~~^~~~~~~~~~~~~~~~~~~~~~~~~~
+task_util.cc:95:11: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+         i < first_data_seeds.size() ? first_data_seeds[i] : data_seed + 1;
+         ~~^~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from task_util.cc:15:0:
+task_util.h: In instantiation of 'static void automl_zero::ProjectedBinaryClassificationTaskCreator<F>::Create(automl_zero::EvalType, const automl_zero::ProjectedBinaryClassificationTask&, automl_zero::IntegerT, automl_zero::IntegerT, automl_zero::IntegerT, automl_zero::RandomSeedT, automl_zero::TaskBuffer<F>*) [with int F = 2; automl_zero::IntegerT = long int; automl_zero::RandomSeedT = unsigned int]':
+task_util.h:483:58:   required from 'std::unique_ptr<automl_zero::Task<F> > automl_zero::CreateTask(automl_zero::IntegerT, automl_zero::RandomSeedT, automl_zero::RandomSeedT, const automl_zero::TaskSpec&) [with int F = 2; automl_zero::IntegerT = long int; automl_zero::RandomSeedT = unsigned int]'
+task_util.cc:101:73:   required from here
+task_util.h:227:28: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     for (IntegerT k = 0; k < buffer->train_features_.size(); ++k)  {
+task_util.h:240:28: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     for (IntegerT k = 0; k < buffer->valid_features_.size(); ++k)  {
+In file included from definitions.h:34:0,
+                 from task.h:27,
+                 from task_util.h:23,
+                 from task_util.cc:15:
+bazel-out/k8-opt/bin/external/com_google_glog/_virtual_includes/default_glog_headers/glog/logging.h: In instantiation of 'std::__cxx11::string* google::Check_EQImpl(const T1&, const T2&, const char*) [with T1 = long unsigned int; T2 = int; std::__cxx11::string = std::__cxx11::basic_string<char>]':
+task_util.h:528:3:   required from 'std::unique_ptr<automl_zero::Task<F> > automl_zero::CreateTask(automl_zero::IntegerT, automl_zero::RandomSeedT, automl_zero::RandomSeedT, const automl_zero::TaskSpec&) [with int F = 2; automl_zero::IntegerT = long int; automl_zero::RandomSeedT = unsigned int]'
+task_util.cc:101:73:   required from here
+bazel-out/k8-opt/bin/external/com_google_glog/_virtual_includes/default_glog_headers/glog/logging.h:728:32: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+ DEFINE_CHECK_OP_IMPL(Check_EQ, ==)  // Compilation error with CHECK_EQ(NULL, x)?
+                                ^
+bazel-out/k8-opt/bin/external/com_google_glog/_virtual_includes/default_glog_headers/glog/logging.h:148:53: note: in definition of macro 'GOOGLE_PREDICT_TRUE'
+ #define GOOGLE_PREDICT_TRUE(x) (__builtin_expect(!!(x), 1))
+                                                     ^
+bazel-out/k8-opt/bin/external/com_google_glog/_virtual_includes/default_glog_headers/glog/logging.h:728:1: note: in expansion of macro 'DEFINE_CHECK_OP_IMPL'
+ DEFINE_CHECK_OP_IMPL(Check_EQ, ==)  // Compilation error with CHECK_EQ(NULL, x)?
+ ^~~~~~~~~~~~~~~~~~~~
+In file included from task_util.cc:15:0:
+task_util.h: In instantiation of 'static void automl_zero::ProjectedBinaryClassificationTaskCreator<F>::Create(automl_zero::EvalType, const automl_zero::ProjectedBinaryClassificationTask&, automl_zero::IntegerT, automl_zero::IntegerT, automl_zero::IntegerT, automl_zero::RandomSeedT, automl_zero::TaskBuffer<F>*) [with int F = 4; automl_zero::IntegerT = long int; automl_zero::RandomSeedT = unsigned int]':
+task_util.h:483:58:   required from 'std::unique_ptr<automl_zero::Task<F> > automl_zero::CreateTask(automl_zero::IntegerT, automl_zero::RandomSeedT, automl_zero::RandomSeedT, const automl_zero::TaskSpec&) [with int F = 4; automl_zero::IntegerT = long int; automl_zero::RandomSeedT = unsigned int]'
+task_util.cc:105:73:   required from here
+task_util.h:227:28: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     for (IntegerT k = 0; k < buffer->train_features_.size(); ++k)  {
+task_util.h:240:28: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     for (IntegerT k = 0; k < buffer->valid_features_.size(); ++k)  {
+task_util.h: In instantiation of 'static void automl_zero::ProjectedBinaryClassificationTaskCreator<F>::Create(automl_zero::EvalType, const automl_zero::ProjectedBinaryClassificationTask&, automl_zero::IntegerT, automl_zero::IntegerT, automl_zero::IntegerT, automl_zero::RandomSeedT, automl_zero::TaskBuffer<F>*) [with int F = 8; automl_zero::IntegerT = long int; automl_zero::RandomSeedT = unsigned int]':
+task_util.h:483:58:   required from 'std::unique_ptr<automl_zero::Task<F> > automl_zero::CreateTask(automl_zero::IntegerT, automl_zero::RandomSeedT, automl_zero::RandomSeedT, const automl_zero::TaskSpec&) [with int F = 8; automl_zero::IntegerT = long int; automl_zero::RandomSeedT = unsigned int]'
+task_util.cc:109:73:   required from here
+task_util.h:227:28: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     for (IntegerT k = 0; k < buffer->train_features_.size(); ++k)  {
+task_util.h:240:28: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     for (IntegerT k = 0; k < buffer->valid_features_.size(); ++k)  {
+task_util.h: In instantiation of 'static void automl_zero::ProjectedBinaryClassificationTaskCreator<F>::Create(automl_zero::EvalType, const automl_zero::ProjectedBinaryClassificationTask&, automl_zero::IntegerT, automl_zero::IntegerT, automl_zero::IntegerT, automl_zero::RandomSeedT, automl_zero::TaskBuffer<F>*) [with int F = 16; automl_zero::IntegerT = long int; automl_zero::RandomSeedT = unsigned int]':
+task_util.h:483:58:   required from 'std::unique_ptr<automl_zero::Task<F> > automl_zero::CreateTask(automl_zero::IntegerT, automl_zero::RandomSeedT, automl_zero::RandomSeedT, const automl_zero::TaskSpec&) [with int F = 16; automl_zero::IntegerT = long int; automl_zero::RandomSeedT = unsigned int]'
+task_util.cc:113:74:   required from here
+task_util.h:227:28: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     for (IntegerT k = 0; k < buffer->train_features_.size(); ++k)  {
+task_util.h:240:28: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     for (IntegerT k = 0; k < buffer->valid_features_.size(); ++k)  {
+task_util.h: In instantiation of 'static void automl_zero::ProjectedBinaryClassificationTaskCreator<F>::Create(automl_zero::EvalType, const automl_zero::ProjectedBinaryClassificationTask&, automl_zero::IntegerT, automl_zero::IntegerT, automl_zero::IntegerT, automl_zero::RandomSeedT, automl_zero::TaskBuffer<F>*) [with int F = 32; automl_zero::IntegerT = long int; automl_zero::RandomSeedT = unsigned int]':
+task_util.h:483:58:   required from 'std::unique_ptr<automl_zero::Task<F> > automl_zero::CreateTask(automl_zero::IntegerT, automl_zero::RandomSeedT, automl_zero::RandomSeedT, const automl_zero::TaskSpec&) [with int F = 32; automl_zero::IntegerT = long int; automl_zero::RandomSeedT = unsigned int]'
+task_util.cc:117:74:   required from here
+task_util.h:227:28: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     for (IntegerT k = 0; k < buffer->train_features_.size(); ++k)  {
+task_util.h:240:28: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     for (IntegerT k = 0; k < buffer->valid_features_.size(); ++k)  {
+In file included from definitions.h:34:0,
+                 from task.h:27,
+                 from task_util.h:23,
+                 from task_util.cc:15:
+bazel-out/k8-opt/bin/external/com_google_glog/_virtual_includes/default_glog_headers/glog/logging.h: In instantiation of 'std::__cxx11::string* google::Check_GEImpl(const T1&, const T2&, const char*) [with T1 = int; T2 = long unsigned int; std::__cxx11::string = std::__cxx11::basic_string<char>]':
+task_util.h:217:5:   required from 'static void automl_zero::ProjectedBinaryClassificationTaskCreator<F>::Create(automl_zero::EvalType, const automl_zero::ProjectedBinaryClassificationTask&, automl_zero::IntegerT, automl_zero::IntegerT, automl_zero::IntegerT, automl_zero::RandomSeedT, automl_zero::TaskBuffer<F>*) [with int F = 2; automl_zero::IntegerT = long int; automl_zero::RandomSeedT = unsigned int]'
+task_util.h:483:58:   required from 'std::unique_ptr<automl_zero::Task<F> > automl_zero::CreateTask(automl_zero::IntegerT, automl_zero::RandomSeedT, automl_zero::RandomSeedT, const automl_zero::TaskSpec&) [with int F = 2; automl_zero::IntegerT = long int; automl_zero::RandomSeedT = unsigned int]'
+task_util.cc:101:73:   required from here
+bazel-out/k8-opt/bin/external/com_google_glog/_virtual_includes/default_glog_headers/glog/logging.h:732:32: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+ DEFINE_CHECK_OP_IMPL(Check_GE, >=)
+                                ^
+bazel-out/k8-opt/bin/external/com_google_glog/_virtual_includes/default_glog_headers/glog/logging.h:148:53: note: in definition of macro 'GOOGLE_PREDICT_TRUE'
+ #define GOOGLE_PREDICT_TRUE(x) (__builtin_expect(!!(x), 1))
+                                                     ^
+bazel-out/k8-opt/bin/external/com_google_glog/_virtual_includes/default_glog_headers/glog/logging.h:732:1: note: in expansion of macro 'DEFINE_CHECK_OP_IMPL'
+ DEFINE_CHECK_OP_IMPL(Check_GE, >=)
+ ^~~~~~~~~~~~~~~~~~~~
+In file included from task_util.h:26:0,
+                 from task_util.cc:15:
+executor.h: In instantiation of 'void automl_zero::ExecuteDiscreteNOT(const automl_zero::Instruction&, automl_zero::RandomGenerator*, automl_zero::Memory<F>*) [with int F = 2]':
+executor.h:863:10:   required from 'constexpr const std::array<void (*)(const automl_zero::Instruction&, automl_zero::RandomGenerator*, automl_zero::Memory<2>*), 128> automl_zero::kOpIndexToExecuteFunction<2>'
+executor.h:998:5:   required from 'void automl_zero::ExecuteInstruction(const automl_zero::Instruction&, automl_zero::RandomGenerator*, automl_zero::Memory<F>*) [with int F = 2]'
+executor.h:1404:25:   required from 'void automl_zero::ExecuteAndFillLabels(const automl_zero::Algorithm&, automl_zero::Memory<F>*, automl_zero::TaskBuffer<F>*, automl_zero::RandomGenerator*) [with int F = 2]'
+task_util.h:285:28:   required from 'static void automl_zero::ScalarLinearRegressionTaskCreator<F>::Create(automl_zero::EvalType, automl_zero::IntegerT, automl_zero::IntegerT, automl_zero::RandomSeedT, automl_zero::RandomSeedT, automl_zero::TaskBuffer<F>*) [with int F = 2; automl_zero::IntegerT = long int; automl_zero::RandomSeedT = unsigned int]'
+task_util.h:490:51:   required from 'std::unique_ptr<automl_zero::Task<F> > automl_zero::CreateTask(automl_zero::IntegerT, automl_zero::RandomSeedT, automl_zero::RandomSeedT, const automl_zero::TaskSpec&) [with int F = 2; automl_zero::IntegerT = long int; automl_zero::RandomSeedT = unsigned int]'
+task_util.cc:101:73:   required from here
+executor.h:228:11: warning: unused variable 'inst1' [-Wunused-variable]
+       int inst1;
+           ^~~~~
+executor.h: In instantiation of 'void automl_zero::ExecuteDiscreteNOT(const automl_zero::Instruction&, automl_zero::RandomGenerator*, automl_zero::Memory<F>*) [with int F = 4]':
+executor.h:863:10:   required from 'constexpr const std::array<void (*)(const automl_zero::Instruction&, automl_zero::RandomGenerator*, automl_zero::Memory<4>*), 128> automl_zero::kOpIndexToExecuteFunction<4>'
+executor.h:998:5:   required from 'void automl_zero::ExecuteInstruction(const automl_zero::Instruction&, automl_zero::RandomGenerator*, automl_zero::Memory<F>*) [with int F = 4]'
+executor.h:1404:25:   required from 'void automl_zero::ExecuteAndFillLabels(const automl_zero::Algorithm&, automl_zero::Memory<F>*, automl_zero::TaskBuffer<F>*, automl_zero::RandomGenerator*) [with int F = 4]'
+task_util.h:285:28:   required from 'static void automl_zero::ScalarLinearRegressionTaskCreator<F>::Create(automl_zero::EvalType, automl_zero::IntegerT, automl_zero::IntegerT, automl_zero::RandomSeedT, automl_zero::RandomSeedT, automl_zero::TaskBuffer<F>*) [with int F = 4; automl_zero::IntegerT = long int; automl_zero::RandomSeedT = unsigned int]'
+task_util.h:490:51:   required from 'std::unique_ptr<automl_zero::Task<F> > automl_zero::CreateTask(automl_zero::IntegerT, automl_zero::RandomSeedT, automl_zero::RandomSeedT, const automl_zero::TaskSpec&) [with int F = 4; automl_zero::IntegerT = long int; automl_zero::RandomSeedT = unsigned int]'
+task_util.cc:105:73:   required from here
+executor.h:228:11: warning: unused variable 'inst1' [-Wunused-variable]
+executor.h: In instantiation of 'void automl_zero::ExecuteDiscreteNOT(const automl_zero::Instruction&, automl_zero::RandomGenerator*, automl_zero::Memory<F>*) [with int F = 8]':
+executor.h:863:10:   required from 'constexpr const std::array<void (*)(const automl_zero::Instruction&, automl_zero::RandomGenerator*, automl_zero::Memory<8>*), 128> automl_zero::kOpIndexToExecuteFunction<8>'
+executor.h:998:5:   required from 'void automl_zero::ExecuteInstruction(const automl_zero::Instruction&, automl_zero::RandomGenerator*, automl_zero::Memory<F>*) [with int F = 8]'
+executor.h:1404:25:   required from 'void automl_zero::ExecuteAndFillLabels(const automl_zero::Algorithm&, automl_zero::Memory<F>*, automl_zero::TaskBuffer<F>*, automl_zero::RandomGenerator*) [with int F = 8]'
+task_util.h:285:28:   required from 'static void automl_zero::ScalarLinearRegressionTaskCreator<F>::Create(automl_zero::EvalType, automl_zero::IntegerT, automl_zero::IntegerT, automl_zero::RandomSeedT, automl_zero::RandomSeedT, automl_zero::TaskBuffer<F>*) [with int F = 8; automl_zero::IntegerT = long int; automl_zero::RandomSeedT = unsigned int]'
+task_util.h:490:51:   required from 'std::unique_ptr<automl_zero::Task<F> > automl_zero::CreateTask(automl_zero::IntegerT, automl_zero::RandomSeedT, automl_zero::RandomSeedT, const automl_zero::TaskSpec&) [with int F = 8; automl_zero::IntegerT = long int; automl_zero::RandomSeedT = unsigned int]'
+task_util.cc:109:73:   required from here
+executor.h:228:11: warning: unused variable 'inst1' [-Wunused-variable]
+executor.h: In instantiation of 'void automl_zero::ExecuteDiscreteNOT(const automl_zero::Instruction&, automl_zero::RandomGenerator*, automl_zero::Memory<F>*) [with int F = 16]':
+executor.h:863:10:   required from 'constexpr const std::array<void (*)(const automl_zero::Instruction&, automl_zero::RandomGenerator*, automl_zero::Memory<16>*), 128> automl_zero::kOpIndexToExecuteFunction<16>'
+executor.h:998:5:   required from 'void automl_zero::ExecuteInstruction(const automl_zero::Instruction&, automl_zero::RandomGenerator*, automl_zero::Memory<F>*) [with int F = 16]'
+executor.h:1404:25:   required from 'void automl_zero::ExecuteAndFillLabels(const automl_zero::Algorithm&, automl_zero::Memory<F>*, automl_zero::TaskBuffer<F>*, automl_zero::RandomGenerator*) [with int F = 16]'
+task_util.h:285:28:   required from 'static void automl_zero::ScalarLinearRegressionTaskCreator<F>::Create(automl_zero::EvalType, automl_zero::IntegerT, automl_zero::IntegerT, automl_zero::RandomSeedT, automl_zero::RandomSeedT, automl_zero::TaskBuffer<F>*) [with int F = 16; automl_zero::IntegerT = long int; automl_zero::RandomSeedT = unsigned int]'
+task_util.h:490:51:   required from 'std::unique_ptr<automl_zero::Task<F> > automl_zero::CreateTask(automl_zero::IntegerT, automl_zero::RandomSeedT, automl_zero::RandomSeedT, const automl_zero::TaskSpec&) [with int F = 16; automl_zero::IntegerT = long int; automl_zero::RandomSeedT = unsigned int]'
+task_util.cc:113:74:   required from here
+executor.h:228:11: warning: unused variable 'inst1' [-Wunused-variable]
+executor.h: In instantiation of 'void automl_zero::ExecuteDiscreteNOT(const automl_zero::Instruction&, automl_zero::RandomGenerator*, automl_zero::Memory<F>*) [with int F = 32]':
+executor.h:863:10:   required from 'constexpr const std::array<void (*)(const automl_zero::Instruction&, automl_zero::RandomGenerator*, automl_zero::Memory<32>*), 128> automl_zero::kOpIndexToExecuteFunction<32>'
+executor.h:998:5:   required from 'void automl_zero::ExecuteInstruction(const automl_zero::Instruction&, automl_zero::RandomGenerator*, automl_zero::Memory<F>*) [with int F = 32]'
+executor.h:1404:25:   required from 'void automl_zero::ExecuteAndFillLabels(const automl_zero::Algorithm&, automl_zero::Memory<F>*, automl_zero::TaskBuffer<F>*, automl_zero::RandomGenerator*) [with int F = 32]'
+task_util.h:285:28:   required from 'static void automl_zero::ScalarLinearRegressionTaskCreator<F>::Create(automl_zero::EvalType, automl_zero::IntegerT, automl_zero::IntegerT, automl_zero::RandomSeedT, automl_zero::RandomSeedT, automl_zero::TaskBuffer<F>*) [with int F = 32; automl_zero::IntegerT = long int; automl_zero::RandomSeedT = unsigned int]'
+task_util.h:490:51:   required from 'std::unique_ptr<automl_zero::Task<F> > automl_zero::CreateTask(automl_zero::IntegerT, automl_zero::RandomSeedT, automl_zero::RandomSeedT, const automl_zero::TaskSpec&) [with int F = 32; automl_zero::IntegerT = long int; automl_zero::RandomSeedT = unsigned int]'
+task_util.cc:117:74:   required from here
+executor.h:228:11: warning: unused variable 'inst1' [-Wunused-variable]
+task_util.cc:95:37: warning: 'data_seed' may be used uninitialized in this function [-Wmaybe-uninitialized]
+         i < first_data_seeds.size() ? first_data_seeds[i] : data_seed + 1;
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+task_util.cc:93:38: warning: 'param_seed' may be used uninitialized in this function [-Wmaybe-uninitialized]
+         i < first_param_seeds.size() ? first_param_seeds[i] : param_seed + 1;
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+INFO: From Compiling run_search_experiment.cc:
+In file included from task_util.h:26:0,
+                 from run_search_experiment.cc:25:
+executor.h:863:10: warning: variable templates only available with -std=c++14 or -std=gnu++14
+     128> kOpIndexToExecuteFunction = {
+          ^~~~~~~~~~~~~~~~~~~~~~~~~
+[393 / 428] Compiling instruction.cc; 0s linux-sandbox ... (2 actions, 1 running)
+INFO: From Compiling regularized_evolution.cc:
+In file included from fec_cache.h:24:0,
+                 from evaluator.h:28,
+                 from regularized_evolution.h:26,
+                 from regularized_evolution.cc:15:
+executor.h:863:10: warning: variable templates only available with -std=c++14 or -std=gnu++14
+     128> kOpIndexToExecuteFunction = {
+          ^~~~~~~~~~~~~~~~~~~~~~~~~
+[424 / 428] Compiling external/com_google_protobuf/src/google/protobuf/io/zero_copy_stream_impl_lite.cc; 0s linux-sandbox ... (2 actions, 1 running)
+Target //:run_search_experiment up-to-date:
+  bazel-bin/run_search_experiment
+INFO: Elapsed time: 150.582s, Critical Path: 25.01s
+INFO: 215 processes: 215 linux-sandbox.
+INFO: Build completed successfully, 216 total actions
+INFO: Running command line: bazel-bin/run_search_experiment '--search_experiment_spec=     search_tasks {       tasks {         projected_binary_classification_task {           dataset_name: '\''mnist'\''           path: '\''/home/ubuntu/codes/google-research/automl_zero/binary_mnist_data/'\''           held_out_pairs {positive_class: 0 negative_class: 5}           held_out_pairs {positive_class: 0 negative_class: 9}           held_out_pairs {positive_class: 1 negative_class: 8}           held_out_pairs {positive_class: 2 negative_class: 9}           held_out_pairs {positive_class: 3 negative_class: 5}           held_out_pairs {positive_class: 3 negative_class: 6}           held_out_pairs {positive_class: 3 negative_class: 8}           held_out_pairs {positive_class: 4 negative_class: 6}           held_out_pairs {positive_class: 8 negative_class: 9}           max_supported_data_seed: 100         }         features_size: 16         num_train_examples: 8000         num_valid_examples: 1000         num_train_epochs: 1         num_tasks: 10         eval_type: ACCURACY       }     }     setup_ops: [SCALAR_CONST_SET_OP, SCALAR_GAUSSIAN_SET_OP, SCALAR_UNIFORM_SET_OP, VECTOR_GAUSSIAN_SET_OP, VECTOR_UNIFORM_SET_OP, MATRIX_GAUSSIAN_SET_OP, MATRIX_UNIFORM_SET_OP]     predict_ops: [SCALAR_SUM_OP, MATRIX_VECTOR_PRODUCT_OP, VECTOR_MAX_OP, VECTOR_INNER_PRODUCT_OP, VECTOR_SUM_OP]     learn_ops: [SCALAR_SUM_OP, SCALAR_DIFF_OP, SCALAR_PRODUCT_OP, SCALAR_VECTOR_PRODUCT_OP, VECTOR_SUM_OP, VECTOR_HEAVYSIDE_OP, VECTOR_PRODUCT_OP, VECTOR_OUTER_PRODUCT_OP, MATRIX_SUM_OP]     setup_size_init: 1     mutate_setup_size_min: 1     mutate_setup_size_max: 7     predict_size_init: 1     mutate_predict_size_min: 1     mutate_predict_size_max: 11     learn_size_init: 1     mutate_learn_size_min: 1     mutate_learn_size_max: 23     train_budget {train_budget_baseline: NEURAL_NET_ALGORITHM}     fitness_combination_mode: MEAN_FITNESS_COMBINATION     population_size: 100     tournament_size: 10     initial_population: NO_OP_ALGORITHM     max_train_steps: 300000000000     allowed_mutation_types {
+      mutation_types: [ALTER_PARAM_MUTATION_TYPE, RANDOMIZE_COMPONENT_FUNCTION_MUTATION_TYPE, INSERT_INSTRUCTION_MUTATION_TYPE, REMOVE_INSTRUCTION_MUTATION_TYPE]     }     mutate_prob: 0.9     progress_every: 10000     ' '--final_tasks=
+    tasks {       projected_binary_classification_task {         dataset_name: '\''mnist'\''         path: '\''/home/ubuntu/codes/google-research/automl_zero/binary_mnist_data/'\''         held_out_pairs {positive_class: 0 negative_class: 1}         held_out_pairs {positive_class: 0 negative_class: 2}         held_out_pairs {positive_class: 0 negative_class: 3}         held_out_pairs {positive_class: 0 negative_class: 4}         held_out_pairs {positive_class: 0 negative_class: 6}         held_out_pairs {positive_class: 0 negative_class: 7}         held_out_pairs {positive_class: 0 negative_class: 8}         held_out_pairs {positive_class: 1 negative_class: 2}         held_out_pairs {positive_class: 1 negative_class: 3}         held_out_pairs {positive_class: 1 negative_class: 4}         held_out_pairs {positive_class: 1 negative_class: 5}         held_out_pairs {positive_class: 1 negative_class: 6}         held_out_pairs {positive_class: 1 negative_class: 7}         held_out_pairs {positive_class: 1 negative_class: 9}         held_out_pairs {positive_class: 2 negative_class: 3}         held_out_pairs {positive_class: 2 negative_class: 4}         held_out_pairs {positive_class: 2 negative_class: 5}         held_out_pairs {positive_class: 2 negative_class: 6}         held_out_pairs {positive_class: 2 negative_class: 7}         held_out_pairs {positive_class: 2 negative_class: 8}         held_out_pairs {positive_class: 3 negative_class: 4}         held_out_pairs {positive_class: 3 negative_class: 7}         held_out_pairs {positive_class: 3 negative_class: 9}         held_out_pairs {positive_class: 4 negative_class: 5}         held_out_pairs {positive_class: 4 negative_class: 7}         held_out_pairs {positive_class: 4 negative_class: 8}         held_out_pairs {positive_class: 4 negative_class: 9}         held_out_pairs {positive_class: 5 negative_class: 6}         held_out_pairs {positive_class: 5 negative_class: 7}         held_out_pairs {positive_class: 5 negative_class: 8}         held_out_pairs {positive_class: 5 negative_class: 9}         held_out_pairs {positive_class: 6 negative_class: 7}         held_out_pairs {positive_class: 6 negative_class: 8}         held_out_pairs {positive_class: 6 negative_class: 9}         held_out_pairs {positive_class: 7 negative_class: 8}         held_out_pairs {positive_class: 7 negative_class: 9}         max_supported_data_seed: 100       }       features_size: 16       num_train_examples: 8000       num_valid_examples: 1000       num_train_epochs: 1       num_tasks: 100       eval_type: ACCURACY     }     ' '--random_seed=1000060' '--select_tasks=
+    tasks {       projected_binary_classification_task {         dataset_name: '\''mnist'\''         path: '\''/home/ubuntu/codes/google-research/automl_zero/binary_mnist_data/'\''         held_out_pairs {positive_class: 0 negative_class: 5}         held_out_pairs {positive_class: 0 negative_class: 9}         held_out_pairs {positive_class: 1 negative_class: 8}         held_out_pairs {positive_class: 2 negative_class: 9}         held_out_pairs {positive_class: 3 negative_class: 5}         held_out_pairs {positive_class: 3 negative_class: 6}         held_out_pairs {positive_class: 3 negative_class: 8}         held_out_pairs {positive_class: 4 negative_class: 6}         held_out_pairs {positive_class: 8 negative_class: 9}         max_supported_data_seed: 100       }       features_size: 16       num_train_examples: 8000       num_valid_examples: 1000       num_train_epochs: 1       num_tasks: 10       eval_type: ACCURACY     }     '
+INFO: Build completed successfully, 216 total actions
+Random seed = 1000060
+Running evolution experiment (on the T_search tasks)...
+indivs=100, elapsed_secs=0, mean=0.500000, stdev=0.000000, best fit=0.500000,
+indivs=10100, elapsed_secs=318, mean=0.625392, stdev=0.061519, best fit=0.660900,
+indivs=20100, elapsed_secs=851, mean=0.628259, stdev=0.060891, best fit=0.660900,
+indivs=30100, elapsed_secs=1313, mean=0.619233, stdev=0.089559, best fit=0.660900,
+indivs=40100, elapsed_secs=1838, mean=0.552293, stdev=0.258322, best fit=0.700000,
+indivs=50100, elapsed_secs=2452, mean=0.552095, stdev=0.253719, best fit=0.713500,
+indivs=60100, elapsed_secs=3085, mean=0.682610, stdev=0.268965, best fit=0.873500,
+indivs=70100, elapsed_secs=3501, mean=0.739573, stdev=0.232140, best fit=0.874700,
+indivs=80100, elapsed_secs=3854, mean=0.712403, stdev=0.281523, best fit=0.875500,
+indivs=90100, elapsed_secs=4223, mean=0.729560, stdev=0.256486, best fit=0.875500,
+indivs=100100, elapsed_secs=4596, mean=0.749642, stdev=0.256799, best fit=0.876700,
+indivs=110100, elapsed_secs=4986, mean=0.716569, stdev=0.289493, best fit=0.876400,
+indivs=120100, elapsed_secs=5343, mean=0.692487, stdev=0.299276, best fit=0.876400,
+indivs=130100, elapsed_secs=5724, mean=0.688980, stdev=0.299231, best fit=0.876500,
+indivs=140100, elapsed_secs=6109, mean=0.734978, stdev=0.254441, best fit=0.876500,
+indivs=150100, elapsed_secs=6457, mean=0.696987, stdev=0.300936, best fit=0.876500,
+indivs=160100, elapsed_secs=6803, mean=0.737203, stdev=0.262257, best fit=0.876500,
+indivs=170100, elapsed_secs=7206, mean=0.728384, stdev=0.267316, best fit=0.876600,
+indivs=180100, elapsed_secs=7622, mean=0.635733, stdev=0.312051, best fit=0.876600,
+indivs=190100, elapsed_secs=8010, mean=0.705616, stdev=0.254858, best fit=0.876600,
+indivs=200100, elapsed_secs=8384, mean=0.662729, stdev=0.287319, best fit=0.876600,
+indivs=210100, elapsed_secs=8781, mean=0.672617, stdev=0.323660, best fit=0.876600,
+indivs=220100, elapsed_secs=9143, mean=0.691204, stdev=0.283124, best fit=0.876600,
+indivs=230100, elapsed_secs=9505, mean=0.732797, stdev=0.260529, best fit=0.876600,
+indivs=240100, elapsed_secs=9864, mean=0.645048, stdev=0.292946, best fit=0.876600,
+indivs=250100, elapsed_secs=10250, mean=0.709618, stdev=0.251542, best fit=0.876600,
+indivs=260100, elapsed_secs=10636, mean=0.661241, stdev=0.287567, best fit=0.876600,
+indivs=270100, elapsed_secs=10983, mean=0.725420, stdev=0.239222, best fit=0.876600,
+indivs=280100, elapsed_secs=11343, mean=0.662976, stdev=0.288588, best fit=0.876600,
+indivs=290100, elapsed_secs=11795, mean=0.740415, stdev=0.267185, best fit=0.876600,
+indivs=300100, elapsed_secs=12264, mean=0.709175, stdev=0.259961, best fit=0.876600,
+indivs=310100, elapsed_secs=12747, mean=0.636007, stdev=0.303426, best fit=0.876600,
+indivs=320100, elapsed_secs=13232, mean=0.682129, stdev=0.277812, best fit=0.876700,
+indivs=330100, elapsed_secs=13602, mean=0.721350, stdev=0.257700, best fit=0.876800,
+indivs=340100, elapsed_secs=13958, mean=0.744384, stdev=0.229193, best fit=0.876800,
+indivs=350100, elapsed_secs=14313, mean=0.718814, stdev=0.254970, best fit=0.876800,
+indivs=360100, elapsed_secs=14674, mean=0.709973, stdev=0.253220, best fit=0.876800,
+indivs=370100, elapsed_secs=15027, mean=0.692446, stdev=0.286488, best fit=0.876800,
+indivs=380100, elapsed_secs=15365, mean=0.645879, stdev=0.307396, best fit=0.876800,
+indivs=390100, elapsed_secs=15746, mean=0.631829, stdev=0.334094, best fit=0.876800,
+indivs=400100, elapsed_secs=16155, mean=0.720928, stdev=0.258659, best fit=0.876800,
+indivs=410100, elapsed_secs=16567, mean=0.696409, stdev=0.260908, best fit=0.876800,
+indivs=420100, elapsed_secs=16929, mean=0.741092, stdev=0.239761, best fit=0.876800,
+indivs=430100, elapsed_secs=17273, mean=0.684076, stdev=0.290829, best fit=0.876800,
+indivs=440100, elapsed_secs=17632, mean=0.721309, stdev=0.235679, best fit=0.876800,
+indivs=450100, elapsed_secs=17980, mean=0.649808, stdev=0.297686, best fit=0.876800,
+indivs=460100, elapsed_secs=18316, mean=0.743578, stdev=0.246506, best fit=0.876800,
+indivs=470100, elapsed_secs=18652, mean=0.753176, stdev=0.199208, best fit=0.876800,
+indivs=480100, elapsed_secs=19002, mean=0.719580, stdev=0.245341, best fit=0.876800,
+indivs=490100, elapsed_secs=19354, mean=0.712656, stdev=0.287448, best fit=0.876800,
+indivs=500100, elapsed_secs=19747, mean=0.710948, stdev=0.287520, best fit=0.876800,
+indivs=510100, elapsed_secs=20127, mean=0.682070, stdev=0.308316, best fit=0.876800,
+indivs=520100, elapsed_secs=20556, mean=0.745752, stdev=0.261908, best fit=0.876800,
+indivs=530100, elapsed_secs=20947, mean=0.699521, stdev=0.268049, best fit=0.876800,
+indivs=540100, elapsed_secs=21335, mean=0.669909, stdev=0.295131, best fit=0.876800,
+indivs=550100, elapsed_secs=21724, mean=0.688861, stdev=0.289801, best fit=0.876900,
+indivs=560100, elapsed_secs=22131, mean=0.684814, stdev=0.298891, best fit=0.876900,
+indivs=570100, elapsed_secs=22490, mean=0.698673, stdev=0.280102, best fit=0.876900,
+indivs=580100, elapsed_secs=22830, mean=0.746729, stdev=0.230222, best fit=0.876900,
+indivs=590100, elapsed_secs=23184, mean=0.649691, stdev=0.302841, best fit=0.876900,
+indivs=600100, elapsed_secs=23514, mean=0.713921, stdev=0.275363, best fit=0.876900,
+indivs=610100, elapsed_secs=23840, mean=0.647502, stdev=0.297441, best fit=0.876900,
+indivs=620100, elapsed_secs=24218, mean=0.686861, stdev=0.292197, best fit=0.876900,
+indivs=630100, elapsed_secs=24548, mean=0.707289, stdev=0.281811, best fit=0.876900,
+indivs=640100, elapsed_secs=24881, mean=0.694395, stdev=0.278521, best fit=0.876900,
+indivs=650100, elapsed_secs=25213, mean=0.691801, stdev=0.277773, best fit=0.876900,
+indivs=660100, elapsed_secs=25605, mean=0.700961, stdev=0.256015, best fit=0.876900,
+indivs=670100, elapsed_secs=25949, mean=0.743098, stdev=0.239285, best fit=0.876900,
+indivs=680100, elapsed_secs=26345, mean=0.737613, stdev=0.235353, best fit=0.876900,
+indivs=690100, elapsed_secs=26704, mean=0.702175, stdev=0.279595, best fit=0.876900,
+indivs=700100, elapsed_secs=27089, mean=0.702775, stdev=0.287530, best fit=0.876900,
+indivs=710100, elapsed_secs=27457, mean=0.646012, stdev=0.326775, best fit=0.876900,
+indivs=720100, elapsed_secs=27824, mean=0.645545, stdev=0.303282, best fit=0.876900,
+indivs=730100, elapsed_secs=28155, mean=0.721017, stdev=0.272616, best fit=0.876900,
+indivs=740100, elapsed_secs=28518, mean=0.665342, stdev=0.311524, best fit=0.876900,
+indivs=750100, elapsed_secs=28891, mean=0.685025, stdev=0.304516, best fit=0.876900,
+indivs=760100, elapsed_secs=29263, mean=0.597823, stdev=0.338048, best fit=0.877000,
+indivs=770100, elapsed_secs=29635, mean=0.650938, stdev=0.311849, best fit=0.877000,
+indivs=780100, elapsed_secs=30012, mean=0.705656, stdev=0.273161, best fit=0.877000,
+indivs=790100, elapsed_secs=30360, mean=0.684281, stdev=0.287505, best fit=0.877000,
+indivs=800100, elapsed_secs=30693, mean=0.688549, stdev=0.294395, best fit=0.877000,
+indivs=810100, elapsed_secs=31026, mean=0.670463, stdev=0.266380, best fit=0.877000,
+indivs=820100, elapsed_secs=31406, mean=0.682073, stdev=0.264634, best fit=0.877000,
+indivs=830100, elapsed_secs=31747, mean=0.722221, stdev=0.293337, best fit=0.877000,
+indivs=840100, elapsed_secs=32104, mean=0.674856, stdev=0.307991, best fit=0.877000,
+indivs=850100, elapsed_secs=32472, mean=0.713817, stdev=0.262526, best fit=0.877000,
+indivs=860100, elapsed_secs=32817, mean=0.644525, stdev=0.314110, best fit=0.877000,
+indivs=870100, elapsed_secs=33191, mean=0.685693, stdev=0.307281, best fit=0.877000,
+indivs=880100, elapsed_secs=33544, mean=0.724365, stdev=0.277025, best fit=0.877000,
+indivs=890100, elapsed_secs=33865, mean=0.710068, stdev=0.262562, best fit=0.877000,
+indivs=900100, elapsed_secs=34240, mean=0.667286, stdev=0.286738, best fit=0.877000,
+indivs=910100, elapsed_secs=34643, mean=0.730630, stdev=0.254826, best fit=0.877000,
+indivs=920100, elapsed_secs=35036, mean=0.704083, stdev=0.297512, best fit=0.877000,
+indivs=930100, elapsed_secs=35459, mean=0.716759, stdev=0.262719, best fit=0.877000,
+indivs=940100, elapsed_secs=35846, mean=0.705108, stdev=0.275840, best fit=0.877000,
+indivs=950100, elapsed_secs=36247, mean=0.649971, stdev=0.329741, best fit=0.877000,
+indivs=960100, elapsed_secs=36588, mean=0.700230, stdev=0.281492, best fit=0.877000,
+indivs=970100, elapsed_secs=36959, mean=0.744453, stdev=0.248860, best fit=0.877000,
+indivs=980100, elapsed_secs=37344, mean=0.748945, stdev=0.218106, best fit=0.877000,
+indivs=990100, elapsed_secs=37710, mean=0.658718, stdev=0.287116, best fit=0.877000,
+indivs=1000100, elapsed_secs=38033, mean=0.709321, stdev=0.271222, best fit=0.877000,
+indivs=1010100, elapsed_secs=38360, mean=0.717656, stdev=0.251656, best fit=0.877000,
+indivs=1020100, elapsed_secs=38687, mean=0.694424, stdev=0.301930, best fit=0.877000,
+indivs=1030100, elapsed_secs=39025, mean=0.689707, stdev=0.290350, best fit=0.877000,
+indivs=1040100, elapsed_secs=39387, mean=0.642735, stdev=0.318693, best fit=0.877000,
+indivs=1050100, elapsed_secs=39747, mean=0.674446, stdev=0.295320, best fit=0.877000,
+indivs=1060100, elapsed_secs=40096, mean=0.688058, stdev=0.306282, best fit=0.877000,
+indivs=1070100, elapsed_secs=40424, mean=0.661945, stdev=0.309917, best fit=0.877000,
+indivs=1080100, elapsed_secs=40751, mean=0.695004, stdev=0.294110, best fit=0.877000,
+indivs=1090100, elapsed_secs=41080, mean=0.677108, stdev=0.303306, best fit=0.877000,
+indivs=1100100, elapsed_secs=41410, mean=0.664192, stdev=0.302424, best fit=0.877000,
+indivs=1110100, elapsed_secs=41732, mean=0.709170, stdev=0.260477, best fit=0.877000,
+indivs=1120100, elapsed_secs=42065, mean=0.761429, stdev=0.245257, best fit=0.877000,
+indivs=1130100, elapsed_secs=42423, mean=0.661428, stdev=0.272730, best fit=0.877000,
+indivs=1140100, elapsed_secs=42758, mean=0.688855, stdev=0.266298, best fit=0.877000,
+indivs=1150100, elapsed_secs=43092, mean=0.681996, stdev=0.305690, best fit=0.877000,
+indivs=1160100, elapsed_secs=43440, mean=0.666053, stdev=0.308636, best fit=0.877000,
+indivs=1170100, elapsed_secs=43777, mean=0.694886, stdev=0.302129, best fit=0.877000,
+indivs=1180100, elapsed_secs=44103, mean=0.655918, stdev=0.305184, best fit=0.877000,
+indivs=1190100, elapsed_secs=44457, mean=0.709700, stdev=0.276666, best fit=0.877000,
+indivs=1200100, elapsed_secs=44800, mean=0.669672, stdev=0.294476, best fit=0.877000,
+indivs=1210100, elapsed_secs=45150, mean=0.700637, stdev=0.288941, best fit=0.877000,
+indivs=1220100, elapsed_secs=45529, mean=0.619214, stdev=0.317562, best fit=0.877000,
+indivs=1230100, elapsed_secs=45894, mean=0.620535, stdev=0.331483, best fit=0.877000,
+indivs=1240100, elapsed_secs=46225, mean=0.644150, stdev=0.315694, best fit=0.877000,
+indivs=1250100, elapsed_secs=46553, mean=0.712009, stdev=0.268489, best fit=0.877000,
+indivs=1260100, elapsed_secs=46879, mean=0.616802, stdev=0.320110, best fit=0.877000,
+indivs=1270100, elapsed_secs=47212, mean=0.677319, stdev=0.309956, best fit=0.877000,
+indivs=1280100, elapsed_secs=47584, mean=0.713188, stdev=0.270844, best fit=0.877000,
+indivs=1290100, elapsed_secs=47970, mean=0.730793, stdev=0.276821, best fit=0.877000,
+indivs=1300100, elapsed_secs=48349, mean=0.738190, stdev=0.237463, best fit=0.877000,
+indivs=1310100, elapsed_secs=48755, mean=0.740727, stdev=0.248547, best fit=0.877000,
+indivs=1320100, elapsed_secs=49193, mean=0.677835, stdev=0.286663, best fit=0.877000,
+indivs=1330100, elapsed_secs=49594, mean=0.653190, stdev=0.302772, best fit=0.877000,
+indivs=1340100, elapsed_secs=49953, mean=0.693917, stdev=0.288234, best fit=0.877000,
+indivs=1350100, elapsed_secs=50286, mean=0.643942, stdev=0.306605, best fit=0.877000,
+indivs=1360100, elapsed_secs=50609, mean=0.709784, stdev=0.294948, best fit=0.877000,
+indivs=1370100, elapsed_secs=50925, mean=0.739466, stdev=0.276568, best fit=0.877000,
+indivs=1380100, elapsed_secs=51256, mean=0.655602, stdev=0.304316, best fit=0.877000,
+indivs=1390100, elapsed_secs=51644, mean=0.691019, stdev=0.283467, best fit=0.877000,
+indivs=1400100, elapsed_secs=52008, mean=0.649271, stdev=0.317971, best fit=0.877000,
+indivs=1410100, elapsed_secs=52385, mean=0.683483, stdev=0.296855, best fit=0.877000,
+indivs=1420100, elapsed_secs=52773, mean=0.752327, stdev=0.232420, best fit=0.877000,
+indivs=1430100, elapsed_secs=53109, mean=0.722613, stdev=0.270679, best fit=0.877000,
+indivs=1440100, elapsed_secs=53437, mean=0.725382, stdev=0.255911, best fit=0.877000,
+indivs=1450100, elapsed_secs=53782, mean=0.606744, stdev=0.338798, best fit=0.877000,
+indivs=1460100, elapsed_secs=54158, mean=0.645894, stdev=0.329909, best fit=0.877000,
+indivs=1470100, elapsed_secs=54505, mean=0.696047, stdev=0.295786, best fit=0.877000,
+indivs=1480100, elapsed_secs=54831, mean=0.648267, stdev=0.311630, best fit=0.877000,
+indivs=1490100, elapsed_secs=55154, mean=0.629394, stdev=0.322152, best fit=0.877000,
+indivs=1500100, elapsed_secs=55508, mean=0.662679, stdev=0.328427, best fit=0.877000,
+indivs=1510100, elapsed_secs=55850, mean=0.716323, stdev=0.283977, best fit=0.877000,
+indivs=1520100, elapsed_secs=56177, mean=0.704256, stdev=0.269402, best fit=0.877000,
+indivs=1530100, elapsed_secs=56512, mean=0.695325, stdev=0.285721, best fit=0.877000,
+indivs=1540100, elapsed_secs=56833, mean=0.642821, stdev=0.310424, best fit=0.877000,
+indivs=1550100, elapsed_secs=57159, mean=0.624524, stdev=0.336079, best fit=0.877000,
+indivs=1560100, elapsed_secs=57492, mean=0.709174, stdev=0.279243, best fit=0.877000,
+indivs=1570100, elapsed_secs=57862, mean=0.673628, stdev=0.294095, best fit=0.877000,
+indivs=1580100, elapsed_secs=58232, mean=0.679163, stdev=0.303106, best fit=0.877000,
+indivs=1590100, elapsed_secs=58577, mean=0.692044, stdev=0.276126, best fit=0.877000,
+indivs=1600100, elapsed_secs=58911, mean=0.677744, stdev=0.296779, best fit=0.877000,
+indivs=1610100, elapsed_secs=59274, mean=0.722188, stdev=0.252857, best fit=0.877000,
+indivs=1620100, elapsed_secs=59612, mean=0.669284, stdev=0.309739, best fit=0.877000,
+indivs=1630100, elapsed_secs=59933, mean=0.724819, stdev=0.281648, best fit=0.877000,
+indivs=1640100, elapsed_secs=60281, mean=0.712506, stdev=0.267575, best fit=0.877000,
+indivs=1650100, elapsed_secs=60659, mean=0.692520, stdev=0.273321, best fit=0.877000,
+indivs=1660100, elapsed_secs=61002, mean=0.683736, stdev=0.292323, best fit=0.877000,
+indivs=1670100, elapsed_secs=61362, mean=0.681080, stdev=0.306728, best fit=0.877000,
+indivs=1680100, elapsed_secs=61731, mean=0.638826, stdev=0.331934, best fit=0.877000,
+indivs=1690100, elapsed_secs=62101, mean=0.732235, stdev=0.238770, best fit=0.877000,
+indivs=1700100, elapsed_secs=62470, mean=0.723974, stdev=0.263282, best fit=0.877000,
+indivs=1710100, elapsed_secs=62845, mean=0.734873, stdev=0.248682, best fit=0.877000,
+indivs=1720100, elapsed_secs=63170, mean=0.681415, stdev=0.290783, best fit=0.877000,
+indivs=1730100, elapsed_secs=63523, mean=0.679880, stdev=0.276907, best fit=0.877000,
+indivs=1740100, elapsed_secs=63847, mean=0.700179, stdev=0.301002, best fit=0.877000,
+indivs=1750100, elapsed_secs=64172, mean=0.694985, stdev=0.261230, best fit=0.877000,
+indivs=1760100, elapsed_secs=64519, mean=0.657249, stdev=0.309730, best fit=0.877000,
+indivs=1770100, elapsed_secs=64917, mean=0.678331, stdev=0.314110, best fit=0.877000,
+indivs=1780100, elapsed_secs=65262, mean=0.730264, stdev=0.240750, best fit=0.877000,
+indivs=1790100, elapsed_secs=65611, mean=0.634754, stdev=0.325429, best fit=0.877000,
+indivs=1800100, elapsed_secs=65989, mean=0.715427, stdev=0.258250, best fit=0.877000,
+indivs=1810100, elapsed_secs=66312, mean=0.712682, stdev=0.258286, best fit=0.877000,
+indivs=1820100, elapsed_secs=66638, mean=0.673339, stdev=0.301194, best fit=0.877000,
+indivs=1830100, elapsed_secs=66990, mean=0.666524, stdev=0.293611, best fit=0.877000,
+indivs=1840100, elapsed_secs=67408, mean=0.635960, stdev=0.343810, best fit=0.877000,
+indivs=1850100, elapsed_secs=67817, mean=0.656164, stdev=0.311927, best fit=0.877000,
+indivs=1860100, elapsed_secs=68260, mean=0.724898, stdev=0.270605, best fit=0.877000,
+indivs=1870100, elapsed_secs=68693, mean=0.687016, stdev=0.309172, best fit=0.877000,
+indivs=1880100, elapsed_secs=69077, mean=0.672566, stdev=0.320273, best fit=0.877000,
+indivs=1890100, elapsed_secs=69431, mean=0.630747, stdev=0.332382, best fit=0.877000,
+indivs=1900100, elapsed_secs=69793, mean=0.710215, stdev=0.261090, best fit=0.877000,
+indivs=1910100, elapsed_secs=70136, mean=0.678871, stdev=0.304089, best fit=0.877000,
+indivs=1920100, elapsed_secs=70471, mean=0.661425, stdev=0.299986, best fit=0.877000,
+indivs=1930100, elapsed_secs=70822, mean=0.722519, stdev=0.269396, best fit=0.877000,
+indivs=1940100, elapsed_secs=71179, mean=0.692843, stdev=0.269244, best fit=0.877000,
+indivs=1950100, elapsed_secs=71543, mean=0.702427, stdev=0.277625, best fit=0.877000,
+indivs=1960100, elapsed_secs=71879, mean=0.730590, stdev=0.251055, best fit=0.877000,
+indivs=1970100, elapsed_secs=72201, mean=0.703765, stdev=0.287414, best fit=0.877000,
+indivs=1980100, elapsed_secs=72549, mean=0.656449, stdev=0.294546, best fit=0.877000,
+indivs=1990100, elapsed_secs=72914, mean=0.682291, stdev=0.304419, best fit=0.877000,
+indivs=2000100, elapsed_secs=73297, mean=0.682708, stdev=0.309551, best fit=0.877000,
+indivs=2010100, elapsed_secs=73675, mean=0.618674, stdev=0.341467, best fit=0.877000,
+indivs=2020100, elapsed_secs=74042, mean=0.626898, stdev=0.311348, best fit=0.877000,
+indivs=2030100, elapsed_secs=74417, mean=0.736793, stdev=0.249706, best fit=0.877000,
+indivs=2040100, elapsed_secs=74844, mean=0.645200, stdev=0.336178, best fit=0.877000,
+indivs=2050100, elapsed_secs=75230, mean=0.697346, stdev=0.256455, best fit=0.877000,
+indivs=2060100, elapsed_secs=75634, mean=0.718671, stdev=0.279709, best fit=0.877000,
+indivs=2070100, elapsed_secs=76052, mean=0.654529, stdev=0.343993, best fit=0.877000,
+indivs=2080100, elapsed_secs=76407, mean=0.677391, stdev=0.294011, best fit=0.877000,
+indivs=2090100, elapsed_secs=76733, mean=0.757872, stdev=0.230385, best fit=0.877000,
+indivs=2100100, elapsed_secs=77063, mean=0.698469, stdev=0.288113, best fit=0.877000,
+indivs=2110100, elapsed_secs=77387, mean=0.687967, stdev=0.291019, best fit=0.877000,
+indivs=2120100, elapsed_secs=77713, mean=0.671218, stdev=0.287575, best fit=0.877000,
+indivs=2130100, elapsed_secs=78035, mean=0.666807, stdev=0.314539, best fit=0.877000,
+indivs=2140100, elapsed_secs=78356, mean=0.694127, stdev=0.290559, best fit=0.877000,
+indivs=2150100, elapsed_secs=78698, mean=0.704493, stdev=0.283250, best fit=0.877000,
+indivs=2160100, elapsed_secs=79026, mean=0.652425, stdev=0.281293, best fit=0.877000,
+indivs=2170100, elapsed_secs=79344, mean=0.707478, stdev=0.281502, best fit=0.877000,
+indivs=2180100, elapsed_secs=79686, mean=0.699289, stdev=0.268408, best fit=0.877000,
+indivs=2190100, elapsed_secs=80005, mean=0.702549, stdev=0.300021, best fit=0.877000,
+indivs=2200100, elapsed_secs=80351, mean=0.705248, stdev=0.283984, best fit=0.877000,
+indivs=2210100, elapsed_secs=80714, mean=0.670127, stdev=0.289985, best fit=0.877000,
+indivs=2220100, elapsed_secs=81111, mean=0.679910, stdev=0.302346, best fit=0.877000,
+indivs=2230100, elapsed_secs=81438, mean=0.698925, stdev=0.287038, best fit=0.877000,
+indivs=2240100, elapsed_secs=81761, mean=0.686995, stdev=0.291800, best fit=0.877000,
+indivs=2250100, elapsed_secs=82083, mean=0.693796, stdev=0.298729, best fit=0.877000,
+indivs=2260100, elapsed_secs=82407, mean=0.714406, stdev=0.277767, best fit=0.877000,
+indivs=2270100, elapsed_secs=82727, mean=0.683774, stdev=0.317814, best fit=0.877000,
+indivs=2280100, elapsed_secs=83085, mean=0.767464, stdev=0.215397, best fit=0.877000,
+indivs=2290100, elapsed_secs=83468, mean=0.668325, stdev=0.331304, best fit=0.877000,
+indivs=2300100, elapsed_secs=83820, mean=0.646799, stdev=0.321688, best fit=0.877000,
+indivs=2310100, elapsed_secs=84142, mean=0.637448, stdev=0.315571, best fit=0.877000,
+indivs=2320100, elapsed_secs=84467, mean=0.690755, stdev=0.301629, best fit=0.877000,
+indivs=2330100, elapsed_secs=84903, mean=0.703436, stdev=0.296102, best fit=0.877000,
+indivs=2340100, elapsed_secs=85344, mean=0.686875, stdev=0.294156, best fit=0.877000,
+indivs=2350100, elapsed_secs=85786, mean=0.719686, stdev=0.263168, best fit=0.877000,
+indivs=2360100, elapsed_secs=86223, mean=0.656685, stdev=0.310251, best fit=0.877000,
+indivs=2370100, elapsed_secs=86607, mean=0.673189, stdev=0.312352, best fit=0.877000,
+indivs=2380100, elapsed_secs=87002, mean=0.671315, stdev=0.288761, best fit=0.877000,
+indivs=2390100, elapsed_secs=87386, mean=0.633039, stdev=0.315111, best fit=0.877000,
+indivs=2400100, elapsed_secs=87723, mean=0.646257, stdev=0.307976, best fit=0.877000,
+indivs=2410100, elapsed_secs=88052, mean=0.678394, stdev=0.292467, best fit=0.877000,
+indivs=2420100, elapsed_secs=88401, mean=0.681062, stdev=0.295458, best fit=0.877000,
+indivs=2430100, elapsed_secs=88766, mean=0.665361, stdev=0.312826, best fit=0.877000,
+indivs=2440100, elapsed_secs=89131, mean=0.680563, stdev=0.295380, best fit=0.877000,
+indivs=2450100, elapsed_secs=89492, mean=0.690871, stdev=0.297406, best fit=0.877000,
+indivs=2460100, elapsed_secs=89872, mean=0.687700, stdev=0.321877, best fit=0.877000,
+indivs=2470100, elapsed_secs=90226, mean=0.766160, stdev=0.241750, best fit=0.877000,
+indivs=2480100, elapsed_secs=90573, mean=0.720453, stdev=0.265837, best fit=0.877000,
+indivs=2490100, elapsed_secs=90901, mean=0.643456, stdev=0.326431, best fit=0.877000,
+indivs=2500100, elapsed_secs=91231, mean=0.625873, stdev=0.332288, best fit=0.877000,
+indivs=2510100, elapsed_secs=91570, mean=0.634583, stdev=0.330165, best fit=0.877000,
+indivs=2520100, elapsed_secs=91931, mean=0.719985, stdev=0.256032, best fit=0.877000,
+indivs=2530100, elapsed_secs=92258, mean=0.665521, stdev=0.314483, best fit=0.877000,
+indivs=2540100, elapsed_secs=92577, mean=0.651777, stdev=0.318745, best fit=0.877000,
+indivs=2550100, elapsed_secs=92902, mean=0.709271, stdev=0.292211, best fit=0.877000,
+indivs=2560100, elapsed_secs=93255, mean=0.681879, stdev=0.284804, best fit=0.877000,
+indivs=2570100, elapsed_secs=93574, mean=0.632964, stdev=0.335592, best fit=0.877000,
+indivs=2580100, elapsed_secs=93895, mean=0.705834, stdev=0.287067, best fit=0.877000,
+indivs=2590100, elapsed_secs=94213, mean=0.683168, stdev=0.297511, best fit=0.877000,
+indivs=2600100, elapsed_secs=94543, mean=0.730386, stdev=0.236731, best fit=0.877000,
+indivs=2610100, elapsed_secs=94880, mean=0.650521, stdev=0.314894, best fit=0.877000,
+indivs=2620100, elapsed_secs=95215, mean=0.663303, stdev=0.281742, best fit=0.877000,
+indivs=2630100, elapsed_secs=95543, mean=0.743386, stdev=0.237875, best fit=0.877000,
+indivs=2640100, elapsed_secs=95874, mean=0.679721, stdev=0.288348, best fit=0.877000,
+indivs=2650100, elapsed_secs=96199, mean=0.676732, stdev=0.303491, best fit=0.877000,
+indivs=2660100, elapsed_secs=96527, mean=0.645696, stdev=0.324758, best fit=0.877000,
+indivs=2670100, elapsed_secs=96937, mean=0.658337, stdev=0.310988, best fit=0.877000,
+indivs=2680100, elapsed_secs=97339, mean=0.628855, stdev=0.337779, best fit=0.877000,
+indivs=2690100, elapsed_secs=97763, mean=0.714991, stdev=0.284032, best fit=0.877000,
+indivs=2700100, elapsed_secs=98112, mean=0.766043, stdev=0.222600, best fit=0.877000,
+indivs=2710100, elapsed_secs=98457, mean=0.683798, stdev=0.308647, best fit=0.877000,
+indivs=2720100, elapsed_secs=98796, mean=0.715246, stdev=0.272879, best fit=0.877000,
+indivs=2730100, elapsed_secs=99168, mean=0.693684, stdev=0.286405, best fit=0.877000,
+indivs=2740100, elapsed_secs=99505, mean=0.687925, stdev=0.314430, best fit=0.877000,
+indivs=2750100, elapsed_secs=99875, mean=0.694735, stdev=0.294913, best fit=0.877000,
+indivs=2760100, elapsed_secs=100205, mean=0.717676, stdev=0.267805, best fit=0.877000,
+indivs=2770100, elapsed_secs=100527, mean=0.699341, stdev=0.256805, best fit=0.877000,
+indivs=2780100, elapsed_secs=100917, mean=0.653403, stdev=0.338959, best fit=0.877000,
+indivs=2790100, elapsed_secs=101300, mean=0.669220, stdev=0.283011, best fit=0.877000,
+indivs=2800100, elapsed_secs=101664, mean=0.724219, stdev=0.261652, best fit=0.877000,
+indivs=2810100, elapsed_secs=102023, mean=0.711696, stdev=0.261818, best fit=0.877000,
+indivs=2820100, elapsed_secs=102391, mean=0.637387, stdev=0.302706, best fit=0.877000,
+indivs=2830100, elapsed_secs=102783, mean=0.708503, stdev=0.248254, best fit=0.877000,
+indivs=2840100, elapsed_secs=103193, mean=0.720838, stdev=0.285353, best fit=0.877000,
+indivs=2850100, elapsed_secs=103578, mean=0.645238, stdev=0.303792, best fit=0.877000,
+indivs=2860100, elapsed_secs=103954, mean=0.648208, stdev=0.303092, best fit=0.877000,
+indivs=2870100, elapsed_secs=104331, mean=0.678708, stdev=0.289429, best fit=0.877000,
+indivs=2880100, elapsed_secs=104719, mean=0.689726, stdev=0.262417, best fit=0.877000,
+indivs=2890100, elapsed_secs=105082, mean=0.767715, stdev=0.243190, best fit=0.877000,
+indivs=2900100, elapsed_secs=105518, mean=0.664368, stdev=0.316845, best fit=0.877000,
+indivs=2910100, elapsed_secs=105963, mean=0.697695, stdev=0.280388, best fit=0.877000,
+indivs=2920100, elapsed_secs=106366, mean=0.768863, stdev=0.204548, best fit=0.877000,
+indivs=2930100, elapsed_secs=106699, mean=0.700628, stdev=0.278063, best fit=0.877000,
+indivs=2940100, elapsed_secs=107022, mean=0.710701, stdev=0.263365, best fit=0.877000,
+indivs=2950100, elapsed_secs=107371, mean=0.669610, stdev=0.307823, best fit=0.877000,
+indivs=2960100, elapsed_secs=107701, mean=0.690913, stdev=0.287663, best fit=0.877000,
+indivs=2970100, elapsed_secs=108032, mean=0.690438, stdev=0.276748, best fit=0.877000,
+indivs=2980100, elapsed_secs=108367, mean=0.725219, stdev=0.232312, best fit=0.877000,
+indivs=2990100, elapsed_secs=108720, mean=0.665769, stdev=0.276786, best fit=0.877000,
+indivs=3000100, elapsed_secs=109041, mean=0.685798, stdev=0.284716, best fit=0.877000,
+indivs=3010100, elapsed_secs=109365, mean=0.752416, stdev=0.232208, best fit=0.877000,
+indivs=3020100, elapsed_secs=109694, mean=0.681768, stdev=0.302554, best fit=0.877000,
+indivs=3030100, elapsed_secs=110021, mean=0.708721, stdev=0.259669, best fit=0.877000,
+indivs=3040100, elapsed_secs=110405, mean=0.722996, stdev=0.271176, best fit=0.877000,
+indivs=3050100, elapsed_secs=110850, mean=0.736985, stdev=0.243645, best fit=0.877000,
+indivs=3060100, elapsed_secs=111293, mean=0.663490, stdev=0.326550, best fit=0.877000,
+indivs=3070100, elapsed_secs=111691, mean=0.696577, stdev=0.314323, best fit=0.877000,
+indivs=3080100, elapsed_secs=112022, mean=0.710078, stdev=0.291517, best fit=0.877000,
+indivs=3090100, elapsed_secs=112349, mean=0.725115, stdev=0.249682, best fit=0.877000,
+indivs=3100100, elapsed_secs=112664, mean=0.659081, stdev=0.323721, best fit=0.877000,
+indivs=3110100, elapsed_secs=112981, mean=0.719982, stdev=0.244717, best fit=0.877000,
+indivs=3120100, elapsed_secs=113331, mean=0.708464, stdev=0.291763, best fit=0.877000,
+indivs=3130100, elapsed_secs=113751, mean=0.665035, stdev=0.312924, best fit=0.877000,
+indivs=3140100, elapsed_secs=114075, mean=0.668029, stdev=0.294325, best fit=0.877000,
+indivs=3150100, elapsed_secs=114393, mean=0.687832, stdev=0.323352, best fit=0.877000,
+indivs=3160100, elapsed_secs=114758, mean=0.680785, stdev=0.299136, best fit=0.877000,
+indivs=3170100, elapsed_secs=115165, mean=0.671569, stdev=0.287468, best fit=0.877000,
+indivs=3180100, elapsed_secs=115497, mean=0.705943, stdev=0.272916, best fit=0.877000,
+indivs=3190100, elapsed_secs=115825, mean=0.680513, stdev=0.303957, best fit=0.877000,
+indivs=3200100, elapsed_secs=116145, mean=0.676187, stdev=0.281821, best fit=0.877000,
+indivs=3210100, elapsed_secs=116504, mean=0.695052, stdev=0.280625, best fit=0.877000,
+indivs=3220100, elapsed_secs=116844, mean=0.667594, stdev=0.327277, best fit=0.877000,
+indivs=3230100, elapsed_secs=117163, mean=0.703246, stdev=0.275542, best fit=0.877000,
+indivs=3240100, elapsed_secs=117482, mean=0.673151, stdev=0.327687, best fit=0.877000,
+indivs=3250100, elapsed_secs=117800, mean=0.694270, stdev=0.283848, best fit=0.877000,
+indivs=3260100, elapsed_secs=118161, mean=0.668344, stdev=0.304739, best fit=0.877000,
+indivs=3270100, elapsed_secs=118544, mean=0.714698, stdev=0.280185, best fit=0.877000,
+indivs=3280100, elapsed_secs=118886, mean=0.697513, stdev=0.287280, best fit=0.877000,
+indivs=3290100, elapsed_secs=119201, mean=0.663156, stdev=0.323633, best fit=0.877000,
+indivs=3300100, elapsed_secs=119560, mean=0.671677, stdev=0.322368, best fit=0.877000,
+indivs=3310100, elapsed_secs=119908, mean=0.672854, stdev=0.302791, best fit=0.877000,
+indivs=3320100, elapsed_secs=120256, mean=0.703847, stdev=0.278689, best fit=0.877000,
+indivs=3330100, elapsed_secs=120622, mean=0.700641, stdev=0.298586, best fit=0.877000,
+indivs=3340100, elapsed_secs=120983, mean=0.725745, stdev=0.270888, best fit=0.877000,
+indivs=3350100, elapsed_secs=121309, mean=0.670285, stdev=0.288274, best fit=0.877000,
+indivs=3360100, elapsed_secs=121635, mean=0.686906, stdev=0.296753, best fit=0.877000,
+indivs=3370100, elapsed_secs=121968, mean=0.694397, stdev=0.279263, best fit=0.877000,
+indivs=3380100, elapsed_secs=122328, mean=0.664203, stdev=0.315325, best fit=0.877000,
+indivs=3390100, elapsed_secs=122707, mean=0.717372, stdev=0.277382, best fit=0.877000,
+indivs=3400100, elapsed_secs=123041, mean=0.721724, stdev=0.241601, best fit=0.877000,
+indivs=3410100, elapsed_secs=123366, mean=0.743250, stdev=0.248208, best fit=0.877000,
+indivs=3420100, elapsed_secs=123739, mean=0.661005, stdev=0.336522, best fit=0.877000,
+indivs=3430100, elapsed_secs=124077, mean=0.688451, stdev=0.286863, best fit=0.877000,
+indivs=3440100, elapsed_secs=124427, mean=0.691717, stdev=0.323152, best fit=0.877000,
+indivs=3450100, elapsed_secs=124806, mean=0.651289, stdev=0.283542, best fit=0.877000,
+indivs=3460100, elapsed_secs=125142, mean=0.632956, stdev=0.334773, best fit=0.877000,
+indivs=3470100, elapsed_secs=125475, mean=0.711009, stdev=0.279553, best fit=0.877000,
+indivs=3480100, elapsed_secs=125806, mean=0.712965, stdev=0.280013, best fit=0.877000,
+indivs=3490100, elapsed_secs=126181, mean=0.656851, stdev=0.323112, best fit=0.877000,
+indivs=3500100, elapsed_secs=126507, mean=0.700818, stdev=0.289341, best fit=0.877000,
+indivs=3510100, elapsed_secs=126830, mean=0.653942, stdev=0.318904, best fit=0.877000,
+indivs=3520100, elapsed_secs=127193, mean=0.714005, stdev=0.270201, best fit=0.877000,
+indivs=3530100, elapsed_secs=127511, mean=0.717258, stdev=0.264824, best fit=0.877000,
+indivs=3540100, elapsed_secs=127858, mean=0.716950, stdev=0.275063, best fit=0.877000,
+indivs=3550100, elapsed_secs=128207, mean=0.739404, stdev=0.257301, best fit=0.877000,
+indivs=3560100, elapsed_secs=128571, mean=0.695910, stdev=0.291704, best fit=0.877000,
+indivs=3570100, elapsed_secs=128955, mean=0.705772, stdev=0.287345, best fit=0.877000,
+indivs=3580100, elapsed_secs=129358, mean=0.670142, stdev=0.326557, best fit=0.877000,
+indivs=3590100, elapsed_secs=129765, mean=0.675499, stdev=0.304053, best fit=0.877000,
+indivs=3600100, elapsed_secs=130129, mean=0.678517, stdev=0.292750, best fit=0.877000,
+indivs=3610100, elapsed_secs=130462, mean=0.706996, stdev=0.274401, best fit=0.877000,
+indivs=3620100, elapsed_secs=130789, mean=0.729863, stdev=0.263012, best fit=0.877000,
+indivs=3630100, elapsed_secs=131111, mean=0.686116, stdev=0.259575, best fit=0.877000,
+indivs=3640100, elapsed_secs=131435, mean=0.695870, stdev=0.287915, best fit=0.877000,
+indivs=3650100, elapsed_secs=131781, mean=0.646799, stdev=0.304971, best fit=0.877000,
+indivs=3660100, elapsed_secs=132113, mean=0.666626, stdev=0.322916, best fit=0.877000,
+indivs=3670100, elapsed_secs=132439, mean=0.676749, stdev=0.307173, best fit=0.877000,
+indivs=3680100, elapsed_secs=132760, mean=0.700201, stdev=0.249615, best fit=0.877000,
+indivs=3690100, elapsed_secs=133086, mean=0.715104, stdev=0.279153, best fit=0.877000,
+indivs=3700100, elapsed_secs=133413, mean=0.746508, stdev=0.234904, best fit=0.877000,
+indivs=3710100, elapsed_secs=133734, mean=0.715021, stdev=0.280573, best fit=0.877000,
+indivs=3720100, elapsed_secs=134057, mean=0.715497, stdev=0.257310, best fit=0.877000,
+indivs=3730100, elapsed_secs=134394, mean=0.691423, stdev=0.275350, best fit=0.877000,
+indivs=3740100, elapsed_secs=134725, mean=0.691681, stdev=0.266567, best fit=0.877000,
+indivs=3750100, elapsed_secs=135069, mean=0.726808, stdev=0.278766, best fit=0.877000,
+indivs=3760100, elapsed_secs=135454, mean=0.571925, stdev=0.371354, best fit=0.879900,
+indivs=3770100, elapsed_secs=135804, mean=0.663934, stdev=0.349427, best fit=0.896500,
+indivs=3780100, elapsed_secs=136201, mean=0.723210, stdev=0.320756, best fit=0.898800,
+indivs=3790100, elapsed_secs=136568, mean=0.641496, stdev=0.357557, best fit=0.898800,
+indivs=3800100, elapsed_secs=136924, mean=0.693465, stdev=0.334385, best fit=0.898800,
+indivs=3810100, elapsed_secs=137321, mean=0.726855, stdev=0.323518, best fit=0.898600,
+indivs=3820100, elapsed_secs=137562, mean=0.613876, stdev=0.378182, best fit=0.898700,
+indivs=3830100, elapsed_secs=137819, mean=0.652316, stdev=0.342284, best fit=0.898700,
+indivs=3840100, elapsed_secs=138089, mean=0.653859, stdev=0.382546, best fit=0.898700,
+indivs=3850100, elapsed_secs=138349, mean=0.642122, stdev=0.381149, best fit=0.898700,
+indivs=3860100, elapsed_secs=138553, mean=0.704299, stdev=0.338477, best fit=0.898700,
+indivs=3870100, elapsed_secs=138814, mean=0.690181, stdev=0.325716, best fit=0.898800,
+indivs=3880100, elapsed_secs=139091, mean=0.613293, stdev=0.390106, best fit=0.898800,
+indivs=3890100, elapsed_secs=139364, mean=0.634155, stdev=0.368097, best fit=0.898800,
+indivs=3900100, elapsed_secs=139646, mean=0.609338, stdev=0.356199, best fit=0.898800,
+indivs=3910100, elapsed_secs=139950, mean=0.627153, stdev=0.373883, best fit=0.898800,
+indivs=3920100, elapsed_secs=140265, mean=0.669072, stdev=0.335173, best fit=0.898800,
+indivs=3930100, elapsed_secs=140548, mean=0.642314, stdev=0.364771, best fit=0.899000,
+indivs=3940100, elapsed_secs=140830, mean=0.577152, stdev=0.390561, best fit=0.899000,
+indivs=3950100, elapsed_secs=141110, mean=0.562294, stdev=0.390004, best fit=0.899000,
+indivs=3960100, elapsed_secs=141350, mean=0.610504, stdev=0.391895, best fit=0.899000,
+indivs=3970100, elapsed_secs=141580, mean=0.654201, stdev=0.364576, best fit=0.899000,
+indivs=3980100, elapsed_secs=141820, mean=0.654072, stdev=0.369106, best fit=0.899000,
+indivs=3990100, elapsed_secs=142084, mean=0.681879, stdev=0.336305, best fit=0.899000,
+indivs=4000100, elapsed_secs=142356, mean=0.608359, stdev=0.390515, best fit=0.899000,
+indivs=4010100, elapsed_secs=142592, mean=0.690329, stdev=0.351478, best fit=0.899000,
+indivs=4020100, elapsed_secs=142844, mean=0.612523, stdev=0.376650, best fit=0.899000,
+indivs=4030100, elapsed_secs=143096, mean=0.639100, stdev=0.371259, best fit=0.899000,
+indivs=4040100, elapsed_secs=143399, mean=0.592302, stdev=0.399653, best fit=0.899000,
+indivs=4050100, elapsed_secs=143689, mean=0.649982, stdev=0.370590, best fit=0.899000,
+indivs=4060100, elapsed_secs=143969, mean=0.620477, stdev=0.371087, best fit=0.899000,
+indivs=4070100, elapsed_secs=144264, mean=0.603090, stdev=0.375339, best fit=0.899000,
+indivs=4080100, elapsed_secs=144560, mean=0.594816, stdev=0.388136, best fit=0.899000,
+indivs=4090100, elapsed_secs=144787, mean=0.594369, stdev=0.378299, best fit=0.899000,
+indivs=4100100, elapsed_secs=145056, mean=0.658697, stdev=0.371123, best fit=0.899000,
+indivs=4110100, elapsed_secs=145284, mean=0.617746, stdev=0.386699, best fit=0.899000,
+indivs=4120100, elapsed_secs=145509, mean=0.693487, stdev=0.344398, best fit=0.899000,
+indivs=4130100, elapsed_secs=145716, mean=0.640787, stdev=0.366092, best fit=0.899000,
+indivs=4140100, elapsed_secs=145961, mean=0.594454, stdev=0.396804, best fit=0.899000,
+indivs=4150100, elapsed_secs=146196, mean=0.658703, stdev=0.374334, best fit=0.899200,
+indivs=4160100, elapsed_secs=146432, mean=0.688961, stdev=0.351831, best fit=0.899200,
+indivs=4170100, elapsed_secs=146685, mean=0.632974, stdev=0.381049, best fit=0.899200,
+indivs=4180100, elapsed_secs=146957, mean=0.600106, stdev=0.398285, best fit=0.899200,
+indivs=4190100, elapsed_secs=147216, mean=0.635902, stdev=0.388944, best fit=0.899200,
+indivs=4200100, elapsed_secs=147493, mean=0.651230, stdev=0.388110, best fit=0.899200,
+indivs=4210100, elapsed_secs=147777, mean=0.532361, stdev=0.410294, best fit=0.899200,
+indivs=4220100, elapsed_secs=148058, mean=0.628527, stdev=0.374815, best fit=0.899300,
+indivs=4230100, elapsed_secs=148340, mean=0.666764, stdev=0.349696, best fit=0.899300,
+indivs=4240100, elapsed_secs=148618, mean=0.634381, stdev=0.369251, best fit=0.899300,
+indivs=4250100, elapsed_secs=148904, mean=0.668101, stdev=0.327938, best fit=0.899600,
+Experiment done. Retrieving candidate algorithm.
+Search fitness for candidate algorithm = 0.899600
+Evaluating candidate algorithm from experiment (on T_select tasks)... 
+Select fitness for candidate algorithm = 0.899600
+Select fitness is the best so far. 
+
+Final evaluation of best algorithm (on unseen tasks)...
+Final evaluation fitness (on unseen data) = 0.870210
+Algorithm found: 
+def Setup():
+  s3 = gaussian(0.692251, 0.612873)
+  v2 = gaussian(-0.889837, 0.646501, n_features)
+  s2 = -0.938514
+  m0 = uniform(-0.244159, -0.833885, (n_features, n_features))
+def Predict():
+  s1 = dot(v7, v0)
+  s4 = dot(v6, v6)
+  v7 = dot(m1, v1)
+  v4 = v3 + v6
+  v2 = dot(m0, v8)
+  v7 = maximum(v7, v5)
+  s1 = s1 + s1
+  v8 = maximum(v8, v7)
+  v3 = maximum(v6, v2)
+def Learn():
+  m1 = m1 + m0
+  s3 = s0 - s1
+  v5 = v7 + v0
+  s4 = s2 * s0
+  s4 = s3 - s4
+  v3 = v4 + v3
+  s2 = s3 + s0
+  s3 = s4 - s3
+  v2 = v2 * v6
+  m0 = m0 + m0
+  s1 = s2 - s0
+  v4 = v5 + v7
+  v1 = v3 + v3
+  s4 = s1 + s4
+  s4 = s1 + s4
+  v8 = v2 + v1
+  v4 = s2 * v5
+  s3 = s0 + s4
+  v6 = s3 * v0
+  v5 = v6 + v7
+

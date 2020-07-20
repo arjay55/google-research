@@ -66,7 +66,7 @@ bazel run -c opt \
     population_size: 100 \
     tournament_size: 10 \
     initial_population: NO_OP_ALGORITHM \
-    max_train_steps: 100000000000 \
+    max_train_steps: 300000000000 \
     allowed_mutation_types {
       mutation_types: [ALTER_PARAM_MUTATION_TYPE, RANDOMIZE_COMPONENT_FUNCTION_MUTATION_TYPE, INSERT_INSTRUCTION_MUTATION_TYPE, REMOVE_INSTRUCTION_MUTATION_TYPE] \
     } \
